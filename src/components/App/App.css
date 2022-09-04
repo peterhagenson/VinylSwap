@@ -142,3 +142,27 @@ Search Page
   flex-wrap: wrap;
 }
 
+
+/* -----------------------------------------------------------------------------------------
+Inventory Page
+----------------------------------------------------------------------------------------- */
+
+.inventoryImage {
+  max-width: 100px;
+}
+
+.displayContainer {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-left: 100px;
+
+}
+
+.userInventoryCard {
+  display: flex;
+  /* margin-left: 200px */
+}
+
+.userInventoryContainer {
+  margin-left: 200px;
+}

@@ -26,7 +26,7 @@ function* getUserInventory() {
     // console.log('in get user inventory')
     try{
         const userInventory = yield axios.get('/userInventory')
-        
+        console.log(userInventory.data)
         //userInventory is send to the userInventory.reducer
         yield put({type: 'SET_USER_INVENTORY', payload: userInventory.data})
     } catch {

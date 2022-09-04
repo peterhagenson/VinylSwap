@@ -9,7 +9,7 @@ function ProfilePage() {
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.profileReducer);
-  const inventory = useSelector((store) => store.userInventoryReducer)
+  const inventory = useSelector((store) => store.userInventoryReducer);
 
 
   const [heading, setHeading] = useState('Functional Component');
@@ -19,28 +19,65 @@ function ProfilePage() {
     dispatch({
       type: "GET_USER"
     })
-  }
-
-  const getInventory = () => {
-    //dispatch is going to the profile.saga
     dispatch({
       type: "GET_USER_INVENTORY"
     })
   }
 
+  // const getInventory = () => {
+  //   //dispatch is going to the profile.saga
+  //   dispatch({
+  //     type: "GET_USER_INVENTORY"
+  //   })
+  // }
+
   useEffect(() => {
     getProfile();
-    getInventory();
+    // setTimeout(getInventory(), 20000);
   }, [])
 
   return (
     <div>
       <h2>Your Trader Profile</h2>
-      <p>{user.username}</p>
-      <p>{inventory[0].title}</p>
+      <div className="displayContainer">
+        <div className="userProfileContainer">
+          <h3>Username: {user.username}</h3>
+          <h4>{user.city}, {user.state}</h4>
+          <h4>{user.email}</h4>
+          <h4>Bio: <span>{user.bio}</span></h4>
+        </div>
+
+        <div className="userInventoryContainer">
+          <h3>Your Inventory</h3>
+          {/* 
+          {
+
+            inventory.map((album) => {
+              return (
+                <>
+                  <div className="userInventoryCard">
+                    <img className="inventoryImage" src={album.album_art} />
+                    <div>{album.title}</div>
+                    <div>
+                      <button>Suspend</button>
+                      <br />
+                      <button>Delete</button>
+                    </div>
+                  </div>
+                </>
+              )
+            })
+
+          } */}
 
 
-    </div>
+
+          {/* <p>{inventory[0].title}</p> */}
+        </div>
+      </div>
+
+
+    </div >
   );
 }
 

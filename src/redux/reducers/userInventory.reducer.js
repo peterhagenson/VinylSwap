@@ -7,6 +7,7 @@ const userInventoryReducer = (state = {}, action) => {
         default:
             return state;
     }
+    
 }
 
 export default userInventoryReducer;
