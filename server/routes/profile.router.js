@@ -15,4 +15,14 @@ router.put('/', (req, res) => {
     pool.query(query, [req.body.city, req.body.state, req.body.bio, req.body.email, req.user.id])
 })
 
+router.get('/', (req, res) => {
+//    console.log("in router get", req.user)
+   const query = `SELECT * FROM "user" WHERE "user".id = 2;`;
+pool.query(query)
+.then(result => {
+    console.log(result.rows);
+    res.send(result.rows)
+})
+  });
+
 module.exports = router;
