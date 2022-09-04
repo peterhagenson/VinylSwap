@@ -7,7 +7,7 @@ function AddInventory() {
 
   const dispatch = useDispatch();
 
-  const store = useSelector((store) => store);
+  const searchResults = useSelector((store) => store.apiReducer);
 
 
   //stores the search term from the input field so it can be dispatched
@@ -29,6 +29,12 @@ function AddInventory() {
         <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
         <button type="submit">Find</button>
       </form>
+      <p>{searchResults[0].country}</p>
+      <p>{searchResults[0].title}</p>
+      <img src={searchResults[0].cover_image} />
+
+
+      {/* <p>{searchResults[0]}</p> */}
     </div>
   );
 }
