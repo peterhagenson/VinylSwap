@@ -11,6 +11,8 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const apiRouter = require('./routes/api.router');
 const searchRouter = require('./routes/search.router');
+const profileRouter = require('./routes/profile.router');
+
 
 
 
@@ -29,6 +31,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/inventoryAPI', apiRouter);
 app.use('/searchDB', searchRouter);
+app.use('/profile', profileRouter);
 
 // Serve static files
 app.use(express.static('build'));
