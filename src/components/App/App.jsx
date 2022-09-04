@@ -22,6 +22,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import AddInventoryPage from '../AddInventoryPage/AddInventoryPage';
 import SearchPage from '../SearchPage/SearchPage';
 import ProfileCompletionPage from '../ProfileCompletionPage/ProfileCompletionPage';
+import UserProfilePage from '../UserProfilePage/UserProfilePage';
+
 
 import './App.css';
 
@@ -120,9 +122,13 @@ function App() {
           <Route path="/search">
             <SearchPage />
           </Route>
-          <Route>
-            <ProfileCompletionPage path="/profileCompletion" />
+          <Route path="/profileCompletion">
+            <ProfileCompletionPage />
           </Route>
+          <Route path="/userProfile">
+            <UserProfilePage />
+          </Route>
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

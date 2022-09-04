@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const apiRouter = require('./routes/api.router');
 const searchRouter = require('./routes/search.router');
 const profileRouter = require('./routes/profile.router');
+const userInventoryRouter = require('./routes/userInventory.router')
 
 
 
@@ -32,6 +33,7 @@ app.use('/api/user', userRouter);
 app.use('/inventoryAPI', apiRouter);
 app.use('/searchDB', searchRouter);
 app.use('/profile', profileRouter);
+app.use('/userInventory', userInventoryRouter);
 
 // Serve static files
 app.use(express.static('build'));
