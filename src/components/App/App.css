@@ -110,3 +110,24 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+/* -----------------------------------------------------------------------------------------
+Inventory API Images
+----------------------------------------------------------------------------------------- */
+.apiImage {
+  max-width: 250px;
+}
+
+.apiResultsContainer {
+  /* width: 750px; */
+  display: flex;
+  flex-wrap: wrap;
+ 
+}
+
+.apiImageText {
+  width: 250px;
+}
+
+
+
