@@ -19,8 +19,15 @@ function AddInventory() {
       type: 'GET_SEARCH_RESULTS',
       payload: searchTerm
     })
+  };
 
-  }
+  const selectAlbum = (album) => {
+    console.log("clicked", album)
+    dispatch({
+      type: 'POST_TO_INVENTORY',
+      payload: album
+    })
+  };
 
   return (
     <div>
@@ -35,11 +42,11 @@ function AddInventory() {
           if (album.cover_image && Array.isArray(album.label) && album.format.includes('Vinyl')) {
             return (
               <>
-                <div className="apiResultCard">
+                <div onClick={() => selectAlbum(album)} className="apiResultCard">
                   <img className="apiImage" src={album.cover_image} />
                   <div className="apiImageText">
                     <div>{album.title}</div>
-                    <div >{album.label[0]}</div>
+                    <div>{album.label[0]}</div>
                     <div >{album.year}</div>
                   </div>
                 </div>

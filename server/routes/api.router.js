@@ -22,7 +22,15 @@ router.get('/:term', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  // POST route code here
+  console.log('in router POST', req.body, req.user)
+  const query = `INSERT INTO "album" (user_id, title, published_date, record_label, album_art) VALUES ($1, $2, $3, $4, $5);`;
+  pool.query(query, [req.user.id, req.body.title, req.body.year, req.body.label[0], req.body.cover_image])
+  .then(result => {
+    res.sendStatus(201);
+  }).catch(err => {
+    console.log(err);
+    res.sendStatus(500)
+  })
 });
 
 module.exports = router;
