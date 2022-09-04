@@ -1,7 +1,15 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* fetchAPI() {
+function* fetchAPI(action) {
+    console.log("in fetchAPI", action.payload)
+    try{
+        const apiResults = yield axios.get(`/getAPI/${action.payload}`);
+        console.log('get all', apiResults.data.results);
+        yield put({ type: 'SET_API_RESULTS', payload: apiResults.data.results})
+    } catch {
+        console.log('GET API RESULTS ERROR')
+    }
 
 }
 

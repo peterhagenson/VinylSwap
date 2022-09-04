@@ -16,7 +16,8 @@ function AddInventory() {
   const getMatches = (event) => {
     // console.log("in get matches", searchTerm)
     dispatch({
-      type: 'GET_SEARCH_RESULTS'
+      type: 'GET_SEARCH_RESULTS',
+      payload: searchTerm
     })
 
   }
