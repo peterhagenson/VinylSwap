@@ -15,7 +15,10 @@ function SearchAlbums() {
       type: 'FETCH_SEARCH_RESULTS',
       payload: searchTerm
     })
+  }
 
+  const addToInventory = (album) => {
+    console.log("in addToInventory. album id: ", album.id)
   }
 
   return (
@@ -30,12 +33,13 @@ function SearchAlbums() {
         {searchResults.map((album) => {
           return (
             <>
-              <div>
+              <div onClick={() => addToInventory(album)}>
                 <img className="searchImage" src={album.album_art} />
                 <div className="apiImageText">
                   <div>{album.title}</div>
                   <div>{album.record_label}</div>
                   <div >{album.published_date}</div>
+                  <div>{album.username}</div>
                 </div>
               </div>
             </>

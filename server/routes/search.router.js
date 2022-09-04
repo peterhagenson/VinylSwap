@@ -8,10 +8,13 @@ const axios = require('axios');
  */
 router.get('/:searchTerm', (req, res) => {
   //query pulls all albums from db
-  const query = 'SELECT * FROM "album";';
+  const query = 'SELECT * FROM "album" JOIN "user" ON "album".user_id = "user".id;';
   pool.query(query).then(result => {
    
     //function loops through albums and finds those whose title contains the searchTerm. Then adds the matches to searchResults and sends searchResults to client
+
+    //TODO get user info 
+
     let searchResults = [];
     for (result of result.rows) {
       if (result.title.includes(req.params.searchTerm)) {
