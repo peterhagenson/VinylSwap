@@ -1,5 +1,5 @@
 const searchReducer = (state = [], action) => {
-    console.log('in searchReducer')
+    // console.log('in searchReducer')
     switch (action.type) {
         case 'SHOW_RESULTS':
             return action.payload;

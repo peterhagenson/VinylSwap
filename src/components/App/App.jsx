@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AddInventoryPage from '../AddInventoryPage/AddInventoryPage';
 import SearchPage from '../SearchPage/SearchPage';
+import ProfileCompletionPage from '../ProfileCompletionPage/ProfileCompletionPage';
 
 import './App.css';
 
@@ -118,6 +119,9 @@ function App() {
           </Route>
           <Route path="/search">
             <SearchPage />
+          </Route>
+          <Route>
+            <ProfileCompletionPage path="/profileCompletion" />
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
