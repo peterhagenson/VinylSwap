@@ -5,7 +5,7 @@ function* getMatches(action) {
     console.log('in getMatches', action.payload)
     try{
         const matches = yield axios.get(`/searchDB/${action.payload}`);
-        // console.log('get results', matches.data)
+        console.log('get results', matches.data)
         yield put({type: 'SHOW_RESULTS', payload: matches.data})
     } catch {
         console.log('GET MATCHES ERROR');

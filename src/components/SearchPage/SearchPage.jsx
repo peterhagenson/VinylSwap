@@ -6,7 +6,7 @@ function SearchAlbums() {
 
   const dispatch = useDispatch();
 
-  const store = useSelector((store) => store);
+  const searchResults = useSelector((store) => store.searchReducer);
   const [searchTerm, setSearchTerm] = useState('');
 
   const getMatches = (event) => {
@@ -25,6 +25,26 @@ function SearchAlbums() {
         <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
         <button type="submit">Find</button>
       </form>
+      <br />
+      <div className="resultsContainer">
+        {searchResults.map((album) => {
+          return (
+            <>
+              <div>
+                <img className="searchImage" src={album.album_art} />
+                <div className="apiImageText">
+                  <div>{album.title}</div>
+                  <div>{album.record_label}</div>
+                  <div >{album.published_date}</div>
+                </div>
+              </div>
+            </>
+
+          )
+        })
+        }
+
+      </div>
     </div>
   );
 }
