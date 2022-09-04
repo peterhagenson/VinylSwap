@@ -4,7 +4,7 @@ import user from './user.reducer';
 import apiReducer from './api.reducer'
 import searchReducer from './search.reducer';
 import profileReducer from './profile.reducer';
-import userInventoryReducer from './userInventory.reducer';
+// import userInventoryReducer from './userInventory.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
   apiReducer,
   searchReducer,
   profileReducer,
-  userInventoryReducer,
+  // userInventoryReducer,
 });
 
 export default rootReducer;

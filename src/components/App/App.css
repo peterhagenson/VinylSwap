@@ -160,7 +160,10 @@ Inventory Page
 
 .userInventoryCard {
   display: flex;
-  /* margin-left: 200px */
+  border-style: solid;
+  margin-top: 20px;
+  padding-top: auto;
+  padding-bottom: auto;
 }
 
 .userInventoryContainer {
