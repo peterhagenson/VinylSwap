@@ -4,6 +4,7 @@ import user from './user.reducer';
 import apiReducer from './api.reducer'
 import searchReducer from './search.reducer';
 import profileReducer from './profile.reducer';
+import albumDetails from './detail.reducer.js';
 // import userInventoryReducer from './userInventory.reducer'
 
 // rootReducer is the primary reducer for our entire project
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   apiReducer,
   searchReducer,
   profileReducer,
+  albumDetails
   // userInventoryReducer,
 });
 

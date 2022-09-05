@@ -12,7 +12,7 @@ function TemplateFunction() {
   const params = useParams();
   const dispatch = useDispatch();
 
-  // const store = useSelector((store) => store);
+  const details = useSelector((store) => store.albumDetails);
   // const [heading, setHeading] = useState('Functional Component');
 
   const getDetail = () => {
@@ -27,12 +27,16 @@ function TemplateFunction() {
     getDetail();
   }, []);
 
+
   return (
 
     <div>
-      <h2>test</h2>
+      <h2>{details.album[0].title}</h2>
+
+
     </div>
   );
 }
+
 
 export default TemplateFunction;
