@@ -8,21 +8,24 @@ const router = express.Router();
  */
 router.get('/:searchTerm', (req, res) => {
   //query pulls all albums from db
-  const query = 'SELECT * FROM "album" JOIN "user" ON "album".user_id = "user".id;';
+  const query = 'SELECT "album".* FROM "album" JOIN "user" ON "album".user_id = "user".id;';
+
+  //const query = `SELECT * FROM "album" WHERE "album".id = 3;`;
   pool.query(query).then(result => {
    
     //function loops through albums and finds those whose title contains the searchTerm. Then adds the matches to searchResults and sends searchResults to client
 
     //TODO get user info 
+    console.log(result);
 
     let searchResults = [];
     for (result of result.rows) {
       if (result.title.includes(req.params.searchTerm)) {
-        // console.log(result);
+        console.log(result);
         searchResults.push(result)
       }
     }
-    console.log(searchResults);
+    // console.log(searchResults);
     res.send(searchResults);
     searchResults = [];
   }).catch(err => {
