@@ -7,7 +7,11 @@ import { useHistory, useParams } from 'react-router-dom'
 
 
 
-function TemplateFunction() {
+function AlbumDetails() {
+
+  useEffect(() => {
+    getDetail();
+  }, []);
 
   const params = useParams();
   const dispatch = useDispatch();
@@ -15,28 +19,41 @@ function TemplateFunction() {
   const details = useSelector((store) => store.albumDetails);
   // const [heading, setHeading] = useState('Functional Component');
 
+
+
+
   const getDetail = () => {
     console.log("in getDetail", params.id)
     dispatch({
       type: 'GET_DETAILS',
       payload: params.id
     })
+    dispatch({
+      type: 'GET_OWNER',
+      payload: params.id
+    })
   }
 
-  useEffect(() => {
-    getDetail();
-  }, []);
+
 
 
   return (
+    <Router>
+      <Route path="/detail/:id">
 
-    <div>
-      <h2>{details.album[0].title}</h2>
+        <div>
+          {/* {details && (details.album[0].title)} */}
+          {JSON.stringify(details)}
+          {params.id}
+          {details.title}
+          <img src={details.album_art} />
 
 
-    </div>
+        </div>
+      </Route>
+    </Router>
   );
 }
 
 
-export default TemplateFunction;
+export default AlbumDetails;
