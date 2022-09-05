@@ -23,6 +23,8 @@ import AddInventoryPage from '../AddInventoryPage/AddInventoryPage';
 import SearchPage from '../SearchPage/SearchPage';
 import ProfileCompletionPage from '../ProfileCompletionPage/ProfileCompletionPage';
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
+import AlbumDetailPage from '../AlbumDetailPage/AlbumDetailPage';
+import WelcomePage from '../WelcomePage/WelcomePage';
 
 
 import './App.css';
@@ -115,6 +117,7 @@ function App() {
               // Otherwise, show the Landing page
               <LandingPage />
             }
+
           </Route>
           <Route path="/addInventory">
             <AddInventoryPage />
@@ -122,11 +125,17 @@ function App() {
           <Route path="/search">
             <SearchPage />
           </Route>
+          <Route path="/detail/:id">
+            <AlbumDetailPage />
+          </Route>
           <Route path="/profileCompletion">
             <ProfileCompletionPage />
           </Route>
           <Route path="/userProfile">
             <UserProfilePage />
+          </Route>
+          <Route path="/welcome">
+            <WelcomePage />
           </Route>
 
 
