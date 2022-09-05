@@ -5,15 +5,17 @@ function* getDetails(action) {
     console.log('in getDetails', action.payload)
     try{
         const albumDetails = yield axios.get(`/details/${action.payload}`)
-        // console.log("get details response", albumDetails.data.album)
-        let album = albumDetails.data.album;
-        let user = albumDetails.data.user;
-        let detailsPackage = {
-            album: album,
-            user: user,
-        }
-        console.log('detailsPackage: ', detailsPackage)
-        yield put({type: 'SET_ALBUM_DETAILS', payload: detailsPackage});
+        console.log("get details response", albumDetails.data)
+        // const albumOut = albumDetails.data.album[0];
+        // let user = albumDetails.data.user;
+        // let detailsPackage = {
+        //     album: album,
+        //     user: user,
+        // }
+        // console.log('detailsPackage: ', detailsPackage)
+        // yield all([
+        yield put({type: 'SET_ALBUM_DETAILS', payload: albumDetails.data[0]})
+       
     } catch  {
         console.log('GET DETAILS ERROR')
     }
