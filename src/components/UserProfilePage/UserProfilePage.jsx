@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 // Basic functional component structure for React with default state
@@ -9,6 +10,8 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 function ProfilePage() {
 
   const dispatch = useDispatch();
+
+  const history = useHistory();
 
   const user = useSelector((store) => store.profileReducer.data);
 
@@ -32,7 +35,10 @@ function ProfilePage() {
     });
   }, []);
 
-
+  const navToProfileCompletion = () => {
+    console.log('cliked');
+    history.push('/profileCompletion')
+  }
 
 
   return (
@@ -46,6 +52,7 @@ function ProfilePage() {
               <h4>{user && user.user.city}, {user && user.user.state}</h4>
               <h4>{user && user.user.email}</h4>
               <h4>Bio: <span>{user && user.user.bio}</span></h4>
+              <button onClick={navToProfileCompletion}>Edit Profile</button>
             </div>
 
             <div className="userInventoryContainer">

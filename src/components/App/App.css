@@ -169,3 +169,8 @@ Inventory Page
 .userInventoryContainer {
   margin-left: 200px;
 }
+
+
+.userProfileContainer {
+  max-width: 400px;
+}

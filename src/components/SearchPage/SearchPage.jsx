@@ -13,7 +13,7 @@ function SearchAlbums() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const getMatches = (event) => {
-    console.log('in getMatches', searchTerm);
+    // console.log('in getMatches', searchTerm);
     dispatch({
       type: 'FETCH_SEARCH_RESULTS',
       payload: searchTerm
@@ -21,7 +21,7 @@ function SearchAlbums() {
   }
 
   const toAlbumDetail = (album) => {
-    console.log(searchResults);
+    // console.log(searchResults);
     console.log("in toAlbumDetail, album id: ", album.id)
     history.push(`/detail/${album.id}`)
   }

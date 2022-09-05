@@ -4,10 +4,10 @@ import axios from 'axios';
 //fetchAPI saga sends GET request to server for results that match the search term
 //it then sends those results to the apiReducer
 function* fetchAPI(action) {
-    console.log("in fetchAPI", action.payload)
+    // console.log("in fetchAPI", action.payload)
     try{
         const apiResults = yield axios.get(`/inventoryAPI/${action.payload}`);
-        console.log('get all', apiResults.data.results);
+        // console.log('get all', apiResults.data.results);
         yield put({ type: 'SET_API_RESULTS', payload: apiResults.data.results})
     } catch {
         console.log('GET API RESULTS ERROR')
@@ -16,7 +16,7 @@ function* fetchAPI(action) {
 
 //postAlbum() sends a POST request to the server with the user-chosen album to be added to the database as an inventory item 
 function* postAlbum(action) {
-console.log("in postAlbum", action.payload)
+// console.log("in postAlbum", action.payload)
 try {
     yield axios.post('/inventoryAPI', action.payload)
 
@@ -30,7 +30,7 @@ try {
 
 
 function* inventorySaga() {
-    console.log("in inventorySaga")
+    // console.log("in inventorySaga")
     yield takeLatest('GET_SEARCH_RESULTS', fetchAPI)
     yield takeLatest('POST_TO_INVENTORY', postAlbum)
 }

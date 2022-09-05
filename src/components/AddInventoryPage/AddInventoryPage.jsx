@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 
 function AddInventory() {
 
   const dispatch = useDispatch();
+
+  const history = useHistory();
 
   const searchResults = useSelector((store) => store.apiReducer);
 
@@ -22,11 +25,13 @@ function AddInventory() {
   };
 
   const selectAlbum = (album) => {
-    console.log("clicked", album)
+    // console.log("clicked", album)
+    console.log('test');
     dispatch({
       type: 'POST_TO_INVENTORY',
       payload: album
     })
+    history.push('/userProfile')
   };
 
   return (

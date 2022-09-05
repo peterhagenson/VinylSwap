@@ -23,13 +23,9 @@ function AlbumDetails() {
 
 
   const getDetail = () => {
-    console.log("in getDetail", params.id)
+    // console.log("in getDetail", params.id)
     dispatch({
       type: 'GET_DETAILS',
-      payload: params.id
-    })
-    dispatch({
-      type: 'GET_OWNER',
       payload: params.id
     })
   }

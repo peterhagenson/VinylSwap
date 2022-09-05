@@ -14,7 +14,7 @@ function* getProfile() {
     // console.log('in getProfile SAGA');
     try {
         const profile = yield axios.get('/profile')
-        console.log('in get pr0file', profile.data);
+        // console.log('in get pr0file', profile.data);
         yield put({type: 'SET_PROFILE', payload: profile})
         
     } catch {
