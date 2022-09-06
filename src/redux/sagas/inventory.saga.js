@@ -27,6 +27,7 @@ try {
 }
 }
 
+// deleteAlbum makes delete request to server (api.router) and dispatches 'GET_USER' which triggers the getProfile function in the profile.saga file and ultimately updates the browser
 function* deleteAlbum(action) {
     // console.log("in deleteAlbum saga", action.payload)
     try {

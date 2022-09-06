@@ -3,6 +3,12 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const axios = require('axios');
 
+//---------------------------------------------------
+// TODO: Rename this router to inventory.router.js
+//---------------------------------------------------
+
+
+
 /**
  * GET route template
  */
@@ -33,6 +39,7 @@ router.post('/', (req, res) => {
   })
 });
 
+// manages deleting inventory items
 router.delete('/:id', (req, res) => {
   console.log('in router delete', req.params)
   const query = `DELETE FROM "album" WHERE id = $1;`;
