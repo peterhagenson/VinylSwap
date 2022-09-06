@@ -16,6 +16,7 @@ function AddInventory() {
   //stores the search term from the input field so it can be dispatched
   const [searchTerm, setSearchTerm] = useState("");
 
+  // getMatches 
   const getMatches = (event) => {
     // console.log("in get matches", searchTerm)
     dispatch({
@@ -23,6 +24,7 @@ function AddInventory() {
       payload: searchTerm
     })
   };
+
 
   const selectAlbum = (album) => {
     // console.log("clicked", album)

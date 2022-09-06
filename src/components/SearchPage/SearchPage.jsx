@@ -9,9 +9,12 @@ function SearchAlbums() {
 
   const history = useHistory();
 
+  // searchResults pulls the search results from the store to display on the DOM
   const searchResults = useSelector((store) => store.searchReducer);
+
   const [searchTerm, setSearchTerm] = useState('');
 
+  // getMatches dispatches the search term to the search.saga.js file
   const getMatches = (event) => {
     // console.log('in getMatches', searchTerm);
     dispatch({
@@ -20,6 +23,7 @@ function SearchAlbums() {
     })
   }
 
+  // toAlbumDetail pushes the user to the AlbumDetailPage
   const toAlbumDetail = (album) => {
     // console.log(searchResults);
     console.log("in toAlbumDetail, album id: ", album.id)

@@ -174,3 +174,21 @@ Inventory Page
 .userProfileContainer {
   max-width: 400px;
 }
+
+/* ---------------------------------------- */
+
+.albumDetailsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.messagingContainer {
+  width: 500px;
+  height: 200px;
+  border-style: solid;
+}
+
+.traderInfoContainer {
+  display: flex;
+  justify-content: space-between;
+}

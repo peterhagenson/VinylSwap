@@ -38,11 +38,49 @@ function AlbumDetails() {
       <Route path="/detail/:id">
 
         <div>
+          <div className="albumDetailsContainer">
+            <div className="albumDetailsText">
+              {details.title}
+              <br />
+              {details.published_date}
+              <br />
+              {details.record_label}
+              <br />
+              <p>ADD CONDITION</p>
+              <br />
+              <p>ADD DESCRIPTION</p>
+
+            </div>
+            <img src={details.album_art} />
+            <br />
+          </div>
+          <div className="traderInfoContainer">
+            <div className="traderDetails">
+              <h3>Album Trader:</h3>
+              {details.username}
+              <br />
+              {details.city}
+              <br />
+              {details.state}
+              <br />
+              {details.email}
+              <br />
+              <button>Trader Page</button>
+
+            </div>
+            <div>
+              <div className="messagingContainer"></div>
+              <br />
+              <button>Send Message</button>
+            </div>
+
+          </div>
+
           {/* {details && (details.album[0].title)} */}
-          {JSON.stringify(details)}
-          {params.id}
-          {details.title}
-          <img src={details.album_art} />
+          {/* {JSON.stringify(details)} */}
+          {/* {params.id} */}
+
+
 
 
         </div>

@@ -1,11 +1,14 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
+
+// getMatches sends GET request to the server with the search term as a parameter
 function* getMatches(action) {
-    console.log('in getMatches', action.payload)
+    // console.log('in getMatches', action.payload)
     try{
         const matches = yield axios.get(`/searchDB/${action.payload}`);
-        console.log('get results', matches.data)
+        // console.log('get results', matches.data)
+        // sends search results to search.reducer
         yield put({type: 'SHOW_RESULTS', payload: matches.data})
     } catch {
         console.log('GET MATCHES ERROR');
@@ -15,7 +18,7 @@ function* getMatches(action) {
 };
 
 function* searchSaga() {
-    console.log("in searchSaga")
+    // console.log("in searchSaga")
     yield takeLatest('FETCH_SEARCH_RESULTS', getMatches)
     
 }
