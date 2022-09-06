@@ -15,7 +15,11 @@ function TemplateFunction() {
   const dispatch = useDispatch();
 
 
-  const store = useSelector((store) => store);
+
+
+
+
+  const trader = useSelector((store) => store.traderReducer);
   const [heading, setHeading] = useState('Functional Component');
 
   const getTrader = () => {
@@ -26,23 +30,29 @@ function TemplateFunction() {
     });
   }
 
+
   useEffect(() => {
     getTrader();
 
   }, []);
 
+  if (trader) {
+    return (
+      <Router>
+        <Route path="/traderPage/:id">
 
-  return (
-    <Router>
-      <Route path="/traderPage/:id">
 
+          <div>
+            <p>{trader.albums && trader.albums[0].title}</p>
+            <br />
+            {/* {trader && trader.profile.username}
+            <h2>{JSON.stringify(trader)}</h2> */}
 
-        <div>
-          <h2>{heading}</h2>
-        </div>
-      </Route>
-    </Router>
-  );
+          </div>
+        </Route>
+      </Router>
+    );
+  }
 }
 
 export default TemplateFunction;
