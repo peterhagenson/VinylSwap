@@ -15,6 +15,7 @@ function AlbumDetails() {
 
   const params = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const details = useSelector((store) => store.albumDetails);
   // const [heading, setHeading] = useState('Functional Component');
@@ -30,7 +31,10 @@ function AlbumDetails() {
     })
   }
 
-
+  const toTraderPage = (id) => {
+    console.log('in toTraderPage', id);
+    history.push(`/traderPage/${id}`)
+  }
 
 
   return (
@@ -65,7 +69,7 @@ function AlbumDetails() {
               <br />
               {details.email}
               <br />
-              <button>Trader Page</button>
+              <button onClick={() => (toTraderPage(details.user_id))}>Trader Page</button>
 
             </div>
             <div>
@@ -77,7 +81,7 @@ function AlbumDetails() {
           </div>
 
           {/* {details && (details.album[0].title)} */}
-          {/* {JSON.stringify(details)} */}
+          {JSON.stringify(details)}
           {/* {params.id} */}
 
 
