@@ -36,8 +36,18 @@ function ProfilePage() {
   }, []);
 
   const navToProfileCompletion = () => {
-    console.log('cliked');
+    console.log('clicked');
     history.push('/profileCompletion')
+  }
+
+  // deleteListing dispatches the listing id to the deleteAlbum saga in the inventory.saga.js file
+  const deleteListing = (id) => {
+    console.log(id)
+    dispatch({
+      type: "DELETE_LISTING",
+      payload: id
+    })
+
   }
 
 
@@ -66,7 +76,7 @@ function ProfilePage() {
                       <div>
                         <button>Suspend</button>
                         <br />
-                        <button>Delete</button>
+                        <button onClick={() => (deleteListing(album.id))}>Delete</button>
                       </div>
                     </div>
 

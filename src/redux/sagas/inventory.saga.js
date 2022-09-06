@@ -27,12 +27,23 @@ try {
 }
 }
 
+function* deleteAlbum(action) {
+    // console.log("in deleteAlbum saga", action.payload)
+    try {
+        yield axios.delete(`/inventoryAPI/${action.payload}`)
+        yield put({type: 'GET_USER'})
+    } catch {
+        console.error('ERROR IN DELETE')
+}
+}
+
 
 
 function* inventorySaga() {
     // console.log("in inventorySaga")
     yield takeLatest('GET_SEARCH_RESULTS', fetchAPI)
     yield takeLatest('POST_TO_INVENTORY', postAlbum)
+    yield takeLatest('DELETE_LISTING', deleteAlbum)
 }
 
 export default inventorySaga;
