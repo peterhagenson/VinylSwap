@@ -25,7 +25,8 @@ import ProfileCompletionPage from '../ProfileCompletionPage/ProfileCompletionPag
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
 import AlbumDetailPage from '../AlbumDetailPage/AlbumDetailPage';
 import WelcomePage from '../WelcomePage/WelcomePage';
-import TraderPage from '../TraderPage/TraderPage'
+import TraderPage from '../TraderPage/TraderPage';
+import CompleteAddInventory from '../CompleteAddInventory/CompleteAddInventory';
 
 
 import './App.css';
@@ -123,6 +124,9 @@ function App() {
           <Route path="/addInventory">
             <AddInventoryPage />
           </Route>
+          <Route path="/completeAddInventory">
+            <CompleteAddInventory />
+          </Route>
           <Route path="/search">
             <SearchPage />
           </Route>
@@ -141,6 +145,7 @@ function App() {
           <Route path="/welcome">
             <WelcomePage />
           </Route>
+
 
 
           {/* If none of the other routes matched, we will show a 404. */}

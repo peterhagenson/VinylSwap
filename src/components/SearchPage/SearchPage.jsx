@@ -50,8 +50,7 @@ function SearchAlbums() {
                       <div>{album.title}</div>
                       <div>{album.record_label}</div>
                       <div >{album.published_date}</div>
-                      <div>{album.username}</div>
-                      <div>{album.city},{album.state}</div>
+
                     </div>
                   </div>
                 </>

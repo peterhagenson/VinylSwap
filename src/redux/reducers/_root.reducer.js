@@ -6,6 +6,7 @@ import searchReducer from './search.reducer';
 import profileReducer from './profile.reducer';
 import albumDetails from './detail.reducer.js';
 import traderReducer from './trader.reducer.js'
+import albumToAdd from './albumToAdd.reducer.js'
 
 
 // import userInventoryReducer from './userInventory.reducer'
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
   searchReducer,
   profileReducer,
   albumDetails, 
-  traderReducer
+  traderReducer,
+  albumToAdd,
   
   // userInventoryReducer,
 });

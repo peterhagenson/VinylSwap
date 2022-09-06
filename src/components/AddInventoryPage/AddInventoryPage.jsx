@@ -26,16 +26,23 @@ function AddInventory() {
     })
   };
 
+  // sends the chosen album to the albumToAdd reducer  and directs user to the CompleteAddInventory page
+  // const albumToAdd = (album) => {
+  //   dispatch({
+  //     type: 'ALBUM_TO_ADD',
+  //     payload: album
+  //   })
+  // }
 
-  const selectAlbum = (album) => {
-    // console.log("clicked", album)
-    console.log('test');
+  const sendAlbum = (album) => {
+    console.log('clicked');
     dispatch({
       type: 'POST_TO_INVENTORY',
       payload: album
     })
-    history.push('/userProfile')
+    history.push('/completeAddInventory')
   };
+
 
   return (
     <Router>
@@ -52,7 +59,7 @@ function AddInventory() {
               if (album.cover_image && Array.isArray(album.label) && album.format.includes('Vinyl')) {
                 return (
                   <>
-                    <div onClick={() => selectAlbum(album)} className="apiResultCard">
+                    <div onClick={() => sendAlbum(album)} className="apiResultCard">
                       <img className="apiImage" src={album.cover_image} />
                       <div className="apiImageText">
                         <div>{album.title}</div>

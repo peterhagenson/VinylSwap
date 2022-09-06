@@ -16,7 +16,7 @@ function* fetchAPI(action) {
 
 //postAlbum() sends a POST request to the server with the user-chosen album to be added to the database as an inventory item 
 function* postAlbum(action) {
-// console.log("in postAlbum", action.payload)
+console.log("in postAlbum", action.payload)
 try {
     yield axios.post('/inventoryAPI', action.payload)
 
