@@ -14,6 +14,7 @@ const searchRouter = require('./routes/search.router');
 const profileRouter = require('./routes/profile.router');
 // const userInventoryRouter = require('./routes/userInventory.router')
 const albumDetailsRouter = require('./routes/details.router');
+const traderRouter = require('./routes/trader.router');
 
 
 
@@ -36,6 +37,7 @@ app.use('/searchDB', searchRouter);
 app.use('/profile', profileRouter);
 // app.use('/userInventory', userInventoryRouter);
 app.use('/details', albumDetailsRouter);
+app.use('/trader', traderRouter);
 
 // Serve static files
 app.use(express.static('build'));

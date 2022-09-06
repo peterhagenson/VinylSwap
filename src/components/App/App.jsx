@@ -25,6 +25,7 @@ import ProfileCompletionPage from '../ProfileCompletionPage/ProfileCompletionPag
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
 import AlbumDetailPage from '../AlbumDetailPage/AlbumDetailPage';
 import WelcomePage from '../WelcomePage/WelcomePage';
+import TraderPage from '../TraderPage/TraderPage'
 
 
 import './App.css';
@@ -127,6 +128,9 @@ function App() {
           </Route>
           <Route path="/detail/:id">
             <AlbumDetailPage />
+          </Route>
+          <Route path="/traderPage/:id">
+            <TraderPage />
           </Route>
           <Route path="/profileCompletion">
             <ProfileCompletionPage />
