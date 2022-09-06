@@ -29,8 +29,8 @@ router.get('/:term', (req, res) => {
  */
 router.post('/', (req, res) => {
   console.log('in router POST', req.body, req.user)
-  const query = `INSERT INTO "album" (user_id, title, published_date, record_label, album_art) VALUES ($1, $2, $3, $4, $5);`;
-  pool.query(query, [req.user.id, req.body.title, req.body.year, req.body.label[0], req.body.cover_image])
+  const query = `INSERT INTO "album" (user_id, title, published_date, record_label, album_art, country, genre, barcode) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 );`;
+  pool.query(query, [req.user.id, req.body.title, req.body.year, req.body.label[0], req.body.cover_image, req.body.country, req.body.genre, req.body.barcode])
   .then(result => {
     res.sendStatus(201);
   }).catch(err => {
