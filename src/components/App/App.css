@@ -192,3 +192,17 @@ Inventory Page
   display: flex;
   justify-content: space-between;
 }
+
+.traderInventoryCard {
+  display: flex;
+}
+
+.detailPageImage {
+  max-width: 250px;
+}
+.traderPageContainer {
+  display: flex;
+  justify-content: space-between;
+
+
+}

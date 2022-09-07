@@ -17,7 +17,7 @@ function* fetchAPI(action) {
 //postAlbum() sends a POST request to the server with the user-chosen album to be added to the database as an inventory item 
 function* postAlbum(action) {
     try {
-        console.log("in postAlbum", action.payload)
+        console.log("in postAlbum jvgjgk", action)
 
         yield axios.post('/inventoryAPI', action.payload)
         action.callback();
@@ -54,7 +54,7 @@ function* getAlbumToAdd(action) {
     try {
         const album = yield axios.get(`/albumToAdd/${action.payload}`)
         // console.log("in getAlbumToAdd saga", album)
-        yield put({ type: 'SET_ALBUM_TO_ADD', payload: album })
+        yield put({ type: 'SET_ALBUM_TO_ADD', payload: album.data })
     } catch (err) {
         console.error('ERROR IN getAlbumToAdd', err)
     }
@@ -65,7 +65,7 @@ function* getAlbumToAdd(action) {
 function* inventorySaga() {
     // console.log("in inventorySaga")
     yield takeLatest('GET_SEARCH_RESULTS', fetchAPI)
-    yield takeLatest('POST_TO_INVENTORY', postAlbum)
+    yield takeLatest('POST_TO_INVENTORY_NO_DUPES', postAlbum)
     yield takeLatest('DELETE_LISTING', deleteAlbum)
     yield takeLatest('ADD_ALBUM_DESCRIPTORS', addDescriptors)
     yield takeLatest('FETCH_ALBUM_TO_ADD', getAlbumToAdd)

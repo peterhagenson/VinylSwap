@@ -49,12 +49,12 @@ function AlbumDetails() {
           <br />
           {details.record_label}
           <br />
-          <p>ADD CONDITION</p>
+          {details.condition}
           <br />
-          <p>ADD DESCRIPTION</p>
+          {details.user_description}
 
         </div>
-        <img src={details.album_art} />
+        <img className="detailPageImage" src={details.album_art} />
         <br />
       </div>
       <div className="traderInfoContainer">

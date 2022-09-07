@@ -19,6 +19,7 @@ function AddInventory() {
 
   // getMatches 
   const getMatches = (event) => {
+    event.preventDefault();
     console.log("in get matches", searchTerm)
     dispatch({
       type: 'GET_SEARCH_RESULTS',
@@ -37,7 +38,7 @@ function AddInventory() {
   const sendAlbum = (album) => {
     console.log('clicked', album);
     dispatch({
-      type: 'POST_TO_INVENTORY',
+      type: 'POST_TO_INVENTORY_NO_DUPES',
       payload: album,
       callback: () => history.push(`/completeAddInventory/${album.id}`)
     })
@@ -46,15 +47,18 @@ function AddInventory() {
 
   };
 
+  console.log('rendered inventory page')
 
   return (
 
     <div>
+
       <h2>Find The Record You'd Like To Add</h2>
-      <form onSubmit={() => getMatches()}>
+      <form onSubmit={(e) => getMatches(e)}>
         <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
         <button type="submit">Find</button>
       </form>
+
       <div className="apiResultsContainer">
 
         {searchResults.map((album) => {
@@ -65,7 +69,7 @@ function AddInventory() {
                   <img className="apiImage" src={album.cover_image} />
                   <div className="apiImageText">
                     <div>{album.title}</div>
-                    <div>{album.label[0]}</div>
+                    {album.label && <div>{album.label[0]}</div>}
                     <div >{album.year}</div>
                   </div>
                 </div>

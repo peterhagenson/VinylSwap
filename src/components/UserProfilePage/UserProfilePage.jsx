@@ -50,6 +50,14 @@ function ProfilePage() {
 
   }
 
+  const toAddInventory = () => {
+    console.log("clicked")
+    history.push('/addInventory')
+  }
+
+  const editListing = (id) => {
+    // history.push(`/completeAddInventory/${id}`)
+  }
 
   return (
 
@@ -65,17 +73,20 @@ function ProfilePage() {
         </div>
 
         <div className="userInventoryContainer">
-          <h3>Your Inventory</h3>
+          <h3>Your Inventory<span><button onClick={toAddInventory}>Add Inventory</button></span></h3>
           {user && user.inventory.map((album) => {
             return (
               <>
                 <div className="userInventoryCard">
                   <img className="inventoryImage" src={album.album_art} />
                   <p>{album.title}</p>
+                  <p>{album.discogs_id}</p>
                   <div>
                     <button>Suspend</button>
                     <br />
                     <button onClick={() => (deleteListing(album.id))}>Delete</button>
+                    <br />
+                    <button onClick={() => (editListing(album.discogs_id))}>Edit</button>
                   </div>
                 </div>
 

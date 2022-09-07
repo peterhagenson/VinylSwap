@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 
 
@@ -13,6 +13,8 @@ function TemplateFunction() {
   const params = useParams();
 
   const dispatch = useDispatch();
+
+  const history = useHistory();
 
 
 
@@ -30,6 +32,11 @@ function TemplateFunction() {
     });
   }
 
+  const toAlbumDetail = (album) => {
+    console.log("in toAlbumDetial")
+    history.push(`/detail/${album.id}`)
+  }
+
 
   useEffect(() => {
     getTrader();
@@ -40,11 +47,38 @@ function TemplateFunction() {
     return (
 
 
-      <div>
+      <div className="traderPageContainer">
+        <div className="traderProfileContainer">
+          <h3>Username: {trader.profile && trader.profile.username}</h3>
+          <h4>{trader.profile && trader.profile.city}, {trader.profile && trader.profile.state}</h4>
+          <h4>{trader.profile && trader.profile.email}</h4>
+          <h4>Bio: <span>{trader.profile && trader.profile.bio}</span></h4>
+          {/* <button onClick={navToProfileCompletion}>Edit Profile</button> */}
+        </div>
+
+        <div className="traderInventoryContainer">
+          <h3>Trader Inventory</h3>
+          {trader.albums && trader.albums.map((album) => {
+            return (
+              <>
+                <div onClick={() => toAlbumDetail(album)} className="traderInventoryCard">
+                  <img className="inventoryImage" src={album.album_art} />
+                  <p>{album.title}</p>
+                  <div>
+
+                  </div>
+                </div>
+
+              </>
+            )
+          })}
+
+        </div>
+        {/* 
         <p>{trader.albums && trader.albums[0].title}</p>
         <br />
-        {/* {trader && trader.profile.username}
-            <h2>{JSON.stringify(trader)}</h2> */}
+        {trader.profile && trader.profile.username}
+        <h2>{JSON.stringify(trader)}</h2> */}
 
       </div>
 

@@ -26,6 +26,6 @@ export default function* rootSaga() {
     profileSaga(),
     detailSaga(),
     traderSaga(),
-    albumDescriptors()
+    // albumDescriptors()
   ]);
 }
