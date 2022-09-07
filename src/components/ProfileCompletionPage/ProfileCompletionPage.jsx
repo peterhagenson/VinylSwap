@@ -33,26 +33,23 @@ function CompleteProfile() {
   }
 
   return (
-    <Router>
-      <Route path="/profileCompletion">
-        <div>
-          <h2>Please Complete Your User Profile</h2>
-          <br />
-          <form onSubmit={addProfileInfo}>
-            <input onChange={(event) => setEmail(event.target.value)} placeholder="your email"></input>
-            <br />
-            <input onChange={(event) => setCity(event.target.value)} placeholder="your city"></input>
-            <br />
-            <input onChange={(event) => setState(event.target.value)} placeholder="your state"></input>
-            <br />
-            <textarea onChange={(event) => setBio(event.target.value)} placeholder="your bio"></textarea>
-            <br />
-            <button type="submit">Submit</button>
-            <button>Clear</button>
-          </form>
-        </div>
-      </Route>
-    </Router>
+
+    <div>
+      <h2>Please Complete Your User Profile</h2>
+      <br />
+      <form onSubmit={addProfileInfo}>
+        <input onChange={(event) => setEmail(event.target.value)} placeholder="your email"></input>
+        <br />
+        <input onChange={(event) => setCity(event.target.value)} placeholder="your city"></input>
+        <br />
+        <input onChange={(event) => setState(event.target.value)} placeholder="your state"></input>
+        <br />
+        <textarea onChange={(event) => setBio(event.target.value)} placeholder="your bio"></textarea>
+        <br />
+        <button type="submit">Submit</button>
+        <button>Clear</button>
+      </form>
+    </div>
   );
 }
 

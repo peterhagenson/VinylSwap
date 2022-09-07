@@ -31,38 +31,35 @@ function SearchAlbums() {
   }
 
   return (
-    <Router>
-      <Route path="/search">
-        <div>
-          <h2>{searchTerm}</h2>
-          <form onSubmit={() => getMatches()}>
-            <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
-            <button type="submit">Find</button>
-          </form>
-          <br />
-          <div className="resultsContainer">
-            {searchResults.map((album) => {
-              return (
-                <>
-                  <div onClick={() => toAlbumDetail(album)}>
-                    <img className="searchImage" src={album.album_art} />
-                    <div className="apiImageText">
-                      <div>{album.title}</div>
-                      <div>{album.record_label}</div>
-                      <div >{album.published_date}</div>
 
-                    </div>
-                  </div>
-                </>
+    <div>
+      <h2>{searchTerm}</h2>
+      <form onSubmit={() => getMatches()}>
+        <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
+        <button type="submit">Find</button>
+      </form>
+      <br />
+      <div className="resultsContainer">
+        {searchResults.map((album) => {
+          return (
+            <>
+              <div onClick={() => toAlbumDetail(album)}>
+                <img className="searchImage" src={album.album_art} />
+                <div className="apiImageText">
+                  <div>{album.title}</div>
+                  <div>{album.record_label}</div>
+                  <div >{album.published_date}</div>
 
-              )
-            })
-            }
+                </div>
+              </div>
+            </>
 
-          </div>
-        </div>
-      </Route>
-    </Router>
+          )
+        })
+        }
+
+      </div>
+    </div>
   );
 }
 

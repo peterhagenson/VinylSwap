@@ -14,9 +14,16 @@ function inventoryCompletion() {
   const [condition, setAlbumCondition] = useState('');
   const [description, setAlbumDescription] = useState('');
 
-  // useEffect(() => {
+  useEffect(() => {
+    getAlbumToComplete();
+  }, []);
 
-  // }, [])
+  const getAlbumToComplete = () => {
+    dispatch({
+      type: 'FETCH_ALBUM_TO_ADD',
+      payload: params.id
+    })
+  };
 
   const updateAlbum = () => {
     console.log("submitted", condition, description, album, params.id)
@@ -34,32 +41,29 @@ function inventoryCompletion() {
 
 
   return (
-    <Router>
-      <Route path="/completeAddInventory/:id">
-        <div>
-          <form onSubmit={updateAlbum}>
-            <label>Select Condition</label>
-            <br />
-            <select onChange={(event) => setAlbumCondition(event.target.value)} >
-              <option>Please Select</option>
-              <option value="Mint">Mint</option>
-              <option value="Excellent">Excellent</option>
-              <option value="Very Good">Very Good</option>
-              <option value="Good">Good</option>
-              <option value="Fair">Fair</option>
-              <option value="Poor">Poor</option>
-            </select>
-            <br />
-            <textarea onChange={(event) => setAlbumDescription(event.target.value)} placeholder="description"></textarea>
-            <br />
-            <button type="submit">Submit</button>
-          </form>
-          <br />
-          {JSON.stringify(album)}
 
-        </div>
-      </Route>
-    </Router>
+    <div>
+      <form onSubmit={updateAlbum}>
+        <label>Select Condition</label>
+        <br />
+        <select onChange={(event) => setAlbumCondition(event.target.value)} >
+          <option>Please Select</option>
+          <option value="Mint">Mint</option>
+          <option value="Excellent">Excellent</option>
+          <option value="Very Good">Very Good</option>
+          <option value="Good">Good</option>
+          <option value="Fair">Fair</option>
+          <option value="Poor">Poor</option>
+        </select>
+        <br />
+        <textarea onChange={(event) => setAlbumDescription(event.target.value)} placeholder="description"></textarea>
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+      <br />
+      {JSON.stringify(album)}
+
+    </div>
   );
 }
 

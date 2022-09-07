@@ -52,43 +52,41 @@ function ProfilePage() {
 
 
   return (
-    <Router>
-      <Route path="/userProfile">
-        <div>
-          <h2>Your Trader Profile</h2>
-          <div className="displayContainer">
-            <div className="userProfileContainer">
-              <h3>Username: {user && user.user.username}</h3>
-              <h4>{user && user.user.city}, {user && user.user.state}</h4>
-              <h4>{user && user.user.email}</h4>
-              <h4>Bio: <span>{user && user.user.bio}</span></h4>
-              <button onClick={navToProfileCompletion}>Edit Profile</button>
-            </div>
 
-            <div className="userInventoryContainer">
-              <h3>Your Inventory</h3>
-              {user && user.inventory.map((album) => {
-                return (
-                  <>
-                    <div className="userInventoryCard">
-                      <img className="inventoryImage" src={album.album_art} />
-                      <p>{album.title}</p>
-                      <div>
-                        <button>Suspend</button>
-                        <br />
-                        <button onClick={() => (deleteListing(album.id))}>Delete</button>
-                      </div>
-                    </div>
+    <div>
+      <h2>Your Trader Profile</h2>
+      <div className="displayContainer">
+        <div className="userProfileContainer">
+          <h3>Username: {user && user.user.username}</h3>
+          <h4>{user && user.user.city}, {user && user.user.state}</h4>
+          <h4>{user && user.user.email}</h4>
+          <h4>Bio: <span>{user && user.user.bio}</span></h4>
+          <button onClick={navToProfileCompletion}>Edit Profile</button>
+        </div>
 
-                  </>
-                )
-              })}
+        <div className="userInventoryContainer">
+          <h3>Your Inventory</h3>
+          {user && user.inventory.map((album) => {
+            return (
+              <>
+                <div className="userInventoryCard">
+                  <img className="inventoryImage" src={album.album_art} />
+                  <p>{album.title}</p>
+                  <div>
+                    <button>Suspend</button>
+                    <br />
+                    <button onClick={() => (deleteListing(album.id))}>Delete</button>
+                  </div>
+                </div>
 
-            </div>
-          </div>
-        </div >
-      </Route>
-    </Router>
+              </>
+            )
+          })}
+
+        </div>
+      </div>
+    </div >
+
   );
 }
 

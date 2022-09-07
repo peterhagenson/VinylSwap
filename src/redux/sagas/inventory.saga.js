@@ -4,11 +4,11 @@ import axios from 'axios';
 //fetchAPI saga sends GET request to server for results that match the search term
 //it then sends those results to the apiReducer
 function* fetchAPI(action) {
-    // console.log("in fetchAPI", action.payload)
-    try{
+    console.log("in fetchAPI", action.payload)
+    try {
         const apiResults = yield axios.get(`/inventoryAPI/${action.payload}`);
         // console.log('get all', apiResults.data.results);
-        yield put({ type: 'SET_API_RESULTS', payload: apiResults.data.results})
+        yield put({ type: 'SET_API_RESULTS', payload: apiResults.data.results })
     } catch {
         console.log('GET API RESULTS ERROR')
     }
@@ -16,15 +16,18 @@ function* fetchAPI(action) {
 
 //postAlbum() sends a POST request to the server with the user-chosen album to be added to the database as an inventory item 
 function* postAlbum(action) {
-console.log("in postAlbum", action.payload)
-try {
-    yield axios.post('/inventoryAPI', action.payload)
+    try {
+        console.log("in postAlbum", action.payload)
 
-// TODO - POSSIBLY ADD A GET/FETCH
+        yield axios.post('/inventoryAPI', action.payload)
+        action.callback();
+        // yield put({ type: 'FETCH_ALBUM_TO_ADD' })
 
-}catch {
-    console.error('ERROR IN POST')
-}
+        // TODO - POSSIBLY ADD A GET/FETCH
+
+    } catch (err) {
+        console.error('ERROR IN POST', err)
+    }
 }
 
 // deleteAlbum makes delete request to server (api.router) and dispatches 'GET_USER' which triggers the getProfile function in the profile.saga file and ultimately updates the browser
@@ -32,18 +35,29 @@ function* deleteAlbum(action) {
     // console.log("in deleteAlbum saga", action.payload)
     try {
         yield axios.delete(`/inventoryAPI/${action.payload}`)
-        yield put({type: 'GET_USER'})
-    } catch {
-        console.error('ERROR IN DELETE')
-}
+        yield put({ type: 'GET_USER' })
+    } catch (err) {
+        console.error('ERROR IN DELETE', err)
+    }
 }
 
 function* addDescriptors(action) {
-    try{
+    try {
         yield axios.put('/inventoryAPI', action.payload)
-    } catch {
-        console.error('ERROR IN PUT')
+    } catch (err) {
+        console.error('ERROR IN PUT', err)
+    }
 }
+
+function* getAlbumToAdd(action) {
+    console.log("in getAlbumToAdd client, ", action.payload)
+    try {
+        const album = yield axios.get(`/albumToAdd/${action.payload}`)
+        // console.log("in getAlbumToAdd saga", album)
+        yield put({ type: 'SET_ALBUM_TO_ADD', payload: album })
+    } catch (err) {
+        console.error('ERROR IN getAlbumToAdd', err)
+    }
 }
 
 
@@ -54,6 +68,7 @@ function* inventorySaga() {
     yield takeLatest('POST_TO_INVENTORY', postAlbum)
     yield takeLatest('DELETE_LISTING', deleteAlbum)
     yield takeLatest('ADD_ALBUM_DESCRIPTORS', addDescriptors)
+    yield takeLatest('FETCH_ALBUM_TO_ADD', getAlbumToAdd)
 }
 
 export default inventorySaga;

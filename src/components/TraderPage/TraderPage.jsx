@@ -38,19 +38,16 @@ function TemplateFunction() {
 
   if (trader) {
     return (
-      <Router>
-        <Route path="/traderPage/:id">
 
 
-          <div>
-            <p>{trader.albums && trader.albums[0].title}</p>
-            <br />
-            {/* {trader && trader.profile.username}
+      <div>
+        <p>{trader.albums && trader.albums[0].title}</p>
+        <br />
+        {/* {trader && trader.profile.username}
             <h2>{JSON.stringify(trader)}</h2> */}
 
-          </div>
-        </Route>
-      </Router>
+      </div>
+
     );
   }
 }
