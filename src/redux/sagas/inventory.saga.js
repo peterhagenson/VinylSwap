@@ -38,6 +38,14 @@ function* deleteAlbum(action) {
 }
 }
 
+function* addDescriptors(action) {
+    try{
+        yield axios.put('/inventoryAPI', action.payload)
+    } catch {
+        console.error('ERROR IN PUT')
+}
+}
+
 
 
 function* inventorySaga() {
@@ -45,6 +53,7 @@ function* inventorySaga() {
     yield takeLatest('GET_SEARCH_RESULTS', fetchAPI)
     yield takeLatest('POST_TO_INVENTORY', postAlbum)
     yield takeLatest('DELETE_LISTING', deleteAlbum)
+    yield takeLatest('ADD_ALBUM_DESCRIPTORS', addDescriptors)
 }
 
 export default inventorySaga;

@@ -124,7 +124,7 @@ function App() {
           <Route path="/addInventory">
             <AddInventoryPage />
           </Route>
-          <Route path="/completeAddInventory">
+          <Route path="/completeAddInventory/:id">
             <CompleteAddInventory />
           </Route>
           <Route path="/search">

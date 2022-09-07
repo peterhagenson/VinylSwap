@@ -40,7 +40,12 @@ function AddInventory() {
       type: 'POST_TO_INVENTORY',
       payload: album
     })
-    history.push('/completeAddInventory')
+    dispatch({
+      type: 'ALBUM_TO_ADD',
+      payload: album
+    })
+    //the id in this parameter is the id from Discogs, not the id from VinylSwap
+    history.push(`/completeAddInventory/${album.id}`)
   };
 
 

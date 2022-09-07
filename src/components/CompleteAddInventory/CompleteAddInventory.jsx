@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
+import { HashRouter as Router, Route, useHistory, useParams } from 'react-router-dom';
 
 // TODO: use effect that pulls album info to display and put route to add details
 
 function inventoryCompletion() {
 
   const dispatch = useDispatch();
+  const params = useParams();
+  const history = useHistory();
 
   const album = useSelector((store) => store.albumToAdd);
   const [condition, setAlbumCondition] = useState('');
@@ -16,18 +18,30 @@ function inventoryCompletion() {
 
   // }, [])
 
-  // 
+  const updateAlbum = () => {
+    console.log("submitted", condition, description, album, params.id)
+    dispatch({
+      type: "ADD_ALBUM_DESCRIPTORS",
+      payload: {
+        condition: condition,
+        description: description,
+        discogsID: params.id
+      }
+    });
+    history.push('/userProfile')
+  }
 
 
 
   return (
     <Router>
-      <Route path="/completeAddInventory">
+      <Route path="/completeAddInventory/:id">
         <div>
-          <form onSubmit={sendAlbum}>
+          <form onSubmit={updateAlbum}>
             <label>Select Condition</label>
             <br />
             <select onChange={(event) => setAlbumCondition(event.target.value)} >
+              <option>Please Select</option>
               <option value="Mint">Mint</option>
               <option value="Excellent">Excellent</option>
               <option value="Very Good">Very Good</option>

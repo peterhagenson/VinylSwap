@@ -7,6 +7,7 @@ import searchSaga from './search.saga';
 import profileSaga from './profile.saga.js';
 import detailSaga from './detail.saga.js';
 import traderSaga from './trader.saga.js';
+import albumDescriptors from './inventory.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -25,5 +26,6 @@ export default function* rootSaga() {
     profileSaga(),
     detailSaga(),
     traderSaga(),
+    albumDescriptors()
   ]);
 }
