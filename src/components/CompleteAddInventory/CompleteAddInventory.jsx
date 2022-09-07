@@ -41,29 +41,37 @@ function inventoryCompletion() {
 
 
   return (
+    <>
+      <p>Please provide the condition and a brief description of your album. Your listing will not be active until this step is complete.</p>
+      <div className="completeAddInventoryContainer">
+        <div className="editDescriptionContainer">
+          <form onSubmit={updateAlbum}>
+            <label>Select Condition</label>
+            <br />
+            <select onChange={(event) => setAlbumCondition(event.target.value)} >
+              <option>Please Select</option>
+              <option value="Mint">Mint</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Very Good">Very Good</option>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+              <option value="Poor">Poor</option>
+            </select>
+            <br />
+            <textarea onChange={(event) => setAlbumDescription(event.target.value)} placeholder="description"></textarea>
+            <br />
+            <button type="submit">Submit</button>
+          </form>
+          <br />
+        </div>
+        <div className="albumInfoContainer">
+          <img className="completeDescriptionImage" src={album[0] && album[0].album_art} />
+        </div>
 
-    <div>
-      <form onSubmit={updateAlbum}>
-        <label>Select Condition</label>
-        <br />
-        <select onChange={(event) => setAlbumCondition(event.target.value)} >
-          <option>Please Select</option>
-          <option value="Mint">Mint</option>
-          <option value="Excellent">Excellent</option>
-          <option value="Very Good">Very Good</option>
-          <option value="Good">Good</option>
-          <option value="Fair">Fair</option>
-          <option value="Poor">Poor</option>
-        </select>
-        <br />
-        <textarea onChange={(event) => setAlbumDescription(event.target.value)} placeholder="description"></textarea>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-      <br />
+
+      </div>
       {JSON.stringify(album)}
-
-    </div>
+    </>
   );
 }
 

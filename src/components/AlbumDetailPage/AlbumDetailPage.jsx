@@ -52,6 +52,8 @@ function AlbumDetails() {
           {details.condition}
           <br />
           {details.user_description}
+          <br />
+          {details.genre}
 
         </div>
         <img className="detailPageImage" src={details.album_art} />

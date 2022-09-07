@@ -13,6 +13,8 @@ function CompleteProfile() {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
 
+  const history = useHistory();
+
   const [email, setEmail] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
@@ -29,13 +31,13 @@ function CompleteProfile() {
         bio: bio
       }
     })
-
+    history.push('/userProfile')
   }
 
   return (
 
     <div>
-      <h2>Please Complete Your User Profile</h2>
+      <h2>Please Complete/Edit Your User Profile</h2>
       <br />
       <form onSubmit={addProfileInfo}>
         <input onChange={(event) => setEmail(event.target.value)} placeholder="your email"></input>

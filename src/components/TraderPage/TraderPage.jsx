@@ -63,7 +63,21 @@ function TemplateFunction() {
               <>
                 <div onClick={() => toAlbumDetail(album)} className="traderInventoryCard">
                   <img className="inventoryImage" src={album.album_art} />
-                  <p>{album.title}</p>
+                  <div>
+
+
+                    <p>Artist/Album</p>
+                    <p>{album.artist_name}</p>
+                    <p>{album.title}</p>
+                  </div>
+                  <div>
+                    <p>Label:</p>
+                    <p>{album.record_label}</p>
+                  </div>
+                  <div>
+                    <p>Condition:</p>
+                    <p>{album.condition}</p>
+                  </div>
                   <div>
 
                   </div>

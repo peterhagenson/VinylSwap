@@ -164,6 +164,7 @@ Inventory Page
   margin-top: 20px;
   padding-top: auto;
   padding-bottom: auto;
+  width: 400px;
 }
 
 .userInventoryContainer {
@@ -176,6 +177,7 @@ Inventory Page
 }
 
 /* ---------------------------------------- */
+
 
 .albumDetailsContainer {
   display: flex;
@@ -195,6 +197,7 @@ Inventory Page
 
 .traderInventoryCard {
   display: flex;
+  
 }
 
 .detailPageImage {
@@ -203,6 +206,16 @@ Inventory Page
 .traderPageContainer {
   display: flex;
   justify-content: space-between;
+}
 
+.completeDescriptionImage {
+  max-width: 300px;
+}
 
+.editDescriptionContainer {
+  
+}
+
+.completeAddInventoryContainer {
+  display: flex;
 }
