@@ -43,17 +43,12 @@ function AlbumDetails() {
     <div className="detailsDisplayContainer">
       <div className="albumDetails-TraderContainer">
         <div className="albumDetailsText">
-          {details.title}
-          <br />
-          {details.published_date}
-          <br />
-          {details.record_label}
-          <br />
-          {details.condition}
-          <br />
-          {details.user_description}
-          <br />
-          {details.genre}
+          <h3>Album Title: {details.title}</h3>
+          <h5 >Year: {details.published_date}</h5>
+          <h5>Label: {details.record_label}</h5>
+          <h5>Condition: {details.condition}</h5>
+          <h5 className="detailsTex">Album Trader's Descriptin: {details.user_description}</h5>
+          <h5>Genres: {details.genre}</h5>
         </div>
         <div className="traderDetails">
           <h3>Album Trader:</h3>
@@ -69,7 +64,7 @@ function AlbumDetails() {
         </div>
       </div>
       <div className="imagesAndMessageContainer">
-        <div classNaem="detailImagesContainer">
+        <div className="detailImagesContainer">
           <img className="detailPageImage" src={details.album_art} />
         </div>
         <div className="messageContainer">
@@ -78,6 +73,7 @@ function AlbumDetails() {
         </div>
       </div>
     </div>
+
   );
 }
 

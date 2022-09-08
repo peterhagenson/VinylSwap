@@ -196,10 +196,20 @@ Inventory Page
 
 .albumDetails-TraderContainer {
   width: 50%;
+  padding-left: 100px;
 }
 
 .imagesAndMessageContainer { 
   width: 50%;
+  padding-right: 100px;
+}
+
+.albumDetailsText {
+  min-height: 250px;
+}
+
+.detailsTex {
+  padding-right: 100px;
 }
 
 
