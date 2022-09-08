@@ -65,10 +65,10 @@ function ProfilePage() {
       <h2>Your Trader Profile</h2>
       <div className="displayContainer">
         <div className="userProfileContainer">
-          <h3>Username: {user && user.user.username}</h3>
-          <h4>{user && user.user.city}, {user && user.user.state}</h4>
-          <h4>{user && user.user.email}</h4>
-          <h4>Bio: <span>{user && user.user.bio}</span></h4>
+          <h3 className="profileText">Username: {user && user.user.username}</h3>
+          <h4 className="profileText">{user && user.user.city}, {user && user.user.state}</h4>
+          <h4 className="profileText">{user && user.user.email}</h4>
+          <h4 className="profileText">Bio: <span>{user && user.user.bio}</span></h4>
           <button onClick={navToProfileCompletion}>Edit Profile</button>
         </div>
 
@@ -78,27 +78,36 @@ function ProfilePage() {
             return (
               <>
                 <div className="userInventoryCard">
-                  <img className="inventoryImage" src={album.album_art} />
-                  <p>{album.title}</p>
-                  <p>{album.discogs_id}</p>
-                  <div>
-                    <button>Suspend</button>
-                    <br />
-                    <button onClick={() => (deleteListing(album.id))}>Delete</button>
-                    <br />
-                    <button onClick={() => (editListing(album.discogs_id))}>Edit</button>
+                  <div className="userInventoryImageContainer">
+                    <div></div>
+                    <div>
+                      <img className="inventoryImage" src={album.album_art} />
+                      <div>
+                        <div></div>
+                      </div>
+                      <div className="userInventoryCardDetails">
+                        <p>{album.title}</p>
+                        <p>{album.discogs_id}</p>
+                      </div>
+                      <div className="userInventoryCardButtonContainer">
+                        <button>Suspend</button>
+                        <br />
+                        <button onClick={() => (deleteListing(album.id))}>Delete</button>
+                        <br />
+                        <button onClick={() => (editListing(album.discogs_id))}>Edit</button>
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-              </>
-            )
+                </>
+                )
           })}
 
-        </div>
+              </div>
       </div>
-    </div >
+      </div >
 
-  );
+      );
 }
 
-export default ProfilePage;
+      export default ProfilePage;

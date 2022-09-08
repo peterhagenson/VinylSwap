@@ -49,10 +49,11 @@ function TemplateFunction() {
 
       <div className="traderPageContainer">
         <div className="traderProfileContainer">
-          <h3>Username: {trader.profile && trader.profile.username}</h3>
-          <h4>{trader.profile && trader.profile.city}, {trader.profile && trader.profile.state}</h4>
-          <h4>{trader.profile && trader.profile.email}</h4>
-          <h4>Bio: <span>{trader.profile && trader.profile.bio}</span></h4>
+          <h3>Album Trader</h3>
+          <h4 className="detailsText">Username: {trader.profile && trader.profile.username}</h4>
+          <h4 className="detailsText">{trader.profile && trader.profile.city}, {trader.profile && trader.profile.state}</h4>
+          <h4 className="detailsText">{trader.profile && trader.profile.email}</h4>
+          <h4 className="detailsText">Bio: <span>{trader.profile && trader.profile.bio}</span></h4>
           {/* <button onClick={navToProfileCompletion}>Edit Profile</button> */}
         </div>
 
@@ -62,19 +63,29 @@ function TemplateFunction() {
             return (
               <>
                 <div onClick={() => toAlbumDetail(album)} className="traderInventoryCard">
-                  <img className="inventoryImage" src={album.album_art} />
-                  <div>
-
-
-                    <p>Artist/Album</p>
-                    <p>{album.artist_name}</p>
-                    <p>{album.title}</p>
+                  <div className="inventoryImageContainer">
+                    <div></div>
+                    <img className="inventoryImage" src={album.album_art} />
+                    <div></div>
                   </div>
-                  <div>
-                    <p>Label:</p>
-                    <p>{album.record_label}</p>
+                  <div className="artistAlbumContainer">
+                    <div></div>
+                    <div>
+                      <p>Artist/Album:</p>
+                      <p>{album.artist_name}</p>
+                      <p>{album.title}</p>
+                    </div>
+                    <div></div>
                   </div>
-                  <div>
+                  <div lassName="publishedYearContainer">
+                    <div className="spacerDiv"></div>
+                    <div>
+                      <p>Published:</p>
+                      <p>{album.published_date}</p>
+                    </div>
+                    <div className="spacerDiv"></div>
+                  </div>
+                  <div lassName="conditionContainer">
                     <p>Condition:</p>
                     <p>{album.condition}</p>
                   </div>

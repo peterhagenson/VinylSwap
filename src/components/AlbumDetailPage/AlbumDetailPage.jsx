@@ -43,23 +43,18 @@ function AlbumDetails() {
     <div className="detailsDisplayContainer">
       <div className="albumDetails-TraderContainer">
         <div className="albumDetailsText">
-          <h3>Album Title: {details.title}</h3>
-          <h5 >Year: {details.published_date}</h5>
-          <h5>Label: {details.record_label}</h5>
-          <h5>Condition: {details.condition}</h5>
-          <h5 className="detailsTex">Album Trader's Descriptin: {details.user_description}</h5>
+          <h3 className="detailsText">Album Title: {details.title}</h3>
+          <h5 className="detailsText">Year: {details.published_date}</h5>
+          <h5 className="detailsText">Label: {details.record_label}</h5>
+          <h5 className="detailsText">Condition: {details.condition}</h5>
+          <h5 className="detailsText">Album Trader's Descriptin: {details.user_description}</h5>
           <h5>Genres: {details.genre}</h5>
         </div>
         <div className="traderDetails">
           <h3>Album Trader:</h3>
-          {details.username}
-          <br />
-          {details.city}
-          <br />
-          {details.state}
-          <br />
-          {details.email}
-          <br />
+          <p>Username: <span>{details.username}</span></p>
+          <p>City/State: <span>{details.city}, {details.state}</span></p>
+          <p>Email: <span>{details.email}</span></p>
           <button onClick={() => (toTraderPage(details.user_id))}>Trader Page</button>
         </div>
       </div>

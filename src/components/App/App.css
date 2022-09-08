@@ -144,19 +144,41 @@ Search Page
 
 
 /* -----------------------------------------------------------------------------------------
-Inventory Page
+User/Inventory Page
 ----------------------------------------------------------------------------------------- */
 
-.inventoryImage {
+/* .inventoryImage {
   max-width: 100px;
-}
+} */
 
 .displayContainer {
   display: flex;
-  /* justify-content: space-between; */
-  margin-left: 100px;
+ 
 
 }
+
+.userProfileContainer {
+  width: 40%;
+   padding-left: 100px;
+}
+
+.userInventoryContainer {
+  width: 60%;
+  padding-right: 100px; 
+}
+
+.profileText {
+  padding-right: 100px;
+}
+
+/* .inventoryImageContainer {
+  width: 25%;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+} */
 
 .userInventoryCard {
   display: flex;
@@ -167,16 +189,13 @@ Inventory Page
   width: 400px;
 }
 
-.userInventoryContainer {
-  margin-left: 200px;
-}
-
-
-.userProfileContainer {
-  max-width: 400px;
+.userInventoryImageContainer {
+  width: 25%;
+  display: flex;
 }
 
 /* ---------------------------------------- */
+/* detail page */
 
 .detailsDisplayContainer {
   display: flex;
@@ -208,25 +227,73 @@ Inventory Page
   min-height: 250px;
 }
 
-.detailsTex {
+.detailsText {
   padding-right: 100px;
 }
 
 
 
 /* -------------------------------------------------- */
-
-
-
-.traderInventoryCard {
-  display: flex;
-}
-
+/* trader page */
 
 .traderPageContainer {
   display: flex;
+  /* justify-content: space-between; */
+}
+
+.traderProfileContainer {
+  width: 40%;
+  padding-left: 100px;
+}
+
+.traderInventoryContainer {
+  width: 60%;
+  padding-right: 100px;
+}
+
+.traderInventoryCard {
+  display: flex;
+  border-style: solid;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.inventoryImageContainer {
+  width: 25%;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+.inventoryImage {
+}
+
+.artistAlbumContainer {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
+
+.publishedYearContainer {
+  width: 25%;
+}
+
+.spacerDiv {
+  width: 33%;
+}
+
+.conditionContainer {
+  width: 25%;
+}
+
+
+
+/* ----------------------------------------- */
+
 
 .completeDescriptionImage {
   max-width: 300px;
