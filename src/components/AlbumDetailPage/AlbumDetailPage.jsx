@@ -40,8 +40,8 @@ function AlbumDetails() {
   return (
 
 
-    <div>
-      <div className="albumDetailsContainer">
+    <div className="detailsDisplayContainer">
+      <div className="albumDetails-TraderContainer">
         <div className="albumDetailsText">
           {details.title}
           <br />
@@ -54,12 +54,7 @@ function AlbumDetails() {
           {details.user_description}
           <br />
           {details.genre}
-
         </div>
-        <img className="detailPageImage" src={details.album_art} />
-        <br />
-      </div>
-      <div className="traderInfoContainer">
         <div className="traderDetails">
           <h3>Album Trader:</h3>
           {details.username}
@@ -71,25 +66,18 @@ function AlbumDetails() {
           {details.email}
           <br />
           <button onClick={() => (toTraderPage(details.user_id))}>Trader Page</button>
-
         </div>
-        <div>
-          <div className="messagingContainer"></div>
-          <br />
-          <button>Send Message</button>
-        </div>
-
       </div>
-
-      {/* {details && (details.album[0].title)} */}
-      {JSON.stringify(details)}
-      {/* {params.id} */}
-
-
-
-
+      <div className="imagesAndMessageContainer">
+        <div classNaem="detailImagesContainer">
+          <img className="detailPageImage" src={details.album_art} />
+        </div>
+        <div className="messageContainer">
+          <div className="messageBox"></div>
+          <button>Submit</button>
+        </div>
+      </div>
     </div>
-
   );
 }
 

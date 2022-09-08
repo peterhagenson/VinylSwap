@@ -178,31 +178,41 @@ Inventory Page
 
 /* ---------------------------------------- */
 
-
-.albumDetailsContainer {
+.detailsDisplayContainer {
   display: flex;
-  justify-content: space-between;
 }
 
-.messagingContainer {
+
+.detailPageImage {
+  max-width: 250px;
+}
+
+
+.messageBox {
   width: 500px;
   height: 200px;
   border-style: solid;
 }
 
-.traderInfoContainer {
-  display: flex;
-  justify-content: space-between;
+.albumDetails-TraderContainer {
+  width: 50%;
 }
+
+.imagesAndMessageContainer { 
+  width: 50%;
+}
+
+
+
+/* -------------------------------------------------- */
+
+
 
 .traderInventoryCard {
   display: flex;
-  
 }
 
-.detailPageImage {
-  max-width: 250px;
-}
+
 .traderPageContainer {
   display: flex;
   justify-content: space-between;
