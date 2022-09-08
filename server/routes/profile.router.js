@@ -16,21 +16,55 @@ router.put('/', (req, res) => {
   // `;
 
   let queryParams = []
-  const startString = "UPDATE 'user' SET";
-  const endString = "WHERE 'user'.id = $5";
+  const startString = 'UPDATE "user" SET';
+  let endString = '';
   let cityString = '';
   let stateString = '';
   let bioString = '';
   let emailString = '';
+  let count = 1;
 
-  if (cityString.length) {
+  cityString = req.body.city;
+  if (req.body.city.length && (req.body.state.length || req.body.bio.length || req.body.email.length)) {
     queryParams.push(req.body.city);
-    cityString = 'city = $1';
+    cityString = `city = $${count},`;
+    count++;
+  } else if (req.body.city.length) {
+    queryParams.push(req.body.city);
+    cityString = `city = $${count}`;
+    count++;
   }
+  if (req.body.state.length && (req.body.bio.length || req.body.email.length)) {
+    queryParams.push(req.body.state);
+    stateString = `state = $${count},`
+    count++;
+  } else if (req.body.state.length) {
+    queryParams.push(req.body.state);
+    stateString = `state = $${count}`
+    count++;
+  }
+  if (req.body.bio.length && req.body.email.length) {
+    queryParams.push(req.body.bio);
+    bioString = `bio = $${count},`
+    count++;
+  } else if (req.body.bio.length) {
+    queryParams.push(req.body.bio);
+    bioString = `bio = $${count}`
+    count++;
+  }
+  if (req.body.email.length) {
+    queryParams.push(req.body.email);
+    emailString = `email = $${count}`
+    count++;
+
+  }
+  endString = `WHERE "user".id = $${count}`;
+  queryParams.push(req.user.id)
+
 
   let query = `${startString} ${cityString} ${stateString} ${bioString} ${emailString} ${endString}`;
 
-
+  console.log(query, queryParams);
   pool.query(query, queryParams);
 
   // pool.query(query, [req.body.city, req.body.state, req.body.bio, req.body.email, req.user.id])
