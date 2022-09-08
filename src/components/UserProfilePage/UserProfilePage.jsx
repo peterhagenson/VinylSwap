@@ -56,13 +56,13 @@ function ProfilePage() {
   }
 
   const editListing = (id) => {
-    // history.push(`/completeAddInventory/${id}`)
+    history.push(`/completeAddInventory/${id}`)
   }
 
   return (
 
     <div>
-      <h2>Your Trader Profile</h2>
+      <h2 className="userProfilePageTitle">Your Trader Profile</h2>
       <div className="displayContainer">
         <div className="userProfileContainer">
           <h3 className="profileText">Username: {user && user.user.username}</h3>
@@ -73,41 +73,46 @@ function ProfilePage() {
         </div>
 
         <div className="userInventoryContainer">
-          <h3>Your Inventory<span><button onClick={toAddInventory}>Add Inventory</button></span></h3>
+          <div className='inventory_addBtnContainer'>
+            <h3>Your Inventory</h3>
+            <button onClick={toAddInventory}>Add Inventory</button>
+          </div>
           {user && user.inventory.map((album) => {
             return (
               <>
                 <div className="userInventoryCard">
                   <div className="userInventoryImageContainer">
-                    <div></div>
+                    <div className="spacerDiv"></div>
                     <div>
                       <img className="inventoryImage" src={album.album_art} />
-                      <div>
-                        <div></div>
-                      </div>
-                      <div className="userInventoryCardDetails">
-                        <p>{album.title}</p>
-                        <p>{album.discogs_id}</p>
-                      </div>
-                      <div className="userInventoryCardButtonContainer">
-                        <button>Suspend</button>
-                        <br />
-                        <button onClick={() => (deleteListing(album.id))}>Delete</button>
-                        <br />
-                        <button onClick={() => (editListing(album.discogs_id))}>Edit</button>
-                      </div>
                     </div>
+                    <div className="spacerDiv"></div>
                   </div>
+                  <div className="userInventoryCardDetails">
+                    <p>{album.artist_name}</p>
+                    <p>{album.title}</p>
+                  </div>
+                  <div className="userInventoryCardButtonContainer">
+                    <div className="btnSpacerDiv"></div>
+                    <div className="albumCardBtnsDiv">
+                      <button className="cardBtn" onClick={() => (editListing(album.discogs_id))}>Edit</button>
+                      <button className="cardBtn">Suspend</button>
+                      <button className="cardBtn" onClick={() => (deleteListing(album.id))}>Delete</button>
+                    </div>
+                    <div className="btnSpacerDiv"></div>
+                  </div>
+                </div>
 
-                </>
-                )
+
+              </>
+            )
           })}
 
-              </div>
+        </div>
       </div>
-      </div >
+    </div >
 
-      );
+  );
 }
 
-      export default ProfilePage;
+export default ProfilePage;

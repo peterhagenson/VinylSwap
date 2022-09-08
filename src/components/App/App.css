@@ -184,15 +184,60 @@ User/Inventory Page
   display: flex;
   border-style: solid;
   margin-top: 20px;
-  padding-top: auto;
-  padding-bottom: auto;
-  width: 400px;
+  /* padding-top: auto; */
+  /* padding-bottom: auto; */
+  justify-content: space-between;
+  /* width: 400px; */
 }
 
 .userInventoryImageContainer {
   width: 25%;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 15px;
+  /* margin-right: 50px; */
 }
+
+.userInventoryCardDetails {
+  width: 50%;
+  text-align: center;
+}
+
+.userInventoryCardButtonContainer {
+  width: 25%;
+  
+}
+
+.albumCardBtnsDiv {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  margin-right: 15px;
+  
+}
+
+.cardBtn {
+  margin-bottom: 20px;
+}
+
+.cardDetailsSpacer {
+  width: 25%;
+}
+
+.inventory_addBtnContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userProfilePageTitle {
+  text-align: center;
+
+
+}
+
+
+
 
 /* ---------------------------------------- */
 /* detail page */
@@ -265,7 +310,6 @@ User/Inventory Page
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
 }
 
 .inventoryImage {
