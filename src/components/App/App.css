@@ -131,6 +131,7 @@ Inventory API Images
 .addInventoryForm {
   margin-right: 100px;
   margin-left: 100px;
+  text-align: center;
 }
 
 .apiResultCard {
@@ -163,6 +164,8 @@ Search Page
 
 .searchFormDiv {
   margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
   
 }
 

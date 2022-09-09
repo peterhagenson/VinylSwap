@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, useHistory, useParams } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 // TODO: use effect that pulls album info to display and put route to add details
 
@@ -38,6 +42,11 @@ function inventoryCompletion() {
     history.push('/userProfile')
   }
 
+  const resetConditionAndDescription = () => {
+    setAlbumCondition('');
+    setAlbumDescription('');
+  }
+
 
 
   return (
@@ -54,6 +63,9 @@ function inventoryCompletion() {
           <h5 className="detailsText">Year: {album[0] && album[0].published_date}</h5>
           <h5 className="detailsText">Label: {album[0] && album[0].record_label}</h5>
           <h5>Genres: {album[0] && album[0].genre}</h5>
+          <h5>Condition: {album[0] && album[0].condition}</h5>
+          <h5>Condition: {album[0] && album[0].user_description}</h5>
+
         </div>
 
 
@@ -63,19 +75,20 @@ function inventoryCompletion() {
         <form onSubmit={updateAlbum}>
           <label>Select Condition</label>
           <br />
-          <select onChange={(event) => setAlbumCondition(event.target.value)} >
-            <option>Please Select</option>
-            <option value="Mint">Mint</option>
-            <option value="Excellent">Excellent</option>
-            <option value="Very Good">Very Good</option>
-            <option value="Good">Good</option>
-            <option value="Fair">Fair</option>
-            <option value="Poor">Poor</option>
-          </select>
+          <Select onChange={(event) => setAlbumCondition(event.target.value)} style={{ width: 100 }} value={condition} label="Condition">
+            {/* <option>Please Select</option> */}
+            <MenuItem value={"Mint"}>Mint</MenuItem>
+            <MenuItem value={"Excellent"}>Excellent</MenuItem>
+            <MenuItem value={"Very Good"}>Very Good</MenuItem>
+            <MenuItem value={"Good"}>Good</MenuItem>
+            <MenuItem value={"Fair"}>Fair</MenuItem>
+            <MenuItem value={"Poor"}>Poor</MenuItem>
+          </Select>
           <br />
-          <textarea onChange={(event) => setAlbumDescription(event.target.value)} placeholder="description"></textarea>
+          <TextField onChange={(event) => setAlbumDescription(event.target.value)} variant="filled" multiline maxRows={4} style={{ width: 400 }} value={description} placeholder="description" />
           <br />
-          <button type="submit">Submit</button>
+          <Button variant="outlined" type="submit">Submit</Button>
+          <Button variant="outlined" onClick={resetConditionAndDescription}>Clear</Button>
         </form>
         <br />
       </div>

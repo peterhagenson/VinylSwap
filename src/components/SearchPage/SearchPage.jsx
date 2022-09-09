@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 
 function SearchAlbums() {
@@ -38,8 +40,11 @@ function SearchAlbums() {
       <div className="searchFormDiv">
         <h2>{searchTerm}</h2>
         <form onSubmit={() => getMatches()}>
-          <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
-          <button type="submit">Find</button>
+          <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="filled"
+            size="small" style={{ width: 300 }} placeholder="artist name or album title" value={searchTerm} />
+          <br />
+          <Button variant="outlined" type="submit" >Find</Button>
+          <Button variant="outlined" onClick={() => setSearchTerm('')}>Clear</Button>
         </form>
       </div>
       <br />

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 
 
@@ -55,8 +57,11 @@ function AddInventory() {
       <div className="addInventoryForm">
         <h2>Find The Record You'd Like To Add</h2>
         <form onSubmit={(e) => getMatches(e)}>
-          <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
-          <button type="submit">Find</button>
+          <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="filled"
+            size="small" style={{ width: 300 }} placeholder="artist name or album title" value={searchTerm} />
+          <br />
+          <Button type="submit" size="small" variant="outlined">Find</Button>
+          <Button onClick={() => setSearchTerm('')} size="small" variant="outlined">Clear</Button>
         </form>
       </div>
 

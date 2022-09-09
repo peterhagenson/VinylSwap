@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, useHistory } from 'react-router-dom'
 
@@ -8,10 +8,12 @@ import { HashRouter as Router, Route, useHistory } from 'react-router-dom'
 // component name TemplateFunction with the name for the new component.
 function CompleteProfile() {
 
+
+
   const dispatch = useDispatch();
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+  const profile = useSelector((store) => store.profileReducer);
 
   const history = useHistory();
 
@@ -21,6 +23,7 @@ function CompleteProfile() {
   const [bio, setBio] = useState('');
 
   const addProfileInfo = () => {
+    event.preventDefault();
     console.log(city, state, bio);
     dispatch({
       type: "SEND_PROFILE",
@@ -28,18 +31,37 @@ function CompleteProfile() {
         email: email,
         city: city,
         state: state,
-        bio: bio
+        bio: bio,
       }
     })
-    history.push('/userProfile')
+    getProfile();
+    // history.push('/userProfile')
   }
+
+  const getProfile = () => {
+    console.log()
+    dispatch({
+      type: 'GET_USER'
+    })
+  }
+  console.log('profile', profile.data);
+
+  useEffect(() => {
+    getProfile();
+  }, []);
 
   return (
 
     <div>
       <h2>Please Complete/Edit Your User Profile</h2>
+      <p>Username: {profile.data && profile.data.user.username}</p>
+      <p>email: {profile.data && profile.data.user.email}</p>
+      <p>City/State: {profile.data && profile.data.user.city}, {profile.data && profile.data.user.state}</p>
+      <p>Bio: {profile.data && profile.data.user.bio}</p>
+
+
       <br />
-      <form onSubmit={addProfileInfo}>
+      <form onSubmit={() => addProfileInfo()}>
         <input onChange={(event) => setEmail(event.target.value)} placeholder="your email"></input>
         <br />
         <input onChange={(event) => setCity(event.target.value)} placeholder="your city"></input>
