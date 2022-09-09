@@ -15,7 +15,10 @@ router.put('/', (req, res) => {
   // WHERE "user".id = $5;
   // `;
 
-  let queryParams = []
+
+  // parameters from req.body get pushed into queryParams if they were entered into text field by user.
+  let queryParams = [];
+  // startString will always be the same, the rest of the string variables are empty by default, but become sections of the query if they exist.
   const startString = 'UPDATE "user" SET';
   let endString = '';
   let cityString = '';
@@ -24,16 +27,18 @@ router.put('/', (req, res) => {
   let emailString = '';
   let count = 1;
 
-  cityString = req.body.city;
+  // if req.body.city exists and one of the other parameters also exist, push req.body.city to queryParams array, reassign cityString variable to the shown string WITH A COMMA, and add 1 to count
   if (req.body.city.length && (req.body.state.length || req.body.bio.length || req.body.email.length)) {
     queryParams.push(req.body.city);
     cityString = `city = $${count},`;
     count++;
+    // if req.body.city exists and one of the other parameters also exist, push req.body.city to queryParams array, reassign cityString variable to the shown string WITHOUT A COMMA, and add 1 to count
   } else if (req.body.city.length) {
     queryParams.push(req.body.city);
     cityString = `city = $${count}`;
     count++;
   }
+
   if (req.body.state.length && (req.body.bio.length || req.body.email.length)) {
     queryParams.push(req.body.state);
     stateString = `state = $${count},`
@@ -58,6 +63,7 @@ router.put('/', (req, res) => {
     count++;
 
   }
+  //after all of the 'SET' parameters have been added, complete querystring with the WHERE statement
   endString = `WHERE "user".id = $${count}`;
   queryParams.push(req.user.id)
 
