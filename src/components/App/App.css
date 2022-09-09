@@ -116,6 +116,8 @@ Inventory API Images
 ----------------------------------------------------------------------------------------- */
 .apiImage {
   max-width: 250px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .apiResultsContainer {
@@ -139,6 +141,7 @@ Inventory API Images
   text-align: center;
   margin-top: 25px;
   box-shadow: 10px 10px 10px;
+  border-radius: 5px;
 }
 
 /* .apiImageText {
@@ -151,6 +154,9 @@ Search Page
 
 .searchImage {
   width: 200px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  
 }
 
 .resultsContainer {
@@ -160,6 +166,7 @@ Search Page
   width: 200px;
   box-shadow: 10px 10px 10px;
   margin-bottom: 15px;
+  border-radius: 5px;
 }
 
 .searchFormDiv {
@@ -220,6 +227,7 @@ User/Inventory Page
   /* padding-bottom: auto; */
   justify-content: space-between;
   box-shadow: 10px 10px 10px;
+  border-radius: 5px;
   /* width: 400px; */
 }
 
@@ -284,6 +292,7 @@ User/Inventory Page
   max-width: 250px;
   box-shadow: 10px 10px 10px;
   margin-bottom: 25px;
+  border-radius: 5px;
 }
 
 
@@ -351,6 +360,7 @@ User/Inventory Page
 
 .inventoryImage {
   width: 100px;
+  border-radius: 5px;
 }
 
 .artistAlbumContainer {
@@ -381,6 +391,7 @@ User/Inventory Page
   max-width: 250px;
   margin-bottom: 250x;
   box-shadow: 10px 10px 10px;
+  border-radius: 5px;
   
 }
 

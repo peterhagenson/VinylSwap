@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-
+import Button from '@mui/material/Button';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -69,13 +69,13 @@ function ProfilePage() {
           <h4 className="profileText">{user && user.user.city}, {user && user.user.state}</h4>
           <h4 className="profileText">{user && user.user.email}</h4>
           <h4 className="profileText">Bio: <span>{user && user.user.bio}</span></h4>
-          <button onClick={navToProfileCompletion}>Edit Profile</button>
+          <Button onClick={navToProfileCompletion} variant="outlined">Edit Profile</Button>
         </div>
 
         <div className="userInventoryContainer">
           <div className='inventory_addBtnContainer'>
             <h3>Your Inventory</h3>
-            <button onClick={toAddInventory}>Add Inventory</button>
+            <Button onClick={toAddInventory} variant='contained'>Add Inventory</Button>
           </div>
 
           {user && user.inventory.map((album) => {
@@ -98,9 +98,9 @@ function ProfilePage() {
                   <div className="userInventoryCardButtonContainer">
                     <div className="btnSpacerDiv"></div>
                     <div className="albumCardBtnsDiv">
-                      <button className="cardBtn" onClick={() => (editListing(album.discogs_id))}>Edit</button>
-                      <button className="cardBtn">Suspend</button>
-                      <button className="cardBtn" onClick={() => (deleteListing(album.id))}>Delete</button>
+                      <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="outlined">Edit</Button>
+                      <Button className="cardBtn" variant="outlined">Suspend</Button>
+                      <Button className="cardBtn" variant="outlined" onClick={() => (deleteListing(album.id))}>Delete</Button>
                     </div>
                     <div className="btnSpacerDiv"></div>
                   </div>
