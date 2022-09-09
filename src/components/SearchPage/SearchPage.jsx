@@ -1,6 +1,8 @@
 import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 
 function SearchAlbums() {
@@ -33,32 +35,36 @@ function SearchAlbums() {
   return (
 
     <div>
-      <h2>{searchTerm}</h2>
-      <form onSubmit={() => getMatches()}>
-        <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
-        <button type="submit">Find</button>
-      </form>
+      <div className="searchFormDiv">
+        <h2>{searchTerm}</h2>
+        <form onSubmit={() => getMatches()}>
+          <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
+          <button type="submit">Find</button>
+        </form>
+      </div>
       <br />
-      <div className="resultsContainer">
-        {searchResults.map((album) => {
-          return (
-            <>
-              <div onClick={() => toAlbumDetail(album)}>
-                <img className="searchImage" src={album.album_art} />
-                <div className="apiImageText">
+      {/* <div className="resultsContainer"> */}
+      {searchResults.map((album) => {
+        return (
+          <>
+            <div className="resultsContainer" onClick={() => toAlbumDetail(album)}>
+              <img className="searchImage" src={album.album_art} />
+              <div className="apiImageText">
+                <div className="searchCardText">
                   <div>{album.title}</div>
+                  <div>{album.artist_name}</div>
                   <div>{album.record_label}</div>
-                  <div >{album.published_date}</div>
-
+                  <div>{album.published_date}</div>
                 </div>
               </div>
-            </>
+            </div>
+          </>
 
-          )
-        })
-        }
+        )
+      })
+      }
 
-      </div>
+      {/* </div> */}
     </div>
   );
 }

@@ -122,24 +122,52 @@ Inventory API Images
   /* width: 750px; */
   display: flex;
   flex-wrap: wrap;
- 
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 25px;
+  justify-content: space-between;
 }
 
-.apiImageText {
-  width: 250px;
+.addInventoryForm {
+  margin-right: 100px;
+  margin-left: 100px;
 }
+
+.apiResultCard {
+  max-width:250px;
+  text-align: center;
+  margin-top: 25px;
+  box-shadow: 10px 10px 10px;
+}
+
+/* .apiImageText {
+  width: 250px;
+} */
 
 /* -----------------------------------------------------------------------------------------
 Search Page
 ----------------------------------------------------------------------------------------- */
 
 .searchImage {
-  width: 250px;
+  width: 200px;
 }
 
 .resultsContainer {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap; */
+  margin-left: 100px;
+  width: 200px;
+  box-shadow: 10px 10px 10px;
+  margin-bottom: 15px;
+}
+
+.searchFormDiv {
+  margin-left: 100px;
+  
+}
+
+.searchCardText {
+  text-align: center;
 }
 
 
@@ -147,9 +175,9 @@ Search Page
 User/Inventory Page
 ----------------------------------------------------------------------------------------- */
 
-/* .inventoryImage {
-  max-width: 100px;
-} */
+.inventoryImage {
+  box-shadow: 5px 5px 5px;
+}
 
 .displayContainer {
   display: flex;
@@ -159,7 +187,7 @@ User/Inventory Page
 
 .userProfileContainer {
   width: 40%;
-   padding-left: 100px;
+   margin-left: 100px;
 }
 
 .userInventoryContainer {
@@ -184,9 +212,11 @@ User/Inventory Page
   display: flex;
   border-style: solid;
   margin-top: 20px;
+  max-height: 150px;
   /* padding-top: auto; */
   /* padding-bottom: auto; */
   justify-content: space-between;
+  box-shadow: 10px 10px 10px;
   /* width: 400px; */
 }
 
@@ -249,6 +279,8 @@ User/Inventory Page
 
 .detailPageImage {
   max-width: 250px;
+  box-shadow: 10px 10px 10px;
+  margin-bottom: 25px;
 }
 
 
@@ -301,7 +333,9 @@ User/Inventory Page
   border-style: solid;
   justify-content: space-between;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  box-shadow: 5px 5px 10px;
+
 }
 
 .inventoryImageContainer {
@@ -313,6 +347,7 @@ User/Inventory Page
 }
 
 .inventoryImage {
+  width: 100px;
 }
 
 .artistAlbumContainer {
@@ -341,6 +376,8 @@ User/Inventory Page
 
 .completeDescriptionImage {
   max-width: 250px;
+  margin-bottom: 250x;
+  box-shadow: 10px 10px 10px;
   
 }
 
@@ -359,10 +396,16 @@ User/Inventory Page
 }
 
 .album-Details-Container {
+  margin-top: 40px;
   margin-left: 50px;
 }
 
 .instructionText {
   margin-left: 100px;
   margin-right: 100px;
+}
+
+.albumInfoContainer {
+  margin-bottom: 35px;
+  margin-top: 25px;
 }

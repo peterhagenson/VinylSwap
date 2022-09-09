@@ -52,12 +52,13 @@ function AddInventory() {
   return (
 
     <div>
-
-      <h2>Find The Record You'd Like To Add</h2>
-      <form onSubmit={(e) => getMatches(e)}>
-        <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
-        <button type="submit">Find</button>
-      </form>
+      <div className="addInventoryForm">
+        <h2>Find The Record You'd Like To Add</h2>
+        <form onSubmit={(e) => getMatches(e)}>
+          <input onChange={(event) => (setSearchTerm(event.target.value))} placeholder="artist name or album title" />
+          <button type="submit">Find</button>
+        </form>
+      </div>
 
       <div className="apiResultsContainer">
 
