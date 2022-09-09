@@ -99,11 +99,11 @@ function TemplateFunction() {
           })}
 
         </div>
-        {/* 
-        <p>{trader.albums && trader.albums[0].title}</p>
-        <br />
-        {trader.profile && trader.profile.username}
-        <h2>{JSON.stringify(trader)}</h2> */}
+
+        {/* // <p>{trader.albums && trader.albums[0].title}</p>
+        // <br />
+        // {trader.profile && trader.profile.username} */}
+        {/* <h2>{JSON.stringify(trader.albums)}</h2> */}
 
       </div>
 

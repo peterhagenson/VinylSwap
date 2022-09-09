@@ -337,16 +337,32 @@ User/Inventory Page
 
 
 /* ----------------------------------------- */
-
+ /* completeAddInventory */
 
 .completeDescriptionImage {
-  max-width: 300px;
-}
-
-.editDescriptionContainer {
+  max-width: 250px;
   
 }
 
+.editDescriptionContainer {
+  margin-left: 100px;
+}
+
 .completeAddInventoryContainer {
+  /* display: flex; */
+}
+
+.completeAddInventoryFullDisplay {
   display: flex;
+  margin-left: 100px;
+  /* width: 50% */
+}
+
+.album-Details-Container {
+  margin-left: 50px;
+}
+
+.instructionText {
+  margin-left: 100px;
+  margin-right: 100px;
 }

@@ -77,7 +77,9 @@ function ProfilePage() {
             <h3>Your Inventory</h3>
             <button onClick={toAddInventory}>Add Inventory</button>
           </div>
+
           {user && user.inventory.map((album) => {
+            // if (album.is_active) {}
             return (
               <>
                 <div className="userInventoryCard">
@@ -91,6 +93,7 @@ function ProfilePage() {
                   <div className="userInventoryCardDetails">
                     <p>{album.artist_name}</p>
                     <p>{album.title}</p>
+
                   </div>
                   <div className="userInventoryCardButtonContainer">
                     <div className="btnSpacerDiv"></div>
@@ -106,6 +109,7 @@ function ProfilePage() {
 
               </>
             )
+
           })}
 
         </div>
@@ -114,5 +118,6 @@ function ProfilePage() {
 
   );
 }
+
 
 export default ProfilePage;
