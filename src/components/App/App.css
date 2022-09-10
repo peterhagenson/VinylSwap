@@ -2,6 +2,8 @@ html,
 body,
 #react-root {
   height: 100%;
+  background-color: mintcream;
+  
 }
 
 body {
@@ -195,6 +197,7 @@ Search Page
   box-shadow: 10px 10px 10px;
   margin-bottom: 15px;
   border-radius: 5px;
+  background-color: white;
 }
 
 .searchHeading {
@@ -248,6 +251,7 @@ User/Inventory Page
   justify-content: space-between;
   box-shadow: 10px 10px 10px;
   border-radius: 5px;
+  background-color: white;
   /* width: 400px; */
 }
 
@@ -361,6 +365,7 @@ User/Inventory Page
 }
 
 .traderInventoryCard {
+  background-color: white;
   display: flex;
   /* border-style: solid; */
   justify-content: space-between;

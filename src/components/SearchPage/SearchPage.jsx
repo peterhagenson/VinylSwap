@@ -52,11 +52,11 @@ function SearchAlbums() {
       <div className="searchFormDiv">
         <h2>{searchTerm}</h2>
         <form onSubmit={() => getMatches()}>
-          <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="filled"
-            size="small" style={{ width: 300 }} placeholder="artist name or album title" value={searchTerm} />
+          <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="outlined"
+            size="small" style={{ width: 300, backgroundColor: 'white' }} placeholder="artist name or album title" value={searchTerm} />
           <br />
-          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'purple', borderColor: 'purple' }} type="submit" >Find</Button>
-          <Button variant="outlined" onClick={() => setSearchTerm('')}>Clear</Button>
+          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} type="submit" >Find</Button>
+          <Button variant="outlined" sx={{ color: 'white', backgroundColor: 'black' }} onClick={() => setSearchTerm('')}>Clear</Button>
         </form>
       </div>
       <br />

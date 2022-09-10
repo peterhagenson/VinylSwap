@@ -38,5 +38,6 @@
 }
 
 .navLink:hover {
-  background-color: rgb(180, 101, 180);
+  background-color: mintcream;
+  color: black;
 }
