@@ -56,7 +56,7 @@ function AlbumDetails() {
           <p>Username: <span>{details.username}</span></p>
           <p>City/State: <span>{details.city}, {details.state}</span></p>
           <p>Email: <span>{details.email}</span></p>
-          <Button onClick={() => (toTraderPage(details.user_id))} variant="outlined">Trader Page</Button>
+          <Button onClick={() => (toTraderPage(details.user_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} >Trader Page</Button>
         </div>
       </div>
       <div className="imagesAndMessageContainer">
@@ -65,7 +65,7 @@ function AlbumDetails() {
         </div>
         <div className="messageContainer">
           <div className="messageBox"></div>
-          <Button variant="outlined">Submit</Button>
+          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} >Submit</Button>
         </div>
       </div>
     </div>

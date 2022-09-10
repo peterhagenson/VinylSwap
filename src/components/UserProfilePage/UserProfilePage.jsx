@@ -71,13 +71,13 @@ function ProfilePage() {
           <h4 className="profileText">{user && user.user.city}, {user && user.user.state}</h4>
           <h4 className="profileText">{user && user.user.email}</h4>
           <h4 className="profileText">Bio: <span>{user && user.user.bio}</span></h4>
-          <Button onClick={navToProfileCompletion} variant="outlined">Edit Profile</Button>
+          <Button onClick={navToProfileCompletion} variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Edit Profile</Button>
         </div>
 
         <div className="userInventoryContainer">
           <div className='inventory_addBtnContainer'>
             <h3>Your Inventory</h3>
-            <Button onClick={toAddInventory} variant='contained'>Add Inventory</Button>
+            <Button onClick={toAddInventory} variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Add Inventory</Button>
           </div>
 
           {user && user.inventory.map((album) => {
@@ -100,9 +100,9 @@ function ProfilePage() {
                   <div className="userInventoryCardButtonContainer">
                     <div className="btnSpacerDiv"></div>
                     <div className="albumCardBtnsDiv">
-                      <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="outlined">Edit</Button>
-                      <Button className="cardBtn" variant="outlined">Suspend</Button>
-                      <Button className="cardBtn" variant="outlined" onClick={() => (deleteListing(album.id))}>Delete</Button>
+                      <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small">Edit</Button>
+                      <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small">Suspend</Button>
+                      <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
                     </div>
                     <div className="btnSpacerDiv"></div>
                   </div>
