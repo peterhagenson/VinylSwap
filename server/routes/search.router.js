@@ -12,7 +12,7 @@ router.get('/:searchTerm', (req, res) => {
 
   //const query = `SELECT * FROM "album" WHERE "album".id = 3;`;
   pool.query(query).then(result => {
-   
+
     //function loops through albums and finds those whose title contains the searchTerm. Then adds the matches to searchResults and sends searchResults to search.saga.js
 
     //TODO get user info 
@@ -33,6 +33,18 @@ router.get('/:searchTerm', (req, res) => {
   });
 });
 
+
+router.get('/', (req, res) => {
+  console.log("in getall get");
+  let query = `SELECT * FROM "album";`;
+  pool.query(query)
+    .then(result => {
+      console.log("result", result.rows)
+      res.send(result.rows);
+    }).catch(err => {
+      res.sendStatus(500)
+    });
+})
 /**
  * POST route template
  */
