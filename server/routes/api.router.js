@@ -61,11 +61,40 @@ router.delete('/:id', (req, res) => {
 
 router.put('/', (req, res) => {
   console.log('in router put', req.body)
-  let trueVar = true;
-  query = `UPDATE "album"
-  SET condition = $1, user_description = $2, is_active = 'true'
-  WHERE "album".discogs_id = $3;`;
-  pool.query(query, [req.body.condition, req.body.description, req.body.discogsID])
+  let queryParams = [];
+  const startString = 'UPDATE "album" SET';
+  let conditionString = '';
+  let descriptionString = '';
+  let activeString = "is_active = 'true'";
+  let count = 1;
+
+  if (req.body.condition.length) {
+    queryParams.push(req.body.condition);
+    conditionString = `condition = $${count},`;
+    count++;
+    // } else if (req.body.condition.length) {
+    //   queryParams.push(req.body.condition);
+    //   conditionString = `condition = $${1}`;
+    //   count++;
+  }
+  if (req.body.description.length) {
+    queryParams.push(req.body.description);
+    descriptionString = `user_description = $${count},`;
+    count++;
+  }
+
+  endString = `WHERE discogs_id = $${count}`;
+  queryParams.push(req.body.discogsID);
+
+
+  let query = `${startString} ${conditionString} ${descriptionString} ${activeString} ${endString}`;
+
+  // query = `UPDATE "album"
+  // SET condition = $1, user_description = $2, is_active = 'true'
+  // WHERE "album".discogs_id = $3; `;
+  console.log('chect query and params', query, queryParams)
+  pool.query(query, queryParams)
+    // [req.body.condition, req.body.description, req.body.discogsID]
     .then(result => {
       console.log("update success");
       res.sendStatus(201)

@@ -39,12 +39,18 @@ function inventoryCompletion() {
         discogsID: params.id
       }
     });
-    // history.push('/userProfile')
+    // history.push('userProfile')
+    setAlbumCondition('');
+    setAlbumDescription('');
   }
 
   const resetConditionAndDescription = () => {
     setAlbumCondition('');
     setAlbumDescription('');
+  }
+
+  const toProfile = () => {
+    history.push('/userProfile')
   }
 
 
@@ -91,6 +97,7 @@ function inventoryCompletion() {
           <Button variant="outlined" onClick={resetConditionAndDescription}>Clear</Button>
         </form>
         <br />
+        <Button variant="outlined" onClick={toProfile}>Back To Profile</Button>
       </div>
       {/* {JSON.stringify(album)} */}
     </>
