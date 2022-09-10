@@ -71,8 +71,14 @@ router.put('/', (req, res) => {
   let query = `${startString} ${cityString} ${stateString} ${bioString} ${emailString} ${endString}`;
 
   console.log(query, queryParams);
-  pool.query(query, queryParams);
-
+  pool.query(query, queryParams)
+    .then(result => {
+      console.log("update success");
+      res.sendStatus(201)
+    }).catch(err => {
+      console.log('ERROR IN UPDATE', err);
+      res.sendStatus(500)
+    })
   // pool.query(query, [req.body.city, req.body.state, req.body.bio, req.body.email, req.user.id])
 })
 

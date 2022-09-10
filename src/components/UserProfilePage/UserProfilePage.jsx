@@ -13,6 +13,8 @@ function ProfilePage() {
 
   const history = useHistory();
 
+
+
   const user = useSelector((store) => store.profileReducer.data);
 
 
@@ -27,13 +29,13 @@ function ProfilePage() {
 
   // }
 
-
   useEffect(() => {
     // getProfile();
     dispatch({
       type: "GET_USER"
     });
   }, []);
+
 
   const navToProfileCompletion = () => {
     console.log('clicked');

@@ -4,14 +4,18 @@ import axios from 'axios';
 function* addProfile(action) {
     // console.log("in addProfile", action.payload)
     try {
+        console.log('addProfile payload', action.payload)
         yield axios.put('/profile', action.payload);
+        yield put({ type: 'GET_USER' });
+        // history.push('/userProfile')
+
     } catch {
         console.log("error in post profile")
     }
 }
 
 function* getProfile() {
-    // console.log('in getProfile SAGA');
+    console.log('in getProfile SAGA');
     try {
         const profile = yield axios.get('/profile')
         // console.log('in get pr0file', profile.data);

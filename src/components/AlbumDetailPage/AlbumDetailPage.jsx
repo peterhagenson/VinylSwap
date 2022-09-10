@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { useHistory, useParams } from 'react-router-dom'
+import Button from '@mui/material/Button';
 
 
 
@@ -55,7 +56,7 @@ function AlbumDetails() {
           <p>Username: <span>{details.username}</span></p>
           <p>City/State: <span>{details.city}, {details.state}</span></p>
           <p>Email: <span>{details.email}</span></p>
-          <button onClick={() => (toTraderPage(details.user_id))}>Trader Page</button>
+          <Button onClick={() => (toTraderPage(details.user_id))} variant="outlined">Trader Page</Button>
         </div>
       </div>
       <div className="imagesAndMessageContainer">
@@ -64,7 +65,7 @@ function AlbumDetails() {
         </div>
         <div className="messageContainer">
           <div className="messageBox"></div>
-          <button>Submit</button>
+          <Button variant="outlined">Submit</Button>
         </div>
       </div>
     </div>

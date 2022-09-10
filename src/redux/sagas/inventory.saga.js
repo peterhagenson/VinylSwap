@@ -1,6 +1,9 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
+
+
+
 //fetchAPI saga sends GET request to server for results that match the search term
 //it then sends those results to the apiReducer
 function* fetchAPI(action) {
@@ -42,8 +45,12 @@ function* deleteAlbum(action) {
 }
 
 function* addDescriptors(action) {
+    let discogsId = action.payload.discogsID;
+    console.log("addDescriptors action.payload:", action.payload, discogsId)
     try {
+        // console.lod('params:', params.id)
         yield axios.put('/inventoryAPI', action.payload)
+        yield put({ type: 'FETCH_ALBUM_TO_ADD', payload: discogsId });
     } catch (err) {
         console.error('ERROR IN PUT', err)
     }

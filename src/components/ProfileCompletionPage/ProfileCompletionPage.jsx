@@ -22,7 +22,7 @@ function CompleteProfile() {
   const [state, setState] = useState('');
   const [bio, setBio] = useState('');
 
-  const addProfileInfo = () => {
+  const addProfileInfo = (event) => {
     event.preventDefault();
     console.log(city, state, bio);
     dispatch({
@@ -34,11 +34,10 @@ function CompleteProfile() {
         bio: bio,
       }
     })
-    getProfile();
-    // history.push('/userProfile')
+    history.push('/userProfile')
   }
 
-  const getProfile = () => {
+  const getProfile = (event) => {
     console.log()
     dispatch({
       type: 'GET_USER'
@@ -49,6 +48,8 @@ function CompleteProfile() {
   useEffect(() => {
     getProfile();
   }, []);
+
+
 
   return (
 
@@ -61,7 +62,7 @@ function CompleteProfile() {
 
 
       <br />
-      <form onSubmit={() => addProfileInfo()}>
+      <form onSubmit={addProfileInfo}>
         <input onChange={(event) => setEmail(event.target.value)} placeholder="your email"></input>
         <br />
         <input onChange={(event) => setCity(event.target.value)} placeholder="your city"></input>

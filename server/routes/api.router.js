@@ -66,7 +66,15 @@ router.put('/', (req, res) => {
   SET condition = $1, user_description = $2, is_active = 'true'
   WHERE "album".discogs_id = $3;`;
   pool.query(query, [req.body.condition, req.body.description, req.body.discogsID])
+    .then(result => {
+      console.log("update success");
+      res.sendStatus(201)
+    }).catch(err => {
+      console.log('ERROR IN UPDATE', err);
+      res.sendStatus(500)
+    })
 })
+
 
 
 

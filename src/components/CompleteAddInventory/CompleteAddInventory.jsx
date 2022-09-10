@@ -39,7 +39,7 @@ function inventoryCompletion() {
         discogsID: params.id
       }
     });
-    history.push('/userProfile')
+    // history.push('/userProfile')
   }
 
   const resetConditionAndDescription = () => {
