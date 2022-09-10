@@ -92,7 +92,7 @@ function inventoryCompletion() {
             <MenuItem value={"Poor"}>Poor</MenuItem>
           </Select>
           <br />
-          <TextField onChange={(event) => setAlbumDescription(event.target.value)} variant="outlined" multiline maxRows={4} style={{ width: 400 }} sx={{ backgroundColor: 'white' }} value={description} placeholder="description" />
+          <TextField onChange={(event) => setAlbumDescription(event.target.value)} variant="outlined" multiline maxRows={4} style={{ width: 400 }} value={description} placeholder="description" />
           <br />
           <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} type="submit">Submit</Button>
           <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} onClick={resetConditionAndDescription}>Clear</Button>

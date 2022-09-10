@@ -365,11 +365,14 @@ User/Inventory Page
 
 .traderInventoryCard {
   display: flex;
-  /* border-style: solid; */
+  border-style: solid;
+  border-width: thin;
+  background-color: white;
   justify-content: space-between;
   position: relative;
   margin-bottom: 12px;
   box-shadow: 5px 5px 10px;
+  border-radius: 5px;
 }
 
 .inventoryImageContainer {

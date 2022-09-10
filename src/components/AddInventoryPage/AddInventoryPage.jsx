@@ -57,11 +57,11 @@ function AddInventory() {
       <div className="addInventoryForm">
         <h2>Find The Record You'd Like To Add</h2>
         <form onSubmit={(e) => getMatches(e)}>
-          <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="filled"
-            size="small" style={{ width: 300 }} placeholder="artist name or album title" value={searchTerm} />
+          <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="outlined"
+            size="small" style={{ width: 300 }} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={searchTerm} />
           <br />
-          <Button type="submit" size="small" variant="outlined">Find</Button>
-          <Button onClick={() => setSearchTerm('')} size="small" variant="outlined">Clear</Button>
+          <Button type="submit" variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Find</Button>
+          <Button onClick={() => setSearchTerm('')} variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Clear</Button>
         </form>
       </div>
 
