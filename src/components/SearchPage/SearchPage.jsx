@@ -1,5 +1,5 @@
 import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -15,11 +15,13 @@ function SearchAlbums() {
 
   // searchResults pulls the search results from the store to display on the DOM
   const searchResults = useSelector((store) => store.searchReducer);
+  const allAlbums = useSelector((store) => store.allAlbums)
 
   const [searchTerm, setSearchTerm] = useState('');
 
   // getMatches dispatches the search term to the search.saga.js file
   const getMatches = (event) => {
+
     // console.log('in getMatches', searchTerm);
     dispatch({
       type: 'FETCH_SEARCH_RESULTS',
@@ -33,6 +35,16 @@ function SearchAlbums() {
     console.log("in toAlbumDetail, album id: ", album.id)
     history.push(`/detail/${album.id}`)
   }
+
+  const getAllAlbums = () => {
+    dispatch({
+      type: 'GET_ALL_ALBUMS',
+    })
+  }
+
+  useEffect(() => {
+    getAllAlbums();
+  }, [])
 
   return (
 
@@ -52,6 +64,8 @@ function SearchAlbums() {
       {searchResults.map((album) => {
         return (
           <>
+            <h3 className="searchHeading">Your SearchResults: </h3>
+
             <div className="resultsContainer" onClick={() => toAlbumDetail(album)}>
               <img className="searchImage" src={album.album_art} />
               <div className="apiImageText">
@@ -68,10 +82,33 @@ function SearchAlbums() {
         )
       })
       }
+      <h3 className="searchHeading">Browse All Available Albums: </h3>
+      <div className="allAlbumsContainer">
+        {allAlbums.map((album) => {
+          return (
+            <>
+              <div className="albumCardContainer" onClick={() => toAlbumDetail(album)}>
+                <img className="searchImage" src={album.album_art} />
+                <div className="apiImageText">
+                  <div className="searchCardText">
+                    <div>{album.title}</div>
+                    <div>{album.artist_name}</div>
+                    <div>{album.record_label}</div>
+                    <div>{album.published_date}</div>
+                  </div>
+                </div>
+              </div>
+            </>
 
+          )
+        })
+        }
+      </div>
       {/* </div> */}
     </div>
+
   );
+
 }
 
 export default SearchAlbums;

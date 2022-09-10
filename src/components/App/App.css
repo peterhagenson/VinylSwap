@@ -180,6 +180,26 @@ Search Page
   text-align: center;
 }
 
+.allAlbumsContainer {
+  margin-left: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 100px;
+  /* margin-left: 100px; */
+}
+
+.albumCardContainer {
+  
+  width: 200px;
+  box-shadow: 10px 10px 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.searchHeading {
+  text-align: center;
+}
 
 /* -----------------------------------------------------------------------------------------
 User/Inventory Page
@@ -342,12 +362,11 @@ User/Inventory Page
 
 .traderInventoryCard {
   display: flex;
-  border-style: solid;
+  /* border-style: solid; */
   justify-content: space-between;
   position: relative;
   margin-bottom: 12px;
   box-shadow: 5px 5px 10px;
-
 }
 
 .inventoryImageContainer {
