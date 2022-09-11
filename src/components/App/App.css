@@ -160,6 +160,13 @@ Search Page
   
 }
 
+.allResultsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+  margin-right: 100px;
+}
+
 .resultsContainer {
   /* display: flex;
   flex-wrap: wrap; */

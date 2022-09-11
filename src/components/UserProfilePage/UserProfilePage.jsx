@@ -4,6 +4,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
+
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -13,13 +14,13 @@ function ProfilePage() {
 
   const history = useHistory();
 
-
-
   const user = useSelector((store) => store.profileReducer.data);
 
-
-
   const [heading, setHeading] = useState('Functional Component');
+  //----------------------------------------
+
+
+  //---------------------------------------------
 
   // const getProfile = () => {
   //   // console.log("in getProfile")
@@ -35,6 +36,8 @@ function ProfilePage() {
       type: "GET_USER"
     });
   }, []);
+
+
 
 
   const navToProfileCompletion = () => {
@@ -100,7 +103,7 @@ function ProfilePage() {
                   <div className="userInventoryCardButtonContainer">
                     <div className="btnSpacerDiv"></div>
                     <div className="albumCardBtnsDiv">
-                      <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small">Edit</Button>
+                      <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90, mb: 2 }} size="small">Edit</Button>
                       {/* <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small">Suspend</Button> */}
                       <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
                     </div>

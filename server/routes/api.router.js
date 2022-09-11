@@ -28,14 +28,14 @@ router.get('/:term', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  console.log('in router POST', req.body, req.user)
+  // console.log('in router POST', req.body, req.user)
   let name_title = req.body.title;
   let breakup = name_title.split(' - ');
   let artist_name = breakup[0];
   let title = breakup[1];
-  console.log('test: ', artist_name);
-  console.log('test2: ', title)
-  console.log(name_title);
+  // console.log('test: ', artist_name);
+  // console.log('test2: ', title)
+  // console.log(name_title);
   const query = `INSERT INTO "album" (user_id, title, published_date, record_label, album_art, country, genre, barcode, discogs_id, artist_name) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);`;
   pool.query(query, [req.user.id, title, req.body.year, req.body.label[0], req.body.cover_image, req.body.country, req.body.genre, req.body.barcode, req.body.id, artist_name])
     .then(result => {
@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
 
 // manages deleting inventory items
 router.delete('/:id', (req, res) => {
-  console.log('in router delete', req.params)
+  // console.log('in router delete', req.params)
   const query = `DELETE FROM "album" WHERE id = $1;`;
   pool.query(query, [req.params.id])
     .then(response => {
@@ -60,7 +60,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.put('/', (req, res) => {
-  console.log('in router put', req.body)
+  // console.log('in router put', req.body)
   let queryParams = [];
   const startString = 'UPDATE "album" SET';
   let conditionString = '';
@@ -96,7 +96,7 @@ router.put('/', (req, res) => {
   pool.query(query, queryParams)
     // [req.body.condition, req.body.description, req.body.discogsID]
     .then(result => {
-      console.log("update success");
+      // console.log("update success");
       res.sendStatus(201)
     }).catch(err => {
       console.log('ERROR IN UPDATE', err);

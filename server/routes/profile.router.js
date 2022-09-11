@@ -4,7 +4,7 @@ const router = express.Router();
 const axios = require('axios');
 
 router.put('/', (req, res) => {
-  console.log('in profile router', req.body, req.user.id);
+  // console.log('in profile router', req.body, req.user.id);
   // set query to empty string
 
   // const query = `UPDATE "user" SET 
@@ -70,7 +70,7 @@ router.put('/', (req, res) => {
 
   let query = `${startString} ${cityString} ${stateString} ${bioString} ${emailString} ${endString}`;
 
-  console.log(query, queryParams);
+  // console.log(query, queryParams);
   pool.query(query, queryParams)
     .then(result => {
       console.log("update success");
@@ -98,7 +98,7 @@ router.get('/', (req, res) => {
             user: user[0],
             inventory: inventory
           }
-          console.log(userProfile);
+          // console.log(userProfile);
           res.send(userProfile)
         })
     })

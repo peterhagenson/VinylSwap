@@ -17,6 +17,44 @@ const albumDetailsRouter = require('./routes/details.router');
 const traderRouter = require('./routes/trader.router');
 const albumToAddRouter = require('./routes/albumToAdd.router');
 
+// socket.io
+// const express = require('express');
+// const app = express();
+const http = require("http");
+const { Server } = require("socket.io");
+const cors = require("cors")
+app.use(cors());
+
+const server = http.createServer(app)
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
+
+
+io.on("connection", (socket) => {
+  console.log(`User Connected: ${socket.id}`)
+  socket.broadcast.emit("hello world")
+
+
+  socket.on("join_room", (data) => {
+    //data is the room id
+    console.log("room", data)
+    socket.join(data);
+  })
+
+  socket.on("send_message", (data) => {
+    console.log('this is the data', data);
+    // should be able to send this data to db
+
+    socket.to(data.room).emit("receive_message", data)
+  })
+})
+
+//----------------------------------------
 
 
 
@@ -47,7 +85,11 @@ app.use(express.static('build'));
 // App Set //
 const PORT = process.env.PORT || 5000;
 
-/** Listen * */
+// ** Listen * * /
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
+
+server.listen(3001, () => {
+  console.log("SERVER IS RUNNING")
+})

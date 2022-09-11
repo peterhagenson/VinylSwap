@@ -29,6 +29,7 @@ import TraderPage from '../TraderPage/TraderPage';
 import CompleteAddInventory from '../CompleteAddInventory/CompleteAddInventory';
 
 
+
 import './App.css';
 
 function App() {

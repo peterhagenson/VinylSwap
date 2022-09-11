@@ -21,7 +21,7 @@ router.get('/:searchTerm', (req, res) => {
     let searchResults = [];
     for (result of result.rows) {
       if (result.title.includes(req.params.searchTerm)) {
-        console.log(result);
+        // console.log(result);
         searchResults.push(result)
       }
     }
@@ -35,11 +35,11 @@ router.get('/:searchTerm', (req, res) => {
 
 
 router.get('/', (req, res) => {
-  console.log("in getall get");
+  // console.log("in getall get");
   let query = `SELECT * FROM "album";`;
   pool.query(query)
     .then(result => {
-      console.log("result", result.rows)
+      // console.log("result", result.rows)
       res.send(result.rows);
     }).catch(err => {
       res.sendStatus(500)

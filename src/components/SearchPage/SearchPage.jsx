@@ -61,27 +61,30 @@ function SearchAlbums() {
       </div>
       <br />
       {/* <div className="resultsContainer"> */}
-      {searchResults.map((album) => {
-        return (
-          <>
-            <h3 className="searchHeading">Your SearchResults: </h3>
+      <h3 className="searchHeading">Your SearchResults: </h3>
+      <div className="allResultsContainer">
+        {searchResults.map((album) => {
+          return (
+            <>
 
-            <div className="resultsContainer" onClick={() => toAlbumDetail(album)}>
-              <img className="searchImage" src={album.album_art} />
-              <div className="apiImageText">
-                <div className="searchCardText">
-                  <div>{album.title}</div>
-                  <div>{album.artist_name}</div>
-                  <div>{album.record_label}</div>
-                  <div>{album.published_date}</div>
+
+              <div className="resultsContainer" onClick={() => toAlbumDetail(album)}>
+                <img className="searchImage" src={album.album_art} />
+                <div className="apiImageText">
+                  <div className="searchCardText">
+                    <div>{album.title}</div>
+                    <div>{album.artist_name}</div>
+                    <div>{album.record_label}</div>
+                    <div>{album.published_date}</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </>
+            </>
 
-        )
-      })
-      }
+          )
+        })
+        }
+      </div>
       <h3 className="searchHeading">Browse All Available Albums: </h3>
       <div className="allAlbumsContainer">
         {allAlbums.map((album) => {
