@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
 
 // TODO: use effect that pulls album info to display and put route to add details
 
@@ -79,9 +80,9 @@ function inventoryCompletion() {
       </div>
       <div className="editDescriptionContainer">
         <form onSubmit={updateAlbum}>
-          <label>Select Condition</label>
           <br />
-          <Select onChange={(event) => setAlbumCondition(event.target.value)} style={{ width: 100 }} value={condition} label="Condition">
+          <InputLabel>Condition</InputLabel>
+          <Select onChange={(event) => setAlbumCondition(event.target.value)} sx={{ backgroundColor: 'white' }} style={{ width: 120 }} size="small" value={condition} label="Condition">
             {/* <option>Please Select</option> */}
             <MenuItem value={"Mint"}>Mint</MenuItem>
             <MenuItem value={"Excellent"}>Excellent</MenuItem>
@@ -91,13 +92,13 @@ function inventoryCompletion() {
             <MenuItem value={"Poor"}>Poor</MenuItem>
           </Select>
           <br />
-          <TextField onChange={(event) => setAlbumDescription(event.target.value)} variant="filled" multiline maxRows={4} style={{ width: 400 }} value={description} placeholder="description" />
+          <TextField onChange={(event) => setAlbumDescription(event.target.value)} size="small" variant="outlined" sx={{ backgroundColor: 'white' }} multiline rows={4} style={{ width: 400 }} value={description} placeholder="description" />
           <br />
-          <Button variant="outlined" type="submit">Submit</Button>
-          <Button variant="outlined" onClick={resetConditionAndDescription}>Clear</Button>
+          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} type="submit">Submit</Button>
+          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} onClick={resetConditionAndDescription}>Clear</Button>
         </form>
         <br />
-        <Button variant="outlined" onClick={toProfile}>Back To Profile</Button>
+        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} onClick={toProfile}>Back To Profile</Button>
       </div>
       {/* {JSON.stringify(album)} */}
     </>

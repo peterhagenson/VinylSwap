@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, useHistory } from 'react-router-dom'
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 
 // Basic functional component structure for React with default state
@@ -63,16 +65,16 @@ function CompleteProfile() {
 
       <br />
       <form onSubmit={addProfileInfo}>
-        <input onChange={(event) => setEmail(event.target.value)} placeholder="your email"></input>
+        <TextField onChange={(event) => setEmail(event.target.value)} size="small" sx={{ backgroundColor: 'white' }} placeholder="your email"></TextField>
         <br />
-        <input onChange={(event) => setCity(event.target.value)} placeholder="your city"></input>
+        <TextField onChange={(event) => setCity(event.target.value)} size="small" sx={{ backgroundColor: 'white' }} placeholder="your city"></TextField>
         <br />
-        <input onChange={(event) => setState(event.target.value)} placeholder="your state"></input>
+        <TextField onChange={(event) => setState(event.target.value)} size="small" sx={{ backgroundColor: 'white' }} placeholder="your state"></TextField>
         <br />
-        <textarea onChange={(event) => setBio(event.target.value)} placeholder="your bio"></textarea>
+        <TextField onChange={(event) => setBio(event.target.value)} size="small" sx={{ backgroundColor: 'white' }} variant="outlined" multiline rows={5} style={{ width: 500 }} placeholder="your bio"></TextField>
         <br />
-        <button type="submit">Submit</button>
-        <button>Clear</button>
+        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} type="submit">Submit</Button>
+        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Clear</Button>
       </form>
     </div>
   );

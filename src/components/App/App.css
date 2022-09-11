@@ -2,6 +2,7 @@ html,
 body,
 #react-root {
   height: 100%;
+  background-color: mintcream;
 }
 
 body {
@@ -241,6 +242,7 @@ User/Inventory Page
 .userInventoryCard {
   display: flex;
   border-style: solid;
+  border-width: 1px;
   margin-top: 20px;
   max-height: 150px;
   /* padding-top: auto; */
@@ -248,6 +250,8 @@ User/Inventory Page
   justify-content: space-between;
   box-shadow: 10px 10px 10px;
   border-radius: 5px;
+  background-color: white;
+  min-height: 120px;
   /* width: 400px; */
 }
 
@@ -362,11 +366,14 @@ User/Inventory Page
 
 .traderInventoryCard {
   display: flex;
-  /* border-style: solid; */
+  border-style: solid;
+  border-width: thin;
+  background-color: white;
   justify-content: space-between;
   position: relative;
   margin-bottom: 12px;
   box-shadow: 5px 5px 10px;
+  border-radius: 5px;
 }
 
 .inventoryImageContainer {
