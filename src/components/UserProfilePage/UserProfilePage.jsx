@@ -101,7 +101,7 @@ function ProfilePage() {
                     <div className="btnSpacerDiv"></div>
                     <div className="albumCardBtnsDiv">
                       <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small">Edit</Button>
-                      <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small">Suspend</Button>
+                      {/* <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small">Suspend</Button> */}
                       <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
                     </div>
                     <div className="btnSpacerDiv"></div>

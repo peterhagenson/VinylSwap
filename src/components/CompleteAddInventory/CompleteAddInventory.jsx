@@ -82,7 +82,7 @@ function inventoryCompletion() {
         <form onSubmit={updateAlbum}>
           <br />
           <InputLabel>Condition</InputLabel>
-          <Select onChange={(event) => setAlbumCondition(event.target.value)} sx={{ backgroundColor: 'white' }} style={{ width: 120 }} value={condition} label="Condition">
+          <Select onChange={(event) => setAlbumCondition(event.target.value)} sx={{ backgroundColor: 'white' }} style={{ width: 120 }} size="small" value={condition} label="Condition">
             {/* <option>Please Select</option> */}
             <MenuItem value={"Mint"}>Mint</MenuItem>
             <MenuItem value={"Excellent"}>Excellent</MenuItem>
@@ -92,7 +92,7 @@ function inventoryCompletion() {
             <MenuItem value={"Poor"}>Poor</MenuItem>
           </Select>
           <br />
-          <TextField onChange={(event) => setAlbumDescription(event.target.value)} variant="outlined" multiline maxRows={4} style={{ width: 400 }} value={description} placeholder="description" />
+          <TextField onChange={(event) => setAlbumDescription(event.target.value)} size="small" variant="outlined" sx={{ backgroundColor: 'white' }} multiline rows={4} style={{ width: 400 }} value={description} placeholder="description" />
           <br />
           <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} type="submit">Submit</Button>
           <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} onClick={resetConditionAndDescription}>Clear</Button>
