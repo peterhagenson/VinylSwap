@@ -16,16 +16,32 @@ function Nav() {
         {/* If no user is logged in, show these links */}
         {!user.id && (
           // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
+          <>
+            <Link className="navLink" to="/search">
+              Find Albums
+            </Link>
+
+            <Link className="navLink" to="/login">
+              Login / Register
+            </Link>
+          </>
         )}
+
+
 
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
             <Link className="navLink" to="/user">
               Home
+            </Link>
+
+            <Link className="navLink" to="/search">
+              Find Albums
+            </Link>
+
+            <Link className="navLink" to="/addInventory">
+              Add Inventory
             </Link>
 
             <Link className="navLink" to="/userProfile">
@@ -36,9 +52,7 @@ function Nav() {
           </>
         )}
 
-        <Link className="navLink" to="/search">
-          Find Albums
-        </Link>
+
       </div>
     </div>
   );
