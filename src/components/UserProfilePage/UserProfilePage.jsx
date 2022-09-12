@@ -66,7 +66,7 @@ function ProfilePage() {
 
   return (
 
-    <div>
+    <div >
       <h2 className="userProfilePageTitle">Your Trader Profile</h2>
       <div className="displayContainer">
         <div className="userProfileContainer">
@@ -75,49 +75,87 @@ function ProfilePage() {
           <h4 className="profileText">{user && user.user.email}</h4>
           <h4 className="profileText">Bio: <span>{user && user.user.bio}</span></h4>
           <Button onClick={navToProfileCompletion} variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Edit Profile</Button>
+          <br />
+          <div className="inactiveListings">
+            <h3>Your Inactive Inventory</h3>
+            {user && user.inventory.map((album) => {
+              if (!album.is_active) {
+                return (
+                  <>
+                    <div className="userInventoryCard">
+                      <div className="userInventoryImageContainer">
+                        <div className="spacerDiv"></div>
+                        <div>
+                          <img className="inventoryImage" src={album.album_art} />
+                        </div>
+                        <div className="spacerDiv"></div>
+                      </div>
+                      <div className="userInventoryCardDetails">
+                        <p>{album.artist_name}</p>
+                        <p>{album.title}</p>
+                      </div>
+                      <div className="userInventoryCardButtonContainer">
+                        <div className="btnSpacerDiv"></div>
+                        <div className="albumCardBtnsDiv">
+                          <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90, mb: 1 }} size="small">Edit</Button>
+                          <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90, mb: 1 }} size="small">Activate</Button>
+                          <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
+                        </div>
+                        <div className="btnSpacerDiv"></div>
+                      </div>
+                    </div>
+
+
+                  </>
+                )
+              }
+            })}
+          </div>
+
+
         </div>
 
         <div className="userInventoryContainer">
           <div className='inventory_addBtnContainer'>
-            <h3>Your Inventory</h3>
+            <h3>Your Active Inventory</h3>
             <Button onClick={toAddInventory} variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Add Inventory</Button>
           </div>
 
           {user && user.inventory.map((album) => {
-            // if (album.is_active) {}
-            return (
-              <>
-                <div className="userInventoryCard">
-                  <div className="userInventoryImageContainer">
-                    <div className="spacerDiv"></div>
-                    <div>
-                      <img className="inventoryImage" src={album.album_art} />
+            if (album.is_active) {
+              return (
+                <>
+                  <div className="userInventoryCard">
+                    <div className="userInventoryImageContainer">
+                      <div className="spacerDiv"></div>
+                      <div>
+                        <img className="inventoryImage" src={album.album_art} />
+                      </div>
+                      <div className="spacerDiv"></div>
                     </div>
-                    <div className="spacerDiv"></div>
-                  </div>
-                  <div className="userInventoryCardDetails">
-                    <p>{album.artist_name}</p>
-                    <p>{album.title}</p>
-
-                  </div>
-                  <div className="userInventoryCardButtonContainer">
-                    <div className="btnSpacerDiv"></div>
-                    <div className="albumCardBtnsDiv">
-                      <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90, mb: 2 }} size="small">Edit</Button>
-                      {/* <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small">Suspend</Button> */}
-                      <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
+                    <div className="userInventoryCardDetails">
+                      <p>{album.artist_name}</p>
+                      <p>{album.title}</p>
                     </div>
-                    <div className="btnSpacerDiv"></div>
+                    <div className="userInventoryCardButtonContainer">
+                      <div className="btnSpacerDiv"></div>
+                      <div className="albumCardBtnsDiv">
+                        <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90, mb: 1 }} size="small">Edit</Button>
+                        <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90, mb: 1 }} size="small">Suspend</Button>
+                        <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
+                      </div>
+                      <div className="btnSpacerDiv"></div>
+                    </div>
                   </div>
-                </div>
 
 
-              </>
-            )
-
+                </>
+              )
+            }
           })}
 
         </div>
+
       </div>
     </div >
 

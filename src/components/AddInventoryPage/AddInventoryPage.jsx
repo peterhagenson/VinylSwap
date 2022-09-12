@@ -60,8 +60,8 @@ function AddInventory() {
           <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="outlined"
             size="small" style={{ width: 300 }} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={searchTerm} />
           <br />
-          <Button type="submit" variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Find</Button>
-          <Button onClick={() => setSearchTerm('')} variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Clear</Button>
+          <Button type="submit" variant="contained" sx={{ color: 'white', backgroundColor: 'black', mt: 2, mr: 1 }}>Find</Button>
+          <Button onClick={() => setSearchTerm('')} variant="contained" sx={{ color: 'white', backgroundColor: 'black', mt: 2, ml: 1 }}>Clear</Button>
         </form>
       </div>
 

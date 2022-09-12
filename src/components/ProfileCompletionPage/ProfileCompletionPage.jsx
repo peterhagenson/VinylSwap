@@ -55,7 +55,7 @@ function CompleteProfile() {
 
   return (
 
-    <div>
+    <div className="pageContainer">
       <h2>Please Complete/Edit Your User Profile</h2>
       <p>Username: {profile.data && profile.data.user.username}</p>
       <p>email: {profile.data && profile.data.user.email}</p>
@@ -65,16 +65,16 @@ function CompleteProfile() {
 
       <br />
       <form onSubmit={addProfileInfo}>
-        <TextField onChange={(event) => setEmail(event.target.value)} size="small" sx={{ backgroundColor: 'white' }} placeholder="your email"></TextField>
+        <TextField onChange={(event) => setEmail(event.target.value)} size="small" sx={{ backgroundColor: 'white', mb: 2 }} placeholder="your email"></TextField>
         <br />
-        <TextField onChange={(event) => setCity(event.target.value)} size="small" sx={{ backgroundColor: 'white' }} placeholder="your city"></TextField>
+        <TextField onChange={(event) => setCity(event.target.value)} size="small" sx={{ backgroundColor: 'white', mb: 2 }} placeholder="your city"></TextField>
         <br />
-        <TextField onChange={(event) => setState(event.target.value)} size="small" sx={{ backgroundColor: 'white' }} placeholder="your state"></TextField>
+        <TextField onChange={(event) => setState(event.target.value)} size="small" sx={{ backgroundColor: 'white', mb: 2 }} placeholder="your state"></TextField>
         <br />
-        <TextField onChange={(event) => setBio(event.target.value)} size="small" sx={{ backgroundColor: 'white' }} variant="outlined" multiline rows={5} style={{ width: 500 }} placeholder="your bio"></TextField>
+        <TextField onChange={(event) => setBio(event.target.value)} size="small" sx={{ backgroundColor: 'white', mb: 2 }} variant="outlined" multiline rows={5} style={{ width: 500 }} placeholder="your bio"></TextField>
         <br />
-        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} type="submit">Submit</Button>
-        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Clear</Button>
+        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', mr: 1 }} type="submit">Submit</Button>
+        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', ml: 1 }}>Clear</Button>
       </form>
     </div>
   );

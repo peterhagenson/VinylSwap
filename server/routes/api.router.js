@@ -33,11 +33,14 @@ router.post('/', (req, res) => {
   let breakup = name_title.split(' - ');
   let artist_name = breakup[0];
   let title = breakup[1];
+  // let genre = req.body.genre;
+
+  // console.log(genre.toString());
   // console.log('test: ', artist_name);
   // console.log('test2: ', title)
   // console.log(name_title);
   const query = `INSERT INTO "album" (user_id, title, published_date, record_label, album_art, country, genre, barcode, discogs_id, artist_name) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);`;
-  pool.query(query, [req.user.id, title, req.body.year, req.body.label[0], req.body.cover_image, req.body.country, req.body.genre, req.body.barcode, req.body.id, artist_name])
+  pool.query(query, [req.user.id, title, req.body.year, req.body.label[0], req.body.cover_image, req.body.country, req.body.genre.toString(), req.body.barcode, req.body.id, artist_name])
     .then(result => {
       res.sendStatus(201);
     }).catch(err => {

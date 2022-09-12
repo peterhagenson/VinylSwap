@@ -53,11 +53,11 @@ function SearchAlbums() {
       <div className="searchFormDiv">
         <h2>{searchTerm}</h2>
         <form onSubmit={() => getMatches()}>
-          <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="filled"
-            size="small" style={{ width: 300 }} placeholder="artist name or album title" value={searchTerm} />
+          <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="outlined"
+            size="small" style={{ width: 300 }} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={searchTerm} />
           <br />
-          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} type="submit" >Find</Button>
-          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} onClick={() => setSearchTerm('')}>Clear</Button>
+          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', mt: 2, mr: 1 }} type="submit" >Find</Button>
+          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', mt: 2, ml: 1 }} onClick={() => setSearchTerm('')}>Clear</Button>
         </form>
       </div>
       <br />
@@ -65,46 +65,51 @@ function SearchAlbums() {
       <h3 className="searchHeading">Your SearchResults: </h3>
       <div className="allResultsContainer">
         {searchResults.map((album) => {
-          return (
-            <>
+          if (album.is_active) {
+            return (
+              <>
 
 
-              <div className="resultsContainer" onClick={() => toAlbumDetail(album)}>
-                <img className="searchImage" src={album.album_art} />
-                <div className="apiImageText">
-                  <div className="searchCardText">
-                    <div>{album.title}</div>
-                    <div>{album.artist_name}</div>
-                    <div>{album.record_label}</div>
-                    <div>{album.published_date}</div>
+                <div className="resultsContainer" onClick={() => toAlbumDetail(album)}>
+                  <img className="searchImage" src={album.album_art} />
+                  <div className="apiImageText">
+                    <div className="searchCardText">
+                      <div>{album.title}</div>
+                      <div>{album.artist_name}</div>
+                      <div>{album.record_label}</div>
+                      <div>{album.published_date}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </>
+              </>
 
-          )
+            )
+          }
         })
         }
       </div>
       <h3 className="searchHeading">Browse All Available Albums: </h3>
       <div className="allAlbumsContainer">
+
         {allAlbums.map((album) => {
-          return (
-            <>
-              <div className="albumCardContainer" onClick={() => toAlbumDetail(album)}>
-                <img className="searchImage" src={album.album_art} />
-                <div className="apiImageText">
-                  <div className="searchCardText">
-                    <div>{album.title}</div>
-                    <div>{album.artist_name}</div>
-                    <div>{album.record_label}</div>
-                    <div>{album.published_date}</div>
+          if (album.is_active) {
+            return (
+              <>
+                <div className="albumCardContainer" onClick={() => toAlbumDetail(album)}>
+                  <img className="searchImage" src={album.album_art} />
+                  <div className="apiImageText">
+                    <div className="searchCardText">
+                      <div>{album.title}</div>
+                      <div>{album.artist_name}</div>
+                      <div>{album.record_label}</div>
+                      <div>{album.published_date}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </>
+              </>
 
-          )
+            )
+          }
         })
         }
       </div>

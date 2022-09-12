@@ -60,42 +60,44 @@ function TemplateFunction() {
         <div className="traderInventoryContainer">
           <h3>Trader Inventory</h3>
           {trader.albums && trader.albums.map((album) => {
-            return (
-              <>
-                <div onClick={() => toAlbumDetail(album)} className="traderInventoryCard">
-                  <div className="inventoryImageContainer">
-                    <div></div>
-                    <img className="inventoryImage" src={album.album_art} />
-                    <div></div>
-                  </div>
-                  <div className="artistAlbumContainer">
-                    <div></div>
-                    <div>
-                      <p>Artist/Album:</p>
-                      <p>{album.artist_name}</p>
-                      <p>{album.title}</p>
+            if (album.is_active) {
+              return (
+                <>
+                  <div onClick={() => toAlbumDetail(album)} className="traderInventoryCard">
+                    <div className="inventoryImageContainer">
+                      <div></div>
+                      <img className="inventoryImage" src={album.album_art} />
+                      <div></div>
                     </div>
-                    <div></div>
-                  </div>
-                  <div lassName="publishedYearContainer">
-                    <div className="spacerDiv"></div>
-                    <div>
-                      <p>Published:</p>
-                      <p>{album.published_date}</p>
+                    <div className="artistAlbumContainer">
+                      <div></div>
+                      <div>
+                        <p>Artist/Album:</p>
+                        <p>{album.artist_name}</p>
+                        <p>{album.title}</p>
+                      </div>
+                      <div></div>
                     </div>
-                    <div className="spacerDiv"></div>
-                  </div>
-                  <div lassName="conditionContainer">
-                    <p>Condition:</p>
-                    <p>{album.condition}</p>
-                  </div>
-                  <div>
+                    <div lassName="publishedYearContainer">
+                      <div className="spacerDiv"></div>
+                      <div>
+                        <p>Published:</p>
+                        <p>{album.published_date}</p>
+                      </div>
+                      <div className="spacerDiv"></div>
+                    </div>
+                    <div lassName="conditionContainer">
+                      <p>Condition:</p>
+                      <p>{album.condition}</p>
+                    </div>
+                    <div>
 
+                    </div>
                   </div>
-                </div>
 
-              </>
-            )
+                </>
+              )
+            }
           })}
 
         </div>

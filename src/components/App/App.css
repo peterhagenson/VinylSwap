@@ -175,6 +175,7 @@ Search Page
   box-shadow: 10px 10px 10px;
   margin-bottom: 15px;
   border-radius: 5px;
+  border: solid;
 }
 
 .searchFormDiv {
@@ -186,6 +187,7 @@ Search Page
 
 .searchCardText {
   text-align: center;
+  background-color: white;
 }
 
 .allAlbumsContainer {
@@ -203,6 +205,8 @@ Search Page
   box-shadow: 10px 10px 10px;
   margin-bottom: 15px;
   border-radius: 5px;
+  border: solid thin;
+
 }
 
 .searchHeading {
@@ -224,13 +228,18 @@ User/Inventory Page
 }
 
 .userProfileContainer {
-  width: 40%;
+  width: 45%;
    margin-left: 100px;
+   margin-right: 40px;
 }
 
 .userInventoryContainer {
-  width: 60%;
+  width: 55%;
   padding-right: 100px; 
+}
+
+.inactiveListings {
+  margin-top: 40px
 }
 
 .profileText {
@@ -273,6 +282,8 @@ User/Inventory Page
 
 .userInventoryCardDetails {
   width: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
   text-align: center;
 }
 
@@ -284,8 +295,9 @@ User/Inventory Page
 .albumCardBtnsDiv {
   display: flex;
   flex-direction: column;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-right: 15px;
+  
   
 }
 
@@ -455,4 +467,12 @@ User/Inventory Page
 .albumInfoContainer {
   margin-bottom: 35px;
   margin-top: 25px;
+}
+
+/* ----------------------------------
+Profile Completion */
+
+.pageContainer {
+  margin-left: 100px;
+  margin-right: 100px;
 }
