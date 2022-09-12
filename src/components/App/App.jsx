@@ -80,6 +80,16 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+          {/* <ProtectedRoute
+
+            exact
+            path="/detail/:id">
+
+            <AlbumDetailPage />
+          </ProtectedRoute> */}
+
+
+
           <Route
             exact
             path="/login"
@@ -122,27 +132,27 @@ function App() {
             }
 
           </Route>
-          <Route path="/addInventory">
+          <ProtectedRoute exact path="/addInventory">
             <AddInventoryPage />
-          </Route>
-          <Route path="/completeAddInventory/:id">
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/completeAddInventory/:id">
             <CompleteAddInventory />
-          </Route>
+          </ProtectedRoute>
           <Route path="/search">
             <SearchPage />
           </Route>
-          <Route path="/detail/:id">
+          <ProtectedRoute path="/detail/:id">
             <AlbumDetailPage />
-          </Route>
-          <Route path="/traderPage/:id">
+          </ProtectedRoute>
+          <ProtectedRoute path="/traderPage/:id">
             <TraderPage />
-          </Route>
-          <Route path="/profileCompletion">
+          </ProtectedRoute>
+          <ProtectedRoute path="/profileCompletion">
             <ProfileCompletionPage />
-          </Route>
-          <Route path="/userProfile">
+          </ProtectedRoute>
+          <ProtectedRoute path="/userProfile">
             <UserProfilePage />
-          </Route>
+          </ProtectedRoute>
           <Route path="/welcome">
             <WelcomePage />
           </Route>

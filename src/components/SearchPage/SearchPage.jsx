@@ -22,6 +22,7 @@ function SearchAlbums() {
   // getMatches dispatches the search term to the search.saga.js file
   const getMatches = (event) => {
 
+
     // console.log('in getMatches', searchTerm);
     dispatch({
       type: 'FETCH_SEARCH_RESULTS',
