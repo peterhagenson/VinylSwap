@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  console.log('in get messages router')
+  // console.log('in get messages router')
   let query = `SELECT * FROM "thread"
   WHERE recipient_user_id = $1 OR sender_user_id = $1
   ORDER BY album_id, time_stamp DESC;`;

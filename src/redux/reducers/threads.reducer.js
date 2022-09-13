@@ -1,4 +1,4 @@
-const messages = (state = [], action) => {
+const threads = (state = [], action) => {
     switch (action.type) {
         case 'SET_MESSAGES':
             return action.payload;
@@ -7,4 +7,4 @@ const messages = (state = [], action) => {
     }
 }
 
-export default messages;
+export default threads;

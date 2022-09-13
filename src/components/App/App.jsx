@@ -27,7 +27,7 @@ import AlbumDetailPage from '../AlbumDetailPage/AlbumDetailPage';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import TraderPage from '../TraderPage/TraderPage';
 import CompleteAddInventory from '../CompleteAddInventory/CompleteAddInventory';
-import Messages from '../Messages/Messages';
+import Threads from '../Threads/Threads';
 
 
 
@@ -157,8 +157,8 @@ function App() {
           <Route exact path="/welcome">
             <WelcomePage />
           </Route>
-          <ProtectedRoute exact path="/messages">
-            <Messages />
+          <ProtectedRoute exact path="/threads">
+            <Threads />
           </ProtectedRoute>
 
 
