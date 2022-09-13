@@ -4,8 +4,10 @@ import { useEffect } from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { useHistory, useParams } from 'react-router-dom'
 import Button from '@mui/material/Button';
-import { io } from "socket.io-client";
-const socket = io.connect("http://localhost:3001");
+import TextField from '@mui/material/TextField';
+
+// import { io } from "socket.io-client";
+// const socket = io.connect("http://localhost:3001");
 
 
 
@@ -15,49 +17,50 @@ const socket = io.connect("http://localhost:3001");
 function AlbumDetails() {
 
 
-  // useEffect(() => {
-  //   getDetail();
-  // }, []);
+  useEffect(() => {
+    getDetail();
+  }, []);
 
   const params = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
 
   const details = useSelector((store) => store.albumDetails);
+  const [message, setMessage] = useState('');
   // const [heading, setHeading] = useState('Functional Component');
 
   //---------------------------------
   // //Room State
-  const [room, setRoom] = useState("");
+  // const [room, setRoom] = useState("");
 
-  // //Message States
-  const [message, setMessage] = useState("");
-  const [messageReceived, setMessageReceived] = useState("");
+  // // //Message States
+  // const [message, setMessage] = useState("");
+  // const [messageReceived, setMessageReceived] = useState("");
 
 
-  const joinRoom = () => {
-    if (room !== "") {
-      socket.emit("join_room", room)
-    }
-  }
+  // const joinRoom = () => {
+  //   if (room !== "") {
+  //     socket.emit("join_room", room)
+  //   }
+  // }
 
-  const sendMessage = () => {
-    console.log("in sendMessage", message, room)
-    socket.emit("send_message", { message, room });
-  };
+  // const sendMessage = () => {
+  //   console.log("in sendMessage", message, room)
+  //   socket.emit("send_message", { message, room, details });
+  // };
 
-  useEffect(() => {
-    getDetail();
-    socket.on("receive_message", (data) => {
-      setMessageReceived(data.message);
-    })
-  }, [socket])
+  // useEffect(() => {
+  //   getDetail();
+  //   socket.on("receive_message", (data) => {
+  //     setMessageReceived(data.message);
+  //   })
+  // }, [socket])
 
   //-----------------------------------
 
 
   const getDetail = () => {
-    // console.log("in getDetail", params.id)
+    console.log("in getDetail")
     dispatch({
       type: 'GET_DETAILS',
       payload: params.id
@@ -67,6 +70,23 @@ function AlbumDetails() {
   const toTraderPage = (id) => {
     console.log('in toTraderPage', id);
     history.push(`/traderPage/${id}`)
+  }
+
+  const sendMessage = (event) => {
+    event.preventDefault();
+    let code = Math.floor(Math.random() * 100) + 1;
+    console.log('in send message', message)
+    dispatch({
+      type: 'SEND_MESSAGE',
+      payload: {
+        message: message,
+        albumId: details.id,
+        recipientId: details.user_id,
+        code: code
+      }
+
+    })
+
   }
 
 
@@ -96,7 +116,10 @@ function AlbumDetails() {
           <img className="detailPageImage" src={details.album_art} />
         </div>
         <div className="messageContainer">
-          <div className="App">
+          <h3>Message Trader About This Album:</h3>
+          <form onSubmit={sendMessage}>
+            <TextField onChange={(event) => setMessage(event.target.value)} sx={{ backgroundColor: 'white', mb: 2 }} variant="outlined" multiline rows={5} style={{ width: 500 }} placeholder="your message"></TextField>
+            {/* <div className="App">
             <input onChange={(event) => (setRoom(event.target.value))} placeholder="room number" />
             <button onClick={joinRoom}>Join Room</button>
             <br />
@@ -105,10 +128,14 @@ function AlbumDetails() {
             <h1>Message:</h1>
             {messageReceived}
             {room}
+             
 
-          </div>
-          <div className="messageBox"></div>
-          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} >Submit</Button>
+          </div> */}
+
+            <Button type="submit" variant="contained" sx={{ color: 'white', backgroundColor: 'black', mr: 1 }} >Send</Button>
+            <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', ml: 1 }} >Clear</Button>
+          </form>
+          {JSON.stringify(details)}
         </div>
       </div>
     </div>

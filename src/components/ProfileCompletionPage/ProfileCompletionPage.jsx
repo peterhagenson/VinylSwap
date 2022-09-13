@@ -40,7 +40,7 @@ function CompleteProfile() {
   }
 
   const getProfile = (event) => {
-    console.log()
+
     dispatch({
       type: 'GET_USER'
     })

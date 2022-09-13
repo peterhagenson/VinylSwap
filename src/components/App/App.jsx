@@ -27,6 +27,7 @@ import AlbumDetailPage from '../AlbumDetailPage/AlbumDetailPage';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import TraderPage from '../TraderPage/TraderPage';
 import CompleteAddInventory from '../CompleteAddInventory/CompleteAddInventory';
+import Messages from '../Messages/Messages';
 
 
 
@@ -138,24 +139,27 @@ function App() {
           <ProtectedRoute exact path="/completeAddInventory/:id">
             <CompleteAddInventory />
           </ProtectedRoute>
-          <Route path="/search">
+          <Route exact path="/search">
             <SearchPage />
           </Route>
-          <ProtectedRoute path="/detail/:id">
+          <ProtectedRoute exact path="/detail/:id">
             <AlbumDetailPage />
           </ProtectedRoute>
-          <ProtectedRoute path="/traderPage/:id">
+          <ProtectedRoute exact path="/traderPage/:id">
             <TraderPage />
           </ProtectedRoute>
-          <ProtectedRoute path="/profileCompletion">
+          <ProtectedRoute exact path="/profileCompletion">
             <ProfileCompletionPage />
           </ProtectedRoute>
-          <ProtectedRoute path="/userProfile">
+          <ProtectedRoute exact path="/userProfile">
             <UserProfilePage />
           </ProtectedRoute>
-          <Route path="/welcome">
+          <Route exact path="/welcome">
             <WelcomePage />
           </Route>
+          <ProtectedRoute exact path="/messages">
+            <Messages />
+          </ProtectedRoute>
 
 
 

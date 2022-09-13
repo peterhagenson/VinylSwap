@@ -5,9 +5,10 @@ import apiReducer from './api.reducer'
 import searchReducer from './search.reducer';
 import profileReducer from './profile.reducer';
 import albumDetails from './detail.reducer.js';
-import traderReducer from './trader.reducer.js'
-import albumToAdd from './albumToAdd.reducer.js'
-import allAlbums from './allAlbums.reducer.js'
+import traderReducer from './trader.reducer.js';
+import albumToAdd from './albumToAdd.reducer.js';
+import allAlbums from './allAlbums.reducer.js';
+import messages from './messages.reducer.js';
 
 
 // import userInventoryReducer from './userInventory.reducer'
@@ -27,7 +28,8 @@ const rootReducer = combineReducers({
   albumDetails,
   traderReducer,
   albumToAdd,
-  allAlbums
+  allAlbums,
+  messages
 
   // userInventoryReducer,
 });
