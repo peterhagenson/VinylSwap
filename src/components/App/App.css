@@ -476,3 +476,22 @@ Profile Completion */
   margin-left: 100px;
   margin-right: 100px;
 }
+
+/* -------------------------- */
+.threadCard {
+display: flex;
+border-style: solid;
+border-width: thin;
+background-color: white;
+justify-content: space-between;
+position: relative;
+margin-bottom: 12px;
+box-shadow: 5px 5px 10px;
+border-radius: 5px;
+max-width: 700px;
+}
+
+.threadImage {
+  width: 100px;
+  border-radius: 5px;
+}

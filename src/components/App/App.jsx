@@ -28,6 +28,7 @@ import WelcomePage from '../WelcomePage/WelcomePage';
 import TraderPage from '../TraderPage/TraderPage';
 import CompleteAddInventory from '../CompleteAddInventory/CompleteAddInventory';
 import Threads from '../Threads/Threads';
+import Messages from '../Messages/Messages';
 
 
 
@@ -159,6 +160,9 @@ function App() {
           </Route>
           <ProtectedRoute exact path="/threads">
             <Threads />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/messages/:id">
+            <Messages />
           </ProtectedRoute>
 
 

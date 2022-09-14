@@ -6,14 +6,25 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  // console.log('in get messages router')
-  let query = `SELECT * FROM "thread"
-  WHERE recipient_user_id = $1 OR sender_user_id = $1
-  ORDER BY album_id, time_stamp DESC;`;
+  console.log('in get messages router')
+  // let query = `SELECT * FROM "thread"
+  // WHERE recipient_user_id = $1 OR sender_user_id = $1
+  // ORDER BY album_id, time_stamp DESC;`;
+
+  let query = `SELECT "thread".code, "thread".album_id, "album".title, "album".artist_name, "album".album_art, MAX("thread".time_stamp) FROM "thread" 
+  JOIN "album"
+  ON "thread".album_id = "album".id
+  WHERE recipient_user_id = $1 OR sender_user_id = $1 
+  GROUP BY "thread".code, "thread".album_id , "album".title, "album".album_art, "album".artist_name ORDER BY max DESC;`;
+
+
+  // `SELECT code, album_id,  MAX(time_stamp) FROM "thread" 
+  // WHERE recipient_user_id = $1 OR sender_user_id = $1 
+  // GROUP BY code, album_id ORDER BY max ASC;`;
 
   pool.query(query, [req.user.id])
     .then(result => {
-      console.log(result.rows)
+      console.log("result", result.rows)
       res.send(result.rows)
     }).catch(err => {
       console.log(err);
