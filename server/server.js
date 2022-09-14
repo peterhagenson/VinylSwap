@@ -17,7 +17,8 @@ const profileRouter = require('./routes/profile.router');
 const albumDetailsRouter = require('./routes/details.router');
 const traderRouter = require('./routes/trader.router');
 const albumToAddRouter = require('./routes/albumToAdd.router');
-const messageRouter = require('./routes/message.router');
+const threadsRouter = require('./routes/threads.router');
+const messagesRouter = require('./routes/messages.router.js');
 
 // socket.io
 // const express = require('express');
@@ -91,7 +92,8 @@ app.use('/profile', profileRouter);
 app.use('/details', albumDetailsRouter);
 app.use('/trader', traderRouter);
 app.use('/albumToAdd', albumToAddRouter);
-app.use('/message', messageRouter);
+app.use('/threads', threadsRouter);
+app.use('/messages', messagesRouter);
 
 // Serve static files
 app.use(express.static('build'));

@@ -495,3 +495,12 @@ max-width: 700px;
   width: 100px;
   border-radius: 5px;
 }
+
+/* ----------messages------------ */
+.messageDiv {
+  max-width: 200px;
+  background-color: white;
+  border: solid;
+  border-width: thin;
+  border-radius: 5px;
+}

@@ -1,10 +1,10 @@
-const threads = (state = [], action) => {
+const messagesReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_THREADS':
+        case 'SET_MESSAGES':
             return action.payload;
         default:
             return state;
     }
 }
 
-export default threads;
+export default messagesReducer;

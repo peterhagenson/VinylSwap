@@ -9,6 +9,7 @@ import traderReducer from './trader.reducer.js';
 import albumToAdd from './albumToAdd.reducer.js';
 import allAlbums from './allAlbums.reducer.js';
 import threads from './threads.reducer.js';
+import messagesReducer from './messages.reducer.js';
 
 
 // import userInventoryReducer from './userInventory.reducer'
@@ -29,7 +30,8 @@ const rootReducer = combineReducers({
   traderReducer,
   albumToAdd,
   allAlbums,
-  threads
+  threads,
+  messagesReducer
 
   // userInventoryReducer,
 });
