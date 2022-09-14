@@ -25,16 +25,21 @@ function Messages() {
   }
 
   const sendMessage = (event) => {
-    dispatch({
-      type: 'SEND_MESSAGE',
-      payload: {
-        message: newMessage,
-        albumId: messages[0].id,
-        // recipientId: details.user_id,
-        code: messages[0].code
-      }
+    //make a separate route for this!!!!
 
-    })
+
+    // dispatch({
+    //   type: 'SEND_MESSAGE',
+    //   payload: {
+    //     message: newMessage,
+    //     albumId: messages[0].id,
+    //     //id of previous recipient
+    //     recipientId: messages[0].recipient_user_id,
+    //     //id of previous sender
+    //     senderId: messages[0].sender_user_id,
+    //     code: messages[0].code
+    //   }
+    // })
   }
 
   useEffect(() => {

@@ -27,6 +27,8 @@ router.get('/:code', (req, res) => {
  */
 router.post('/', (req, res) => {
   console.log('in message post')
+  //DONT DO THIS JUST MAKE A ROUTE
+  // if req.user.id is same as req.body.sender_user_id (from last message), then recipient_user_id will be recipient_user_id, else if req.user.id is not same as req.body.sender_user_id, then sender_user_id will be req.body.recipient_user_id and recipient_user_id will be req.body.sender_user_id
   console.log(req.user.id)
   console.log(req.body)
   let query = `INSERT INTO "thread" (sender_user_id, recipient_user_id, album_id, message, code)
