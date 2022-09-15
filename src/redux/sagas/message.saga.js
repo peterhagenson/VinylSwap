@@ -31,10 +31,21 @@ function* getMessages(action) {
     }
 }
 
+function* sendResponse(action) {
+    console.log('in sendResponse', action.payload);
+    try {
+        yield axios.post('/messages/response', action.payload);
+    } catch {
+        console.log("ERROR IN SEND RESPONSE");
+    }
+}
+
 function* messageSaga() {
     yield takeLatest('SEND_MESSAGE', sendMessage);
     yield takeLatest('GET_THREADS', getThreads);
-    yield takeLatest('GET_MESSAGES', getMessages)
+    yield takeLatest('GET_MESSAGES', getMessages);
+    yield takeLatest('SEND_RESPONSE', sendResponse);
+
 }
 
 export default messageSaga;
