@@ -46,6 +46,14 @@ function Threads(props) {
     history.push(`/messages/${code}`);
   }
 
+  const formatDate = (date) => {
+    // let formattedDate = new Date(date).toLocaleString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
+    let formattedDate = new Date(date).toLocaleString('en-us', { timeZone: 'CST' });
+    console.log('formatted date', formattedDate)
+    return formattedDate;
+
+  }
+
   return (
     <div>
       {/* {JSON.stringify(threads)} */}
@@ -75,7 +83,7 @@ function Threads(props) {
                 <div className="threadSpacerDiv"></div>
                 <div>
                   <p>Most Recent Message:</p>
-                  <p>{thread.max}</p>
+                  <p>{formatDate(thread.max)}</p>
                 </div>
                 <div className="threadSpacerDiv"></div>
               </div>

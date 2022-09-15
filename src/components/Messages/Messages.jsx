@@ -14,6 +14,7 @@ function Messages() {
   const dispatch = useDispatch();
 
   const messages = useSelector((store) => store.messagesReducer);
+  const user = useSelector((store) => store.user);
   const [newMessage, setNewMessage] = useState('')
 
   const getMessages = () => {
@@ -52,7 +53,7 @@ function Messages() {
   return (
     <div>
       <h2>Messages</h2>
-      {/* {JSON.stringify(messages)} */}
+      {JSON.stringify(messages)}
       <form onSubmit={sendMessage}>
         <TextField onChange={(event) => (setNewMessage(event.target.value))} variant="outlined"
           size="small" style={{ width: 300 }} multiline rows={4} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={newMessage} />
@@ -61,7 +62,7 @@ function Messages() {
       {messages.map((message) => {
         return (
           <>
-            <div className="messageDiv">
+            <div className={`messageDiv ${user.id === message.sender_user_id ? "leftAlign" : "rightAlign"}`}>
               <p>Sender: {message.sender}</p>
               <p>{message.message} </p>
             </div>
