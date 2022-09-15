@@ -48,7 +48,7 @@ function Threads(props) {
 
   return (
     <div>
-      {JSON.stringify(threads)}
+      {/* {JSON.stringify(threads)} */}
       <br />
       <h3>Your Message Threads:</h3>
       {threads && threads.map((thread) => {

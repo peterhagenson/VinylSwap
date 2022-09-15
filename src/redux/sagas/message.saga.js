@@ -34,7 +34,10 @@ function* getMessages(action) {
 function* sendResponse(action) {
     console.log('in sendResponse', action.payload);
     try {
+        let code = action.payload.code;
         yield axios.post('/messages/response', action.payload);
+        yield put({ type: 'GET_MESSAGES', payload: code })
+        console.log('code', code);
     } catch {
         console.log("ERROR IN SEND RESPONSE");
     }

@@ -27,6 +27,7 @@ function AddInventory() {
       type: 'GET_SEARCH_RESULTS',
       payload: searchTerm
     })
+    setSearchTerm('');
   };
 
   // sends the chosen album to the albumToAdd reducer  and directs user to the CompleteAddInventory page

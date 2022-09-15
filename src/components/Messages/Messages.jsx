@@ -32,7 +32,7 @@ function Messages() {
       type: 'SEND_RESPONSE',
       payload: {
         message: newMessage,
-        albumId: messages[0].id,
+        albumId: messages[0].album_id,
         //id of previous recipient
         prevRecipientId: messages[0].recipient_user_id,
         //id of previous sender
@@ -40,6 +40,7 @@ function Messages() {
         code: messages[0].code
       }
     })
+    setNewMessage('');
   }
 
   useEffect(() => {
@@ -50,8 +51,8 @@ function Messages() {
 
   return (
     <div>
-      <h2>test</h2>
-      {JSON.stringify(messages)}
+      <h2>Messages</h2>
+      {/* {JSON.stringify(messages)} */}
       <form onSubmit={sendMessage}>
         <TextField onChange={(event) => (setNewMessage(event.target.value))} variant="outlined"
           size="small" style={{ width: 300 }} multiline rows={4} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={newMessage} />

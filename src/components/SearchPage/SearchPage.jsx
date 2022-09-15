@@ -28,6 +28,7 @@ function SearchAlbums() {
       type: 'FETCH_SEARCH_RESULTS',
       payload: searchTerm
     })
+    setSearchTerm('');
   }
 
   // toAlbumDetail pushes the user to the AlbumDetailPage

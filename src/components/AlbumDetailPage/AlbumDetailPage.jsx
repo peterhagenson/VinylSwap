@@ -86,7 +86,7 @@ function AlbumDetails() {
       }
 
     })
-
+    setMessage('');
   }
 
 
@@ -118,7 +118,7 @@ function AlbumDetails() {
         <div className="messageContainer">
           <h3>Message Trader About This Album:</h3>
           <form onSubmit={sendMessage}>
-            <TextField onChange={(event) => setMessage(event.target.value)} sx={{ backgroundColor: 'white', mb: 2 }} variant="outlined" multiline rows={5} style={{ width: 500 }} placeholder="your message"></TextField>
+            <TextField onChange={(event) => setMessage(event.target.value)} sx={{ backgroundColor: 'white', mb: 2 }} variant="outlined" multiline rows={5} style={{ width: 500 }} value={message} placeholder="your message"></TextField>
             {/* <div className="App">
             <input onChange={(event) => (setRoom(event.target.value))} placeholder="room number" />
             <button onClick={joinRoom}>Join Room</button>
@@ -135,7 +135,7 @@ function AlbumDetails() {
             <Button type="submit" variant="contained" sx={{ color: 'white', backgroundColor: 'black', mr: 1 }} >Send</Button>
             <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', ml: 1 }} >Clear</Button>
           </form>
-          {JSON.stringify(details)}
+          {/* {JSON.stringify(details)} */}
         </div>
       </div>
     </div>

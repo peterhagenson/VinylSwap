@@ -71,7 +71,7 @@ function inventoryCompletion() {
           <h5 className="detailsText">Label: {album[0] && album[0].record_label}</h5>
           <h5>Genres: {album[0] && album[0].genre}</h5>
           <h5>Condition: {album[0] && album[0].condition}</h5>
-          <h5>Condition: {album[0] && album[0].user_description}</h5>
+          <h5>Description: {album[0] && album[0].user_description}</h5>
 
         </div>
 
