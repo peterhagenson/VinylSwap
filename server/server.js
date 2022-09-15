@@ -20,6 +20,20 @@ const albumToAddRouter = require('./routes/albumToAdd.router');
 const threadsRouter = require('./routes/threads.router');
 const messagesRouter = require('./routes/messages.router.js');
 
+// var AWS = require("aws-sdk");
+
+// AWS.config.getCredentials(function (err) {
+//   if (err) console.log(err.stack);
+//   // credentials not loaded
+//   else {
+//     console.log("Access key:", AWS.config.credentials.accessKeyId);
+//   }
+// });
+
+// var AWS = require("aws-sdk");
+
+// console.log("Region: ", AWS.config.region);
+
 // socket.io
 // const express = require('express');
 // const app = express();

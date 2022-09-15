@@ -15,10 +15,12 @@ function* getMatches(action) {
     }
 };
 
+// receives despatch from getAllAlbums on search page and sends request to server to get all albums
 function* getAllAlbums() {
     try {
         const allAlbums = yield axios.get('/searchDB');
         yield console.log(allAlbums.data)
+        // sends allAlbums to the allAlbums reducer
         yield put({ type: 'SET_ALL_ALBUMS', payload: allAlbums.data })
     } catch {
         console.log('GET ALL ALBUMS ERROR');

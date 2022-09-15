@@ -38,12 +38,14 @@ function SearchAlbums() {
     history.push(`/detail/${album.id}`)
   }
 
+  // getAllAlbums gets all of the albums in the database so the user can browse the collection
   const getAllAlbums = () => {
     dispatch({
       type: 'GET_ALL_ALBUMS',
     })
   }
 
+  // triggers getAllAlbums on page load
   useEffect(() => {
     getAllAlbums();
   }, [])
