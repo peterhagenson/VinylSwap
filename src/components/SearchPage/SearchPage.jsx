@@ -71,8 +71,6 @@ function SearchAlbums() {
           if (album.is_active) {
             return (
               <>
-
-
                 <div className="resultsContainer" onClick={() => toAlbumDetail(album)}>
                   <img className="searchImage" src={album.album_art} />
                   <div className="apiImageText">

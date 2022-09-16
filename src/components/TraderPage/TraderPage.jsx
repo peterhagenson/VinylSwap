@@ -21,7 +21,7 @@ function TemplateFunction() {
 
 
 
-  const trader = useSelector((store) => store.traderReducer);
+
   const [heading, setHeading] = useState('Functional Component');
 
   const getTrader = () => {

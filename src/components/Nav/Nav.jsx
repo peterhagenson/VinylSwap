@@ -53,7 +53,7 @@ function Nav() {
               Your Profile
             </Link>
 
-            <LogOutButton className="navLink" />
+            <LogOutButton className="navLink" to />
           </>
         )}
 
