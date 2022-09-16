@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 
+
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -48,23 +49,46 @@ function Messages() {
     getMessages();
   }, []);
 
+  const formatDate = (date) => {
+    // let formattedDate = new Date(date).toLocaleString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" });
+    let formattedDate = new Date(date).toLocaleString('en-us', { timeZone: 'CST' });
+    console.log('formatted date', formattedDate)
+    return formattedDate;
+  }
+
 
 
   return (
-    <div>
+    <div className="messagePageContainer">
       <h2>Messages</h2>
-      {JSON.stringify(messages)}
+      {/* {JSON.stringify(messages)} */}
       <form onSubmit={sendMessage}>
         <TextField onChange={(event) => (setNewMessage(event.target.value))} variant="outlined"
-          size="small" style={{ width: 300 }} multiline rows={4} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={newMessage} />
-        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', mt: 2, mr: 1 }} type="submit" >Send</Button>
+          size="small" style={{ width: 700 }} multiline rows={4} sx={{ backgroundColor: 'white', mb: 2 }} placeholder="artist name or album title" value={newMessage} />
+        <br />
+        <div className="messageBtnDiv">
+          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', mr: 1, mb: 4 }} type="submit" >Send</Button>
+          <Button onClick={() => setSearchTerm('')} variant="contained" sx={{ color: 'white', backgroundColor: 'black', ml: 1, mb: 4 }}>Clear</Button>
+        </div>
       </form>
       {messages.map((message) => {
         return (
           <>
             <div className={`messageDiv ${user.id === message.sender_user_id ? "leftAlign" : "rightAlign"}`}>
-              <p>Sender: {message.sender}</p>
-              <p>{message.message} </p>
+              <div className="messageHeader">
+                {message.sender}:
+                <br />
+                {formatDate(message.time_stamp)}
+              </div>
+
+
+              <div >
+
+                <div className="messageDetails">
+                  {/* <p>Sender: {message.sender}</p> */}
+                  <p>{message.message}</p>
+                </div>
+              </div>
             </div>
           </>
         )
