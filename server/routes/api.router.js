@@ -2,6 +2,9 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const axios = require('axios');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 //---------------------------------------------------
 // TODO: Rename this router to inventory.router.js
@@ -12,7 +15,7 @@ const axios = require('axios');
 /**
  * GET route template
  */
-router.get('/:term', (req, res) => {
+router.get('/:term', rejectUnauthenticated, (req, res) => {
   console.log("in api router", req.params)
   axios.get(`https://api.discogs.com/database/search?q=${req.params.term}&key=${process.env.DISCOGS_CONSUMER_KEY}&secret=${process.env.DISCOGS_CONSUMER_SECRET}`)
     .then(response => {
@@ -27,7 +30,7 @@ router.get('/:term', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   // console.log('in router POST', req.body, req.user)
   let name_title = req.body.title;
   let breakup = name_title.split(' - ');
@@ -50,7 +53,7 @@ router.post('/', (req, res) => {
 });
 
 // manages deleting inventory items
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // console.log('in router delete', req.params)
   const query = `DELETE FROM "album" WHERE id = $1;`;
   pool.query(query, [req.params.id])
@@ -62,7 +65,7 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-router.put('/', (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
   // console.log('in router put', req.body)
   let queryParams = [];
   const startString = 'UPDATE "album" SET';

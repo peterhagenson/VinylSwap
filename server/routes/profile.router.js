@@ -2,8 +2,11 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const axios = require('axios');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
-router.put('/', (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
   // console.log('in profile router', req.body, req.user.id);
   // set query to empty string
 
@@ -82,7 +85,7 @@ router.put('/', (req, res) => {
   // pool.query(query, [req.body.city, req.body.state, req.body.bio, req.body.email, req.user.id])
 })
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   //    console.log("in router get", req.user)
   const query = `SELECT * FROM "user" WHERE "user".id = $1;`;
   pool.query(query, [req.user.id])

@@ -1,11 +1,14 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
-router.get('/:code', (req, res) => {
+router.get('/:code', rejectUnauthenticated, (req, res) => {
   console.log(req.params);
   let query = `SELECT "thread".*, "user".username as sender FROM "thread"
   JOIN "user"
@@ -25,7 +28,7 @@ router.get('/:code', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('in message post')
   console.log(req.user.id)
   console.log(req.body)
@@ -42,7 +45,7 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
-router.post('/response', (req, res) => {
+router.post('/response', rejectUnauthenticated, (req, res) => {
   console.log('in message response')
   //DONT DO THIS JUST MAKE A ROUTE
   // if req.user.id is same as req.body.sender_user_id (from last message), then recipient_user_id will be recipient_user_id, else if req.user.id is not same as req.body.sender_user_id, then sender_user_id will be req.body.recipient_user_id and recipient_user_id will be req.body.sender_user_id
