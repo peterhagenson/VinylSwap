@@ -8,32 +8,33 @@ const router = express.Router();
  */
 router.get('/:searchTerm', (req, res) => {
   //query pulls all albums from db
-  const query =
-
-    // 'SELECT "album".* FROM "album" JOIN "user" ON "album".user_id = "user".id;';
+  const query = `SELECT * FROM "album" WHERE UPPER(title) LIKE UPPER('%${req.params.searchTerm}%') OR UPPER(artist_name) LIKE UPPER('%${req.params.searchTerm}%')`;
 
 
-    //const query = `SELECT * FROM "album" WHERE "album".id = 3;`;
-    pool.query(query).then(result => {
+  // 'SELECT "album".* FROM "album" JOIN "user" ON "album".user_id = "user".id;';
 
-      //function loops through albums and finds those whose title contains the searchTerm. Then adds the matches to searchResults and sends searchResults to search.saga.js
 
-      //TODO get user info 
-      console.log(result);
+  //const query = `SELECT * FROM "album" WHERE "album".id = 3;`;
+  pool.query(query).then(result => {
 
-      let searchResults = [];
-      for (result of result.rows) {
-        if (result.title.includes(req.params.searchTerm)) {
-          // console.log(result);
-          searchResults.push(result)
-        }
-      }
-      // console.log(searchResults);
-      res.send(searchResults);
-      searchResults = [];
-    }).catch(err => {
-      res.sendStatus(500)
-    });
+    //function loops through albums and finds those whose title contains the searchTerm. Then adds the matches to searchResults and sends searchResults to search.saga.js
+
+    //TODO get user info 
+    console.log('search query result', result.rows);
+
+    // let searchResults = [];
+    // for (result of result.rows) {
+    //   if (result.title.includes(req.params.searchTerm)) {
+    //     // console.log(result);
+    //     searchResults.push(result)
+    //   }
+    // }
+    // console.log(searchResults);
+    res.send(result.rows);
+    searchResults = [];
+  }).catch(err => {
+    res.sendStatus(500)
+  });
 });
 
 
