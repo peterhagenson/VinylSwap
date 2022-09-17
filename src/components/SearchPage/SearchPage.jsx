@@ -99,7 +99,7 @@ function SearchAlbums() {
                   <img className="searchImage" src={album.album_art} />
                   <div className="apiImageText">
                     <div className="searchCardText">
-                      <div>{album.title}</div>
+                      <div className="albumTitle">{album.title}</div>
                       <div>{album.artist_name}</div>
                       <div>{album.record_label}</div>
                       <div>{album.published_date}</div>
@@ -124,7 +124,7 @@ function SearchAlbums() {
                   <img className="searchImage" src={album.album_art} />
                   <div className="apiImageText">
                     <div className="searchCardText">
-                      <div>{album.title}</div>
+                      <div className="albumTitle">{album.title}</div>
                       <div>{album.artist_name}</div>
                       <div>{album.record_label}</div>
                       <div>{album.published_date}</div>

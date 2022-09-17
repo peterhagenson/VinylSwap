@@ -6,14 +6,23 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  /* font-family:'Courier New', Courier, monospace; */
   margin: 0px;
 }
+
+/* p {
+  font-family: monospace;
+} */
 
 img {
   display: inline-block;
   max-width: 100%;
 }
+
+/* title {
+  font-family: 'Abril Fatface', cursive;;
+} */
 
 /* --------------------------------------------------------------------------------
 Container
@@ -144,6 +153,8 @@ Inventory API Images
   box-shadow: 10px 10px 10px;
   border: solid;
   border-radius: 5px;
+  font-family:'Courier New', Courier, monospace;
+  background-color: white;
 }
 
 .apiResultCard:hover {
@@ -166,6 +177,11 @@ Search Page
   border-top-left-radius: 0px;
   border-top-right-radius: 0px; 
   
+}
+
+.albumTitle {
+  font-weight: bold;
+  ;
 }
 
 /* .searchImage:hover {
@@ -193,6 +209,7 @@ Search Page
   border-radius: 5px;
   border: solid;
   background-color: white;
+  font-family:'Courier New', Courier, monospace;
 }
 
 .resultsContainer:hover {
@@ -200,6 +217,7 @@ Search Page
   border-width: 3px;
   box-shadow: 0 0 0;
   border-radius: 5px;
+  
 }
 
 .searchFormDiv {
@@ -220,6 +238,7 @@ Search Page
   flex-wrap: wrap;
   justify-content: space-between;
   margin-right: 100px;
+  font-family:'Courier New', Courier, monospace;
   /* margin-left: 100px; */
 }
 

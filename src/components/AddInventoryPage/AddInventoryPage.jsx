@@ -87,7 +87,7 @@ function AddInventory() {
                 <div onClick={() => sendAlbum(album)} className="apiResultCard">
                   <img className="apiImage" src={album.cover_image} />
                   <div className="apiImageText">
-                    <div>{album.title}</div>
+                    <div className="albumTitle">{album.title}</div>
                     {album.label && <div>{album.label[0]}</div>}
                     <div >{album.year}</div>
                   </div>

@@ -10,7 +10,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/search">
-        <h2 className="nav-title">VinylSwap</h2>
+        <h2 className="nav-title">- VinylSwap -</h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
