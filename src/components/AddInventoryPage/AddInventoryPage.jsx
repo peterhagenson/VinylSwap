@@ -5,6 +5,18 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
+const styles1 = {
+  backgroundColor: "black",
+  color: "white",
+  border: "3px solid black",
+  '&:hover': {
+    border: "3px solid black",
+    color: "black",
+    backgroundColor: "white",
+    fontWeight: 'bold'
+  }
+}
+
 
 
 function AddInventory() {
@@ -59,10 +71,10 @@ function AddInventory() {
         <h2>Find The Record You'd Like To Add</h2>
         <form onSubmit={(e) => getMatches(e)}>
           <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="outlined"
-            size="small" style={{ width: 300 }} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={searchTerm} />
+            size="small" style={{ width: 400 }} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={searchTerm} />
           <br />
-          <Button type="submit" variant="contained" sx={{ color: 'white', backgroundColor: 'black', mt: 2, mr: 1 }}>Find</Button>
-          <Button onClick={() => setSearchTerm('')} variant="contained" sx={{ color: 'white', backgroundColor: 'black', mt: 2, ml: 1 }}>Clear</Button>
+          <Button type="submit" variant="contained" sx={{ ...styles1, mt: 2, mr: 1 }}>Find</Button>
+          <Button onClick={() => setSearchTerm('')} variant="contained" sx={{ ...styles1, mt: 2, ml: 1 }}>Clear</Button>
         </form>
       </div>
 

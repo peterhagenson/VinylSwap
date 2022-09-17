@@ -6,6 +6,29 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
+const styles1 = {
+  backgroundColor: "black",
+  color: "white",
+  border: "3px solid black",
+  '&:hover': {
+    border: "3px solid black",
+    color: "black",
+    backgroundColor: "white",
+    fontWeight: 'bold'
+  }
+}
+
+const styles2 = {
+  backgroundColor: "white",
+  color: "black",
+  border: "2px solid black",
+  '&:hover': {
+    color: "white",
+    backgroundColor: "black",
+  }
+}
+
+
 
 function SearchAlbums() {
 
@@ -57,10 +80,10 @@ function SearchAlbums() {
         <h2>{searchTerm}</h2>
         <form onSubmit={() => getMatches()}>
           <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="outlined"
-            size="small" style={{ width: 300 }} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={searchTerm} />
+            size="small" style={{ width: 400 }} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={searchTerm} />
           <br />
-          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', mt: 2, mr: 1 }} type="submit" >Find</Button>
-          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', mt: 2, ml: 1 }} onClick={() => setSearchTerm('')}>Clear</Button>
+          <Button variant="contained" sx={{ ...styles1, mt: 2, mr: 1 }} type="submit" >Search</Button>
+          <Button variant="contained" sx={{ ...styles1, mt: 2, ml: 1, width: '98px' }} onClick={() => setSearchTerm('')}>Clear</Button>
         </form>
       </div>
       <br />

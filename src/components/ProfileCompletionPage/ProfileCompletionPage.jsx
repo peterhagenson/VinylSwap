@@ -4,6 +4,18 @@ import { HashRouter as Router, Route, useHistory } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
+const styles1 = {
+  backgroundColor: "black",
+  color: "white",
+  border: "3px solid black",
+  '&:hover': {
+    border: "3px solid black",
+    color: "black",
+    backgroundColor: "white",
+    fontWeight: 'bold'
+  }
+}
+
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -73,8 +85,8 @@ function CompleteProfile() {
         <br />
         <TextField onChange={(event) => setBio(event.target.value)} size="small" sx={{ backgroundColor: 'white', mb: 2 }} variant="outlined" multiline rows={5} style={{ width: 500 }} placeholder="your bio"></TextField>
         <br />
-        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', mr: 1 }} type="submit">Submit</Button>
-        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', ml: 1 }}>Clear</Button>
+        <Button variant="contained" sx={{ ...styles1, mr: 1 }} type="submit">Submit</Button>
+        <Button variant="contained" sx={{ ...styles1, ml: 1 }}>Clear</Button>
       </form>
     </div>
   );

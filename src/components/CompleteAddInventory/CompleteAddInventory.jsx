@@ -7,7 +7,19 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 
-// TODO: use effect that pulls album info to display and put route to add details
+const styles1 = {
+  backgroundColor: "black",
+  color: "white",
+  border: "3px solid black",
+  '&:hover': {
+    border: "3px solid black",
+    color: "black",
+    backgroundColor: "white",
+    fontWeight: 'bold'
+  }
+}
+
+
 
 function inventoryCompletion() {
 
@@ -69,7 +81,7 @@ function inventoryCompletion() {
           <h5 className="detailsText">Artist: {album[0] && album[0].artist_name}</h5>
           <h5 className="detailsText">Year: {album[0] && album[0].published_date}</h5>
           <h5 className="detailsText">Label: {album[0] && album[0].record_label}</h5>
-          <h5>Genres: {album[0] && album[0].genre}</h5>
+          {/* <h5>Genres: {album[0] && album[0].genre}</h5> */}
           <h5>Condition: {album[0] && album[0].condition}</h5>
           <h5>Description: {album[0] && album[0].user_description}</h5>
 
@@ -94,11 +106,11 @@ function inventoryCompletion() {
           <br />
           <TextField onChange={(event) => setAlbumDescription(event.target.value)} size="small" variant="outlined" sx={{ backgroundColor: 'white', mb: 2 }} multiline rows={4} style={{ width: 400 }} value={description} placeholder="description" />
           <br />
-          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', mr: 1 }} type="submit">Submit</Button>
-          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', ml: 1 }} onClick={resetConditionAndDescription}>Clear</Button>
+          <Button variant="contained" sx={{ ...styles1, mr: 1 }} type="submit">Submit</Button>
+          <Button variant="contained" sx={{ ...styles1, ml: 1 }} onClick={resetConditionAndDescription}>Clear</Button>
         </form>
         <br />
-        <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} onClick={toProfile}>Back To Profile</Button>
+        <Button variant="contained" sx={{ ...styles1 }} onClick={toProfile}>Back To Profile</Button>
       </div>
       {/* {JSON.stringify(album)} */}
     </>
