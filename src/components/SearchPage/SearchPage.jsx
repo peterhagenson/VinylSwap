@@ -89,7 +89,7 @@ function SearchAlbums() {
       </div>
       <br />
       {/* <div className="resultsContainer"> */}
-      <h3 className="searchHeading">Your SearchResults: </h3>
+      <h3 className="searchHeading">Your Search Results:</h3>
       <div className="allResultsContainer">
         {searchResults.map((album) => {
           if (album.is_active) {
@@ -113,7 +113,7 @@ function SearchAlbums() {
         })
         }
       </div>
-      <h3 className="searchHeading">Browse All Available Albums: </h3>
+      <h3 className="searchHeading">Browse All Available Albums:</h3>
       <div className="allAlbumsContainer">
 
         {allAlbums.map((album) => {

@@ -99,11 +99,14 @@ function ProfilePage() {
       <h2 className="userProfilePageTitle">Your Trader Profile</h2>
       <div className="displayContainer">
         <div className="userProfileContainer">
-          <h3 className="profileText">Username: {user && user.user.username}</h3>
+          {/* <h3 className="profileText">{user && user.user.username}</h3>
           <h4 className="profileText">{user && user.user.city}, {user && user.user.state}</h4>
-          <h4 className="profileText">{user && user.user.email}</h4>
-          <h4 className="profileText">Bio: <span>{user && user.user.bio}</span></h4>
-          <Button onClick={navToProfileCompletion} variant="contained" sx={styles1}>Edit Profile</Button>
+          <h4 className="profileText">{user && user.user.email}</h4> */}
+          <div className="profileText profileUserName">{user && user.user.username}</div>
+          <div className="profileText">{user && user.user.city}, {user && user.user.state}</div>
+          <div className="profileText">{user && user.user.email}</div>
+          <div className="profileText bioTitle">Bio: <span className="bioText">{user && user.user.bio}</span></div>
+          <Button onClick={navToProfileCompletion} variant="contained" size="small" sx={styles1}>Edit Profile</Button>
           <br />
           <div className="inactiveListings">
             <h3>Your Inactive Inventory</h3>
@@ -120,12 +123,17 @@ function ProfilePage() {
                         <div className="spacerDiv"></div>
                       </div>
                       <div className="userInventoryCardDetails">
-                        <p>{album.artist_name}</p>
-                        <p>{album.title}</p>
+                        <div className="spacerDiv"></div>
+                        <div>
+                          <p>{album.artist_name}</p>
+                          <p>{album.title}</p>
+                        </div>
+                        <div className="spacerDiv"></div>
+
                       </div>
                       <div className="userInventoryCardButtonContainer">
                         <div className="btnSpacerDiv"></div>
-                        <div className="albumCardBtnsDiv">
+                        <div className="=inactiveAlbumCardBtnsDiv">
                           <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small">Edit</Button>
                           <Button className="cardBtn" variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small">Activate</Button>
                           <Button className="cardBtn" variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
@@ -163,8 +171,12 @@ function ProfilePage() {
                       <div className="spacerDiv"></div>
                     </div>
                     <div className="userInventoryCardDetails">
-                      <p>{album.artist_name}</p>
-                      <p>{album.title}</p>
+                      <div className="spacerDiv"></div>
+                      <div>
+                        <p>{album.artist_name}</p>
+                        <p>{album.title}</p>
+                      </div>
+                      <div className="spacerDiv"></div>
                     </div>
                     <div className="userInventoryCardButtonContainer">
                       <div className="btnSpacerDiv"></div>
