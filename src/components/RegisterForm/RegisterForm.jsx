@@ -1,11 +1,30 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Button from '@mui/material/Button';
+import { useHistory } from 'react-router-dom';
+
+
+const styles1 = {
+  backgroundColor: "black",
+  color: "white",
+  border: "3px solid black",
+  '&:hover': {
+    border: "3px solid black",
+    color: "black",
+    backgroundColor: "white",
+    fontWeight: 'bold'
+  }
+}
+
+
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+  const history = useHistory();
+
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -17,6 +36,7 @@ function RegisterForm() {
         password: password,
       },
     });
+    history.push('/profileCompletion')
   }; // end registerUser
 
   return (
@@ -52,7 +72,7 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <Button sx={styles1} className="btn" type="submit" name="submit" value="Register" >Submit</Button>
       </div>
     </form>
   );

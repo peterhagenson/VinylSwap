@@ -2,6 +2,23 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
+
+const styles1 = {
+  backgroundColor: "black",
+  color: "white",
+  border: "3px solid black",
+  '&:hover': {
+    border: "3px solid black",
+    color: "black",
+    backgroundColor: "white",
+    fontWeight: 'bold',
+    // boxShadow: 20
+  }
+}
+
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -61,7 +78,7 @@ function LoginForm() {
       </div>
       <div>
         {/* <input className="btn" type="submit" name="submit" value="Log In" /> */}
-        <button className="btn" type="submit" name="submit" value="Log In">Submit</button>
+        <Button sx={styles1} className="btn" type="submit" name="submit" value="Log In">Submit</Button>
       </div>
     </form>
   );

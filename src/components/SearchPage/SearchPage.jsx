@@ -58,6 +58,7 @@ function SearchAlbums() {
   const toAlbumDetail = (album) => {
     // console.log(searchResults);
     console.log("in toAlbumDetail, album id: ", album.id)
+    setSearchTerm('')
     history.push(`/detail/${album.id}`)
   }
 
