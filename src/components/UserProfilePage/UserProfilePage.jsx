@@ -3,6 +3,35 @@ import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
+// import { styled } from '@mui/material/styles';
+
+
+
+const styles1 = {
+  backgroundColor: "black",
+  color: "white",
+  border: "3px solid black",
+  '&:hover': {
+    border: "3px solid black",
+    color: "black",
+    backgroundColor: "white",
+    fontWeight: 'bold',
+    // boxShadow: 20
+  }
+}
+
+const styles2 = {
+  backgroundColor: "black",
+  color: "white",
+  border: "solid black",
+  '&:hover': {
+    border: "solid black",
+    color: "black",
+    backgroundColor: "white",
+
+  }
+}
+
 
 
 // Basic functional component structure for React with default state
@@ -74,7 +103,7 @@ function ProfilePage() {
           <h4 className="profileText">{user && user.user.city}, {user && user.user.state}</h4>
           <h4 className="profileText">{user && user.user.email}</h4>
           <h4 className="profileText">Bio: <span>{user && user.user.bio}</span></h4>
-          <Button onClick={navToProfileCompletion} variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Edit Profile</Button>
+          <Button onClick={navToProfileCompletion} variant="contained" sx={styles1}>Edit Profile</Button>
           <br />
           <div className="inactiveListings">
             <h3>Your Inactive Inventory</h3>
@@ -97,9 +126,9 @@ function ProfilePage() {
                       <div className="userInventoryCardButtonContainer">
                         <div className="btnSpacerDiv"></div>
                         <div className="albumCardBtnsDiv">
-                          <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90, mb: 1 }} size="small">Edit</Button>
-                          <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90, mb: 1 }} size="small">Activate</Button>
-                          <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
+                          <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small">Edit</Button>
+                          <Button className="cardBtn" variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small">Activate</Button>
+                          <Button className="cardBtn" variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
                         </div>
                         <div className="btnSpacerDiv"></div>
                       </div>
@@ -118,7 +147,7 @@ function ProfilePage() {
         <div className="userInventoryContainer">
           <div className='inventory_addBtnContainer'>
             <h3>Your Active Inventory</h3>
-            <Button onClick={toAddInventory} variant="contained" sx={{ color: 'white', backgroundColor: 'black' }}>Add Inventory</Button>
+            <Button onClick={toAddInventory} variant="contained" sx={{ ...styles1 }}>Add Inventory</Button>
           </div>
 
           {user && user.inventory.map((album) => {
@@ -140,9 +169,9 @@ function ProfilePage() {
                     <div className="userInventoryCardButtonContainer">
                       <div className="btnSpacerDiv"></div>
                       <div className="albumCardBtnsDiv">
-                        <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90, mb: 1 }} size="small">Edit</Button>
-                        <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90, mb: 1 }} size="small">Suspend</Button>
-                        <Button className="cardBtn" variant="contained" sx={{ color: 'white', backgroundColor: 'black', width: 90 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
+                        <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small">Edit</Button>
+                        <Button className="cardBtn" variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small">Suspend</Button>
+                        <Button className="cardBtn" variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
                       </div>
                       <div className="btnSpacerDiv"></div>
                     </div>

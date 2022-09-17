@@ -510,6 +510,11 @@ Profile Completion */
 }
 
 /* -------------------------- */
+.threadsPageContainer {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
 .threadCard {
 display: flex;
 border-style: solid;
@@ -521,6 +526,13 @@ margin-bottom: 12px;
 box-shadow: 5px 5px 10px;
 border-radius: 5px;
 max-width: 550px;
+}
+
+.threadCard:hover {
+  border-color: black; 
+  border-width: 3px;
+  box-shadow: 0 0 0;
+  border-radius: 5px;
 }
 
 .threadImage {
@@ -590,3 +602,5 @@ max-width: 550px;
 .messageBtnDiv {
   margin-left: 500px;
 }
+
+

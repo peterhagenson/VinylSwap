@@ -4,6 +4,18 @@ import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
+const styles1 = {
+  backgroundColor: "black",
+  color: "white",
+  border: "3px solid black",
+  '&:hover': {
+    border: "3px solid black",
+    color: "black",
+    backgroundColor: "white",
+    fontWeight: 'bold'
+  }
+}
+
 
 
 // Basic functional component structure for React with default state
@@ -67,8 +79,8 @@ function Messages() {
           size="small" style={{ width: 700 }} multiline rows={4} sx={{ backgroundColor: 'white', mb: 2 }} placeholder="artist name or album title" value={newMessage} />
         <br />
         <div className="messageBtnDiv">
-          <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', mr: 1, mb: 4 }} type="submit" >Send</Button>
-          <Button onClick={() => setSearchTerm('')} variant="contained" sx={{ color: 'white', backgroundColor: 'black', ml: 1, mb: 4 }}>Clear</Button>
+          <Button variant="contained" sx={{ ...styles1, mr: 1, mb: 4 }} type="submit" >Send</Button>
+          <Button onClick={() => setNewMessage('')} variant="contained" sx={{ ...styles1, ml: 1, mb: 4 }}>Clear</Button>
         </div>
       </form>
       {messages.map((message) => {

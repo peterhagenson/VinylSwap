@@ -55,7 +55,7 @@ function Threads(props) {
   }
 
   return (
-    <div>
+    <div className="threadsPageContainer">
       {/* {JSON.stringify(threads)} */}
       <br />
       <h3>Your Message Threads:</h3>

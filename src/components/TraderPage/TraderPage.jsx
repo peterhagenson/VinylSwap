@@ -5,6 +5,8 @@ import { useParams, useHistory } from 'react-router-dom';
 
 
 
+
+
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -16,13 +18,13 @@ function TemplateFunction() {
 
   const history = useHistory();
 
+  const trader = useSelector((store) => store.traderReducer);
 
 
 
 
 
-
-  const [heading, setHeading] = useState('Functional Component');
+  // const [heading, setHeading] = useState('Functional Component');
 
   const getTrader = () => {
     // console.log(params.id);

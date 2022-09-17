@@ -9,6 +9,19 @@ import TextField from '@mui/material/TextField';
 // import { io } from "socket.io-client";
 // const socket = io.connect("http://localhost:3001");
 
+const styles1 = {
+  backgroundColor: "black",
+  color: "white",
+  border: "3px solid black",
+  '&:hover': {
+    border: "3px solid black",
+    color: "black",
+    backgroundColor: "white",
+    fontWeight: 'bold',
+    // boxShadow: 20
+  }
+}
+
 
 
 
@@ -100,7 +113,7 @@ function AlbumDetails() {
           <h5 className="detailsText">Year: {details.published_date}</h5>
           <h5 className="detailsText">Label: {details.record_label}</h5>
           <h5 className="detailsText">Condition: {details.condition}</h5>
-          <h5 className="detailsText">Album Trader's Descriptin: {details.user_description}</h5>
+          <h5 className="detailsText">Description: {details.user_description}</h5>
           <h5>Genres: {details.genre}</h5>
         </div>
         <div className="traderDetails">
@@ -108,7 +121,7 @@ function AlbumDetails() {
           <p>Username: <span>{details.username}</span></p>
           <p>City/State: <span>{details.city}, {details.state}</span></p>
           <p>Email: <span>{details.email}</span></p>
-          <Button onClick={() => (toTraderPage(details.user_id))} variant="contained" sx={{ color: 'white', backgroundColor: 'black' }} >Trader Page</Button>
+          <Button onClick={() => (toTraderPage(details.user_id))} variant="contained" sx={{ ...styles1 }} >Trader Page</Button>
         </div>
       </div>
       <div className="imagesAndMessageContainer">
@@ -132,8 +145,8 @@ function AlbumDetails() {
 
           </div> */}
 
-            <Button type="submit" variant="contained" sx={{ color: 'white', backgroundColor: 'black', mr: 1 }} >Send</Button>
-            <Button variant="contained" sx={{ color: 'white', backgroundColor: 'black', ml: 1 }} >Clear</Button>
+            <Button type="submit" variant="contained" sx={{ ...styles1, mr: 1 }} >Send</Button>
+            <Button variant="contained" sx={{ ...styles1, ml: 1 }} >Clear</Button>
           </form>
           {/* {JSON.stringify(details)} */}
         </div>
