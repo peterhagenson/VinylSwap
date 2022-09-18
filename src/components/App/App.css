@@ -751,6 +751,10 @@ font-family: 'Courier New', Courier, monospace;
   padding-left: 15px;
   padding-right: 15px;
   box-shadow: 5px 5px 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: #444;
+
   
 }
 
@@ -773,6 +777,36 @@ font-family: 'Courier New', Courier, monospace;
 
 .messageBtnDiv {
   margin-left: 500px;
+}
+
+.messageImage {
+  max-width: 100px;
+}
+
+.messagesArtist-Album-Image {
+  display: flex;
+  margin-bottom: 20px;
+
+}
+
+.messagesArtist-Album {
+  margin-left: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  /* max-height: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+}
+
+.artist-title-vert {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.artistNameMargin {
+  margin-bottom: 10px;
 }
 
 

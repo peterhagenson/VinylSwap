@@ -10,10 +10,15 @@ const {
  */
 router.get('/:code', rejectUnauthenticated, (req, res) => {
   console.log(req.params);
-  let query = `SELECT "thread".*, "user".username as sender FROM "thread"
+  // let query = `SELECT "thread".*, "user".username as sender FROM "thread"
+  // JOIN "user"
+  // ON "user".id = "thread".sender_user_id 
+  // WHERE code = $1 ORDER BY time_stamp DESC;`;
+  let query = `SELECT "thread".*, "album".album_art, "album".artist_name, "album".title, "user".username as sender FROM "thread"
   JOIN "user"
   ON "user".id = "thread".sender_user_id 
-  WHERE code = $1 ORDER BY time_stamp DESC;`;
+  JOIN "album" ON "album".id = "thread".album_id
+  WHERE code = $1 ORDER BY time_stamp DESC;`
   pool.query(query, [req.params.code])
     .then(result => {
       // console.log(result.rows)

@@ -72,7 +72,19 @@ function Messages() {
 
   return (
     <div className="messagePageContainer">
-      <h2>Messages</h2>
+      <h2>Your message thread about:</h2>
+      <div className="messagesArtist-Album-Image">
+        <img src={messages[0].album_art} className="messageImage" />
+        <div className="artist-title-vert">
+          <div></div>
+          <div className="messagesArtist-Album">
+            <div className="artistNameMargin">{messages[0].artist_name}</div>
+            <div>{messages[0].title}</div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+
       {/* {JSON.stringify(messages)} */}
       <form onSubmit={sendMessage}>
         <TextField onChange={(event) => (setNewMessage(event.target.value))} variant="outlined"
