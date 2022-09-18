@@ -44,7 +44,7 @@ function SearchAlbums() {
 
   // getMatches dispatches the search term to the search.saga.js file
   const getMatches = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
 
     // console.log('in getMatches', searchTerm);
     dispatch({
@@ -78,8 +78,9 @@ function SearchAlbums() {
 
     <div>
       <div className="searchFormDiv">
-        <h2>{searchTerm}</h2>
-        <form onSubmit={() => getMatches()}>
+        {/* <h2>{searchTerm}</h2> */}
+        {/* <form onSubmit={() => getMatches()}> */}
+        <form onSubmit={getMatches}>
           <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="outlined"
             size="small" style={{ width: 400 }} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={searchTerm} />
           <br />
@@ -91,6 +92,7 @@ function SearchAlbums() {
       {/* <div className="resultsContainer"> */}
       <h3 className="searchHeading">Your Search Results:</h3>
       <div className="allResultsContainer">
+        <div></div>
         {searchResults.map((album) => {
           if (album.is_active) {
             return (
@@ -112,6 +114,7 @@ function SearchAlbums() {
           }
         })
         }
+        <div></div>
       </div>
       <h3 className="searchHeading">Browse All Available Albums:</h3>
       <div className="allAlbumsContainer">

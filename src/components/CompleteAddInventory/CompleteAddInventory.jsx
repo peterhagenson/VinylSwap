@@ -42,7 +42,8 @@ function inventoryCompletion() {
     })
   };
 
-  const updateAlbum = () => {
+  const updateAlbum = (event) => {
+    event.preventDefault();
     console.log("submitted", condition, description, album, params.id)
     dispatch({
       type: "ADD_ALBUM_DESCRIPTORS",
@@ -70,7 +71,7 @@ function inventoryCompletion() {
 
   return (
     <>
-      <p className="instructionText">Please provide the condition and a brief description of your album. Your listing will not be active until this step is complete.</p>
+      {/* <p className="instructionText">Please provide the condition and a brief description of your album. Your listing will not be active until this step is complete.</p> */}
       <div className="completeAddInventoryFullDisplay">
         {/* <div className="completeAddInventoryContainer"> */}
         <div className="albumInfoContainer">
@@ -110,7 +111,7 @@ function inventoryCompletion() {
           <Button variant="contained" sx={{ ...styles1, ml: 1 }} onClick={resetConditionAndDescription}>Clear</Button>
         </form>
         <br />
-        <Button variant="contained" sx={{ ...styles1 }} onClick={toProfile}>Back To Profile</Button>
+        <Button variant="contained" sx={{ ...styles1 }} onClick={toProfile}>To Profile</Button>
       </div>
       {/* {JSON.stringify(album)} */}
     </>
