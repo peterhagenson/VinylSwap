@@ -73,7 +73,7 @@ function Threads(props) {
               <div className="threadArtistAlbumContainer">
                 <div></div>
                 <div>
-                  <p>Album:</p>
+                  <p className="bold">Album:</p>
                   <p>{thread.artist_name}</p>
                   <p>{thread.title}</p>
                 </div>
@@ -82,7 +82,7 @@ function Threads(props) {
               <div className="mostRecentMessage">
                 <div className="threadSpacerDiv"></div>
                 <div>
-                  <p>Most Recent Message:</p>
+                  <p className="bold">Most Recent Message:</p>
                   <p>{formatDate(thread.max)}</p>
                 </div>
                 <div className="threadSpacerDiv"></div>

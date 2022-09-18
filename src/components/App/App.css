@@ -669,6 +669,7 @@ margin-bottom: 12px;
 box-shadow: 5px 5px 10px;
 border-radius: 5px;
 max-width: 550px;
+font-family: 'Courier New', Courier, monospace;
 }
 
 .threadCard:hover {

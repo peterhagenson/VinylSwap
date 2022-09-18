@@ -74,7 +74,7 @@ function TemplateFunction() {
                     <div className="artistAlbumContainer">
                       <div></div>
                       <div>
-                        <p>Artist/Album:</p>
+                        <p className="bold">Artist/Album:</p>
                         <p>{album.artist_name}</p>
                         <p>{album.title}</p>
                       </div>
@@ -83,7 +83,7 @@ function TemplateFunction() {
                     <div lassName="publishedYearContainer">
                       <div className="spacerDiv"></div>
                       <div>
-                        <p>Published:</p>
+                        <p className="bold">Published:</p>
                         <p>{album.published_date}</p>
                       </div>
                       <div className="spacerDiv"></div>
@@ -91,7 +91,7 @@ function TemplateFunction() {
                     <div lassName="conditionContainer">
                       <div className="spacerDiv"></div>
                       <div>
-                        <p>Condition:</p>
+                        <p className="bold">Condition:</p>
                         <p>{album.condition}</p>
                       </div>
                       <div className="spacerDiv"></div>
