@@ -52,10 +52,10 @@ function TemplateFunction() {
       <div className="traderPageContainer">
         <div className="traderProfileContainer">
           <h3>Album Trader</h3>
-          <h4 className="detailsText">Username: {trader.profile && trader.profile.username}</h4>
-          <h4 className="detailsText">{trader.profile && trader.profile.city}, {trader.profile && trader.profile.state}</h4>
-          <h4 className="detailsText">{trader.profile && trader.profile.email}</h4>
-          <h4 className="detailsText">Bio: <span>{trader.profile && trader.profile.bio}</span></h4>
+          <h4 className="detailsText notBold">{trader.profile && trader.profile.username}</h4>
+          <h4 className="detailsText notBold">{trader.profile && trader.profile.city}, {trader.profile && trader.profile.state}</h4>
+          <h4 className="detailsText notBold">{trader.profile && trader.profile.email}</h4>
+          <h4 className="detailsText">Bio: <span className="notBold">{trader.profile && trader.profile.bio}</span></h4>
           {/* <button onClick={navToProfileCompletion}>Edit Profile</button> */}
         </div>
 
@@ -89,8 +89,12 @@ function TemplateFunction() {
                       <div className="spacerDiv"></div>
                     </div>
                     <div lassName="conditionContainer">
-                      <p>Condition:</p>
-                      <p>{album.condition}</p>
+                      <div className="spacerDiv"></div>
+                      <div>
+                        <p>Condition:</p>
+                        <p>{album.condition}</p>
+                      </div>
+                      <div className="spacerDiv"></div>
                     </div>
                     <div>
 

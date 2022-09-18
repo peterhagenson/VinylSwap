@@ -114,15 +114,15 @@ function ProfilePage() {
               if (!album.is_active) {
                 return (
                   <>
-                    <div className="userInventoryCard">
-                      <div className="userInventoryImageContainer">
+                    <div className="inactiveUserInventoryCard">
+                      <div className="inactiveUserInventoryImageContainer">
                         <div className="spacerDiv"></div>
                         <div>
-                          <img className="inventoryImage" src={album.album_art} />
+                          <img className="inactiveInventoryImage" src={album.album_art} />
                         </div>
                         <div className="spacerDiv"></div>
                       </div>
-                      <div className="userInventoryCardDetails">
+                      <div className="inactiveUserInventoryCardDetails">
                         <div className="spacerDiv"></div>
                         <div>
                           <p>{album.artist_name}</p>
@@ -131,10 +131,10 @@ function ProfilePage() {
                         <div className="spacerDiv"></div>
 
                       </div>
-                      <div className="userInventoryCardButtonContainer">
+                      <div className="inactiveUserInventoryCardButtonContainer">
                         <div className="btnSpacerDiv"></div>
                         <div className="=inactiveAlbumCardBtnsDiv">
-                          <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small">Edit</Button>
+                          <Button className="cardBtn" onClick={() => (editListing(album.discogs_id))} variant="contained" sx={{ ...styles2, width: 90, mb: 1, mt: 1 }} size="small">Edit</Button>
                           <Button className="cardBtn" variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small">Activate</Button>
                           <Button className="cardBtn" variant="contained" sx={{ ...styles2, width: 90, mb: 1 }} size="small" onClick={() => (deleteListing(album.id))}>Delete</Button>
                         </div>

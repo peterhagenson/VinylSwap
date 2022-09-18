@@ -109,18 +109,19 @@ function AlbumDetails() {
     <div className="detailsDisplayContainer">
       <div className="albumDetails-TraderContainer">
         <div className="albumDetailsText">
-          <h3 className="detailsText">Album Title: {details.title}</h3>
-          <h5 className="detailsText">Year: {details.published_date}</h5>
-          <h5 className="detailsText">Label: {details.record_label}</h5>
-          <h5 className="detailsText">Condition: {details.condition}</h5>
-          <h5 className="detailsText">Description: {details.user_description}</h5>
-          <h5>Genres: {details.genre}</h5>
+          <h5 className="detailsText ">Album Title: <span className="notBold titleHeading">{details.title}</span></h5>
+          <h5 className="detailsText">Artist: <span className="notBold">{details.artist_name}</span></h5>
+          <h5 className="detailsText">Year: <span className="notBold">{details.published_date}</span></h5>
+          <h5 className="detailsText">Label: <span className="notBold">{details.record_label}</span></h5>
+          <h5 className="detailsText">Condition: <span className="notBold">{details.condition}</span></h5>
+          <h5 className="detailsText">Description: <span className="notBold">{details.user_description}</span></h5>
+          {/* <h5>Genres: {details.genre}</h5> */}
         </div>
         <div className="traderDetails">
           <h3>Album Trader:</h3>
-          <p>Username: <span>{details.username}</span></p>
-          <p>City/State: <span>{details.city}, {details.state}</span></p>
-          <p>Email: <span>{details.email}</span></p>
+          <p><span>{details.username}</span></p>
+          <p><span>{details.city}, {details.state}</span></p>
+          <p><span>{details.email}</span></p>
           <Button onClick={() => (toTraderPage(details.user_id))} variant="contained" sx={{ ...styles1 }} >Trader Page</Button>
         </div>
       </div>

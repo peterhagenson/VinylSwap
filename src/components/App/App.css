@@ -273,6 +273,11 @@ User/Inventory Page
   box-shadow: 5px 5px 5px;
 }
 
+.inactiveInventoryImage {
+  box-shadow: 5px 5px 5px;
+  border-radius: 5px;
+}
+
 .displayContainer {
   display: flex;
  
@@ -343,7 +348,34 @@ User/Inventory Page
   /* width: 400px; */
 }
 
+.inactiveUserInventoryCard {
+  display: flex;
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 20px;
+  max-height: 180px;
+  /* padding-top: auto; */
+  /* padding-bottom: auto; */
+  /* justify-content: space-between; */
+  box-shadow: 10px 10px 10px;
+  border-radius: 5px;
+  background-color: white;
+  min-height: 120px;
+  font-family:'Courier New', Courier, monospace;
+  font-weight:bold;
+  color: rgb(62, 61, 61);
+}
+
 .userInventoryImageContainer {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 15px;
+  /* margin-right: 50px; */
+}
+
+.inactiveUserInventoryImageContainer {
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -355,6 +387,17 @@ User/Inventory Page
 .userInventoryCardDetails {
   width: 50%;
   /* padding-left: 10px; */
+  padding-right: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* margin-right: 25px; */
+}
+
+.inactiveUserInventoryCardDetails {
+  width: 50%;
+  margin-left: 40px;
   padding-right: 10px;
   text-align: center;
   display: flex;
@@ -378,14 +421,26 @@ User/Inventory Page
   /* width: 25%; */
 }
 
-.inacitveAlbumCardBtnsDiv {
+
+
+
+
+.inactiveUserInventoryCardButtonContainer {
+  width: 25%;
+  margin-left: 30px;
   display: flex;
   flex-direction: column;
-  margin-top: 5%;
-  margin-left: 20px;
-  /* margin-right: 15px; */
-  /* width: 25%; */
+  justify-content: space-between;
 }
+
+/* .inactiveAlbumCardBtnsDiv {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 15px;
+   width: 25%;
+} */
 
 .cardBtn {
   margin-bottom: 20px;
@@ -449,6 +504,10 @@ User/Inventory Page
   padding-right: 100px;
 }
 
+.titleHeading {
+  font-size: x-large;
+}
+
 
 
 /* -------------------------------------------------- */
@@ -469,21 +528,30 @@ User/Inventory Page
   padding-right: 100px;
 }
 
+.traderInventoryCard:hover {
+  border-color: black; 
+  border-width: 3px;
+  box-shadow: 0 0 0;
+  border-radius: 5px;
+}
+
 .traderInventoryCard {
   display: flex;
   border-style: solid;
   border-width: thin;
   background-color: white;
   justify-content: space-between;
+  text-align: center;
   position: relative;
   margin-bottom: 12px;
   box-shadow: 5px 5px 10px;
   border-radius: 5px;
+  font-family:'Courier New', Courier, monospace;
 }
 
 .inventoryImageContainer {
-  width: 25%;
-  margin-left: 15px;
+  width: 100px;
+  padding-left: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -491,6 +559,7 @@ User/Inventory Page
 
 .inventoryImage {
   width: 100px;
+  /* width: 25%; */
   border-radius: 5px;
 }
 
@@ -503,14 +572,22 @@ User/Inventory Page
 
 .publishedYearContainer {
   width: 25%;
+  /* margin-right: 15px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.spacerDiv {
+/* .spacerDiv {
   width: 33%;
-}
+} */
 
 .conditionContainer {
   width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding-left: 20px; */
 }
 
 
