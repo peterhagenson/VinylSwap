@@ -41,7 +41,7 @@ function LoginForm() {
     } else {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
-    history.push('/search');
+    history.push('/welcome');
   }; // end login
 
   return (

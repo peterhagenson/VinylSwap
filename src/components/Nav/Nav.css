@@ -56,10 +56,12 @@
   /* border: none; */
   cursor: pointer;
   outline: 0;
+  /* font-weight:bolder; */
 }
 
 .navLinkLogout:hover {
   background-color: rgb(236, 217, 251);
+  /* font-weight: bold; */
 }
 
 .navLink:hover {

@@ -121,6 +121,34 @@ input {
   margin-bottom: 10px;
 }
 
+/*----------WELCOME----------------------*/
+
+.welcomeBackground {
+  width: 100%;
+  height: 400px;
+  
+}
+
+.welcomePageDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.welcomeBox {
+  background-color: mintcream;
+  width: 400px;
+  height: 200px;
+  margin-top: 90px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.welcomeBoxAlign {
+  display: flex;
+  justify-content: space-between;
+
+}
+
 /* -----------------------------------------------------------------------------------------
 Inventory API Images
 ----------------------------------------------------------------------------------------- */

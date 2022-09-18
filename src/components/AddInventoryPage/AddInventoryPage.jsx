@@ -68,7 +68,7 @@ function AddInventory() {
 
     <div>
       <div className="addInventoryForm">
-        <h2>Find The Record You'd Like To Add</h2>
+        <h2>Find The Album You'd Like To Upload</h2>
         <form onSubmit={(e) => getMatches(e)}>
           <TextField onChange={(event) => (setSearchTerm(event.target.value))} variant="outlined"
             size="small" style={{ width: 400 }} sx={{ backgroundColor: 'white' }} placeholder="artist name or album title" value={searchTerm} />
