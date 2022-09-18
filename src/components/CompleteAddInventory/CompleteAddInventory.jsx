@@ -77,13 +77,13 @@ function inventoryCompletion() {
           <img className="completeDescriptionImage" src={album[0] && album[0].album_art} />
         </div>
         <div className="album-Details-Container">
-          <h3 className="detailsText">Album Title: {album[0] && album[0].title}</h3>
-          <h5 className="detailsText">Artist: {album[0] && album[0].artist_name}</h5>
-          <h5 className="detailsText">Year: {album[0] && album[0].published_date}</h5>
-          <h5 className="detailsText">Label: {album[0] && album[0].record_label}</h5>
+          <h3 className="detailsText">Album Title: <span className="detailsTextNotBold">{album[0] && album[0].title}</span></h3>
+          <h5 className="detailsText">Artist: <span className="detailsTextNotBold">{album[0] && album[0].artist_name}</span></h5>
+          <h5 className="detailsText">Year: <span className="detailsTextNotBold">{album[0] && album[0].published_date}</span></h5>
+          <h5 className="detailsText">Label: <span className="detailsTextNotBold">{album[0] && album[0].record_label}</span></h5>
           {/* <h5>Genres: {album[0] && album[0].genre}</h5> */}
-          <h5>Condition: {album[0] && album[0].condition}</h5>
-          <h5>Description: {album[0] && album[0].user_description}</h5>
+          <h5>Condition: <span className="detailsTextNotBold">{album[0] && album[0].condition}</span></h5>
+          <h5>Description: <span className="detailsTextNotBold">{album[0] && album[0].user_description}</span></h5>
 
         </div>
 

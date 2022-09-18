@@ -555,12 +555,24 @@ User/Inventory Page
   margin-top: 25px;
 }
 
+.detailsTextNotBold {
+  font-weight: 100;
+}
+
 /* ----------------------------------
 Profile Completion */
 
 .pageContainer {
   margin-left: 100px;
   margin-right: 100px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.notBold {
+  font-weight: 100;
 }
 
 /* -------------------------- */

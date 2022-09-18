@@ -69,10 +69,10 @@ function CompleteProfile() {
 
     <div className="pageContainer">
       <h2>Please Complete/Edit Your User Profile</h2>
-      <p>Username: {profile.data && profile.data.user.username}</p>
-      <p>email: {profile.data && profile.data.user.email}</p>
-      <p>City/State: {profile.data && profile.data.user.city}, {profile.data && profile.data.user.state}</p>
-      <p>Bio: {profile.data && profile.data.user.bio}</p>
+      <p className="bold">Username: <span className="notBold">{profile.data && profile.data.user.username}</span></p>
+      <p className="bold">email: <span className="notBold">{profile.data && profile.data.user.email}</span></p>
+      <p className="bold">City/State: <span className="notBold">{profile.data && profile.data.user.city}, {profile.data && profile.data.user.state}</span></p>
+      <p className="bold">Bio: <span className="notBold">{profile.data && profile.data.user.bio}</span></p>
 
 
       <br />
