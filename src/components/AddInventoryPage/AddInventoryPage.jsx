@@ -51,6 +51,7 @@ function AddInventory() {
   // }
 
   const sendAlbum = (album) => {
+    event.preventDefault();
     console.log('clicked', album);
     dispatch({
       type: 'POST_TO_INVENTORY_NO_DUPES',

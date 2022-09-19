@@ -40,6 +40,7 @@ function Messages() {
 
   const sendMessage = (event) => {
     //make a separate route for this!!!!
+    event.preventDefault();
 
 
     dispatch({

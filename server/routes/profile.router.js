@@ -7,18 +7,6 @@ const {
 } = require('../modules/authentication-middleware');
 
 router.put('/', rejectUnauthenticated, (req, res) => {
-  // console.log('in profile router', req.body, req.user.id);
-  // set query to empty string
-
-  // const query = `UPDATE "user" SET 
-  // city = $1,
-  // state = $2,
-  // bio = $3,
-  // email = $4
-  // WHERE "user".id = $5;
-  // `;
-
-
   // parameters from req.body get pushed into queryParams if they were entered into text field by user.
   let queryParams = [];
   // startString will always be the same, the rest of the string variables are empty by default, but become sections of the query if they exist.
