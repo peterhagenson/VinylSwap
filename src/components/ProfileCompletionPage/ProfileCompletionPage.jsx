@@ -48,7 +48,7 @@ function CompleteProfile() {
         bio: bio,
       }
     })
-    history.push('/userProfile')
+    history.push('/welcome');
   }
 
   const getProfile = (event) => {
