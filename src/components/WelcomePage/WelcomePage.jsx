@@ -57,7 +57,7 @@ function TemplateFunction(props) {
             <div className="welcomeBox">
               <h3>What are you here to do?</h3>
               <Button variant="contained" sx={{ ...styles1, mt: 2, mr: 2, width: '98px' }} onClick={toSearch} >Find Albums</Button>
-              <Button variant="contained" sx={{ ...styles1, mt: 2, ml: 2, width: '98px' }} onClick={toAddInventory}>Upload Records</Button>
+              <Button variant="contained" sx={{ ...styles1, mt: 2, ml: 2, width: '98px' }} onClick={toAddInventory}>Upload Albums</Button>
 
             </div>
             <div></div>
